@@ -22,6 +22,8 @@ Details
    Loads binary output file (from EPANET toolkit hydraulic analysis) 
    and displays contents or exports contents to CSV files.
    Supports plugins for extending functionality.
+   Can be run as a standalone program as detailed below
+   or imported to load files into memory for other uses.
    More details will be available in the doc/ directory soon.
 
 Usage: python ReadEPANETOutputFile.py [Options] <outputfilename>
