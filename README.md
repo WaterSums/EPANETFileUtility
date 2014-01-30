@@ -29,28 +29,28 @@ Details
 Usage: python ReadEPANETOutputFile.py [Options] <outputfilename>
 
 Options:
-  --version             show program's version number and exit,
-  -h, --help            show this help message and exit,
-  -a, --all             display all output file sections (default),
-  -s, --silent          don't display any output file sections,
-  -p, --prolog          display prolog section,
-  -n PROLOG_NODE_CSV, --prolog_node_csv=PROLOG_NODE_CSV
-                        write CSV for nodes from prolog to PROLOG_NODE_CSV
-  -l PROLOG_LINK_CSV, --prolog_link_csv=PROLOG_LINK_CSV
-                        write CSV for links from prolog to PROLOG_LINK_CSV
-  -e, --energy_use      display energy use section
-  -E ENERGY_CSV, --energy_use_csv=ENERGY_CSV
-                        write CSV from energy use section to ENERGY_CSV
-  -d, --dynamic_results
-                        display dynamic results section
-  -N DYNAMIC_NODE_CSV, --dynamic_node_csv=DYNAMIC_NODE_CSV
-                        write CSV for nodes from dynamic results to
-                        DYNAMIC_NODE_CSV
-  -L DYNAMIC_LINK_CSV, --dynamic_link_csv=DYNAMIC_LINK_CSV
-                        write CSV for links from dynamic results to
-                        DYNAMIC_LINK_CSV
-  -c, --coda, --epilog  display file epilog
-  -v, --verbose         display verbouse output
+--version             show program's version number and exit
+-h, --help            show this help message and exit
+-a, --all             display all output file sections (default)
+-s, --silent          don't display any output file sections
+-p, --prolog          display prolog section,
+-n PROLOG_NODE_CSV, --prolog_node_csv=PROLOG_NODE_CSV
+                      write CSV for nodes from prolog to PROLOG_NODE_CSV
+-l PROLOG_LINK_CSV, --prolog_link_csv=PROLOG_LINK_CSV
+                      write CSV for links from prolog to PROLOG_LINK_CSV
+-e, --energy_use      display energy use section
+-E ENERGY_CSV, --energy_use_csv=ENERGY_CSV
+                      write CSV from energy use section to ENERGY_CSV
+-d, --dynamic_results
+                      display dynamic results section
+-N DYNAMIC_NODE_CSV, --dynamic_node_csv=DYNAMIC_NODE_CSV
+                      write CSV for nodes from dynamic results to
+                      DYNAMIC_NODE_CSV
+-L DYNAMIC_LINK_CSV, --dynamic_link_csv=DYNAMIC_LINK_CSV
+                      write CSV for links from dynamic results to
+                      DYNAMIC_LINK_CSV
+-c, --coda, --epilog  display file epilog
+-v, --verbose         display verbouse output
 
 How to get an EPANET output file:
 
