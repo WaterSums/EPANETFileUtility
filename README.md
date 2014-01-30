@@ -29,11 +29,11 @@ Details
 Usage: python ReadEPANETOutputFile.py [Options] <outputfilename>
 
 Options:
-  --version             show program's version number and exit
-  -h, --help            show this help message and exit
-  -a, --all             display all output file sections (default)
-  -s, --silent          don't display any output file sections
-  -p, --prolog          display prolog section
+  --version             show program's version number and exit,
+  -h, --help            show this help message and exit,
+  -a, --all             display all output file sections (default),
+  -s, --silent          don't display any output file sections,
+  -p, --prolog          display prolog section,
   -n PROLOG_NODE_CSV, --prolog_node_csv=PROLOG_NODE_CSV
                         write CSV for nodes from prolog to PROLOG_NODE_CSV
   -l PROLOG_LINK_CSV, --prolog_link_csv=PROLOG_LINK_CSV
