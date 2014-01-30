@@ -54,18 +54,21 @@ Details
 
 How to get an EPANET output file:
 
-1. With EPANET: analyse the model with the settings required.  
+1. With [EPANET](http://www.epa.gov/nrmrl/wswrd/dw/epanet.html):
+   analyse the model with the settings required.  
    Do NOT close EPANET.
    Look in the `%TEMP%` directory for the newest file having a name
    starting with `en` and ending with `.tmp`.  Copy this file
    somewhere useful with a meaningful name.
-2. With WaterSums: analyse the model with the settings required.
+2. With [WaterSums](http://www.WaterSums.com): analyse the model with
+   the settings required.
    The EPANET output file will be written to the same directory
    as the network file with the extension changed to `.hyd`.
    This file is overwritten each time the analysis is performed,
    so if you want to keep a set of results, copy the file somewhere
    else.
-3. Use the EPANET Toolkit to generate an output file.
+3. Use the [EPANET Toolkit](http://www.epa.gov/nrmrl/wswrd/dw/epanet.html#toolkit)
+   to generate an output file.
 
 EPANET output files can be large files.  Their structure is described
 in the EPANET Toolkit Windows Help File.
