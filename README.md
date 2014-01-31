@@ -50,7 +50,7 @@ Details
                               write CSV for links from dynamic results to
                               DYNAMIC_LINK_CSV
         -c, --coda, --epilog  display file epilog
-        -v, --verbose         display verbouse output
+        -v, --verbose         display verbose output
 
 How to get an EPANET output file:
 
