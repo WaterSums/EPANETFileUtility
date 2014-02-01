@@ -31,7 +31,7 @@
 #                         write CSV for links from dynamic results to
 #                         DYNAMIC_LINK_CSV
 #   -c, --coda, --epilog  display file epilog
-#   -v, --verbose         display verbouse output
+#   -v, --verbose         display verbose output
 # 
 # How to get an EPANET output file:
 # 1. with EPANET: Analyse the model with the settings required.  
@@ -50,8 +50,15 @@
 # EPANET output files can be large files.
 #
 #
+#import locale
+#print ('Default locale: %s' % locale.getdefaultlocale()[0])
+#print ('Current locale: %s' % locale.getlocale(locale.LC_CTYPE)[0])
+#locale.setlocale(locale.LC_ALL, '')
+#print ('Current locale: %s' % locale.getlocale(locale.LC_CTYPE)[0])
+
 from datetime import datetime
 from EPANETOutputFile import EPANETOutputFile
+
 
 start_time = datetime.now()
 epanetoutput = EPANETOutputFile.EPANETOutputFile()

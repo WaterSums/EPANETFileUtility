@@ -39,7 +39,7 @@
 #                         write CSV for links from dynamic results to
 #                         DYNAMIC_LINK_CSV
 #   -c, --coda, --epilog  display file epilog
-#   -v, --verbose         display verbouse output
+#   -v, --verbose         display verbose output
 # 
 # Available translations/locales:
 # en_US.UTF-8
@@ -159,8 +159,21 @@ from datetime import datetime
 import struct
 from types import ModuleType
 
-
-gettext.install('ReadEPANETOutputFile', './locale', unicode=1)
+import os
+#print('Current file: %s' % os.path.realpath(__file__))
+# look first for a locale directory in same directory as this file
+localedir = os.path.dirname(os.path.realpath(__file__)) + '/locale'
+print('looking for locale directory: %s' % localedir)
+if os.path.exists(localedir) == False or os.path.isdir(localedir) == False:
+    # next try up a directory
+    localedir = os.path.dirname(os.path.realpath(__file__)) + '/../locale'
+    print('looking for locale directory: %s' % localedir)
+    if os.path.exists(localedir) == False or os.path.isdir(localedir) == False:
+        # and finally we look for it in the current working directory
+        localedir = os.getcwd() + '/locale'
+        print('looking for locale directory: %s' % localedir)
+#print('using locale directory: %s' % localedir)
+gettext.install('EPANETOutputFile', localedir, unicode=1)
 
 EOFTusage = _("%prog [options] filename")
 EOFTparser = OptionParser(version=_('%prog 1.0.0'), usage=EOFTusage)
@@ -459,11 +472,11 @@ class EPANETOutputFile():
 
         self.readFile(f, progress)
 
-	def GetEOFTPlugins(self):
-		return EOFTPlugins
+    def GetEOFTPlugins(self):
+        return EOFTPlugins
 
-	def GetEOFTPluginDirs(self):
-		return EOFTPluginDirs
+    def GetEOFTPluginDirs(self):
+        return EOFTPluginDirs
 
     def readFile(self, f, progress):
         '''Read EPANET output file.  No return value.
@@ -621,15 +634,15 @@ class EPANETOutputFile():
         elif optnum == 4:
             option = _('acre-ft/day')
         elif optnum == 5:
-            option = _('litres/second')
+            option = _('liters/second')
         elif optnum == 6:
-            option = _('litres/minute')
+            option = _('liters/minute')
         elif optnum == 7:
-            option = _('megalitres/day')
+            option = _('megaliters/day')
         elif optnum == 8:
-            option = _('cubic metres/hour')
+            option = _('cubic meters/hour')
         elif optnum == 9:
-            option = _('cubic metres/day')
+            option = _('cubic meters/day')
         else:
             option = _('unknown')
         return option
@@ -647,7 +660,7 @@ class EPANETOutputFile():
         if optnum == 0:
             option = _('pounds/square inch')
         elif optnum == 1:
-            option = _('metres')
+            option = _('meters')
         elif optnum == 2:
             option = _('kiloPascals')
         else:
