@@ -260,9 +260,10 @@ class InternalPlugin(EPANETOutputFilePlugin.EOFTPlugin):
             d (dictionary): Prolog dictionary to print
 
         '''
-        print(_(""))
-        print(_("Prolog"))
-        print(_("======"))
+        print("")
+        headingtext = _("Prolog")
+        print(headingtext)
+        print('='*len(headingtext))
         print(_('Magic number: %d') % d['magic'])
         print(_('EPANET Version: %d') % d['version'])
         print(_('Number of Nodes: %d') % d['nNodes'])
@@ -420,8 +421,10 @@ class InternalPlugin(EPANETOutputFilePlugin.EOFTPlugin):
             d (dictionary):         Energy Use dictionary to print
 
         '''
-        print(_("Energy Use"))
-        print(_("=========="))
+        print("")
+        headingtext = _("Energy Use")
+        print(headingtext)
+        print('='*len(headingtext))
         print(_("Energy Use for %d Pumps") % prolog['nPumps'])
         for i in range(0,prolog['nPumps']):
             ind = d['PumpIndex'][i]
@@ -431,7 +434,7 @@ class InternalPlugin(EPANETOutputFilePlugin.EOFTPlugin):
                         d['PumpAvekWPerVol'][i], d['PumpAvekW'][i],
                         d['PumpPeakkW'][i], d['PumpAveCostPerDay'][i]))
         print(_("Peak energy usage: %f") % d['PumpPeakEnergyUsage'])
-        print(_(""))
+        print("")
 
     def EnergyUsagePrint(self, eof, progupdate):
         ''' Callback message: print file energy usage section. Progress 0-100. '''
@@ -569,8 +572,10 @@ class InternalPlugin(EPANETOutputFilePlugin.EOFTPlugin):
             DynamicResults (list):  list of dynamic result dictionaries for printing, one for each timestep
 
         '''
-        print(_("Dynamic Results"))
-        print(_("==============="))
+        print("")
+        headingtext = _("Dynamic Results")
+        print(headingtext)
+        print('='*len(headingtext))
         for i in range(0,nPeriods):
             d = DynamicResults[i]
             print(_("TimeStep %d") % i)
@@ -698,8 +703,10 @@ class InternalPlugin(EPANETOutputFilePlugin.EOFTPlugin):
             d (dictonary):  epilog dictionary to print
 
         '''
-        print(_("Epilog"))
-        print(_("======"))
+        print("")
+        headingtext = _("Epilog")
+        print(headingtext)
+        print('='*len(headingtext))
         print(_("Average Bulk Reaction Rate: %f") % d['AveBulkReactionRate'])
         print(_("Average Wall Reaction Rate: %f") % d['AveWallReactionRate'])
         print(_("Average Tank Reaction Rate: %f") % d['AveTankReactionRate'])
@@ -710,7 +717,7 @@ class InternalPlugin(EPANETOutputFilePlugin.EOFTPlugin):
         else:
             print(_('Analysis generated warning(s)'))
         print(_('Magic number: %d') % d['magic'])
-        print(_(""))
+        print("")
 
 
     def EpilogPrint(self, eof, progupdate):

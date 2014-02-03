@@ -496,10 +496,15 @@ class EPANETOutputFile():
         else:
             pstr = ''
         if self.options.verbose:
+            print(gettext.ngettext(
+                'Analysis had one reporting period',
+                'Analysis had %d reporting periods',
+                self.Epilog['nPeriods']))
+
             if self.Epilog['WarningFlag'] == 0:
-                print(_('Analysis had %d reporting period%s and generated no errors or warnings') % (self.Epilog['nPeriods'], pstr))
+                print(_('Analysis generated no errors or warnings'))
             else:
-                print(_('Analysis had %d reporting period%s and generated warning(s)') % (self.Epilog['nPeriods'], pstr))
+                print(_('Analysis generated warning(s)'))
 
         f.seek(0)
 

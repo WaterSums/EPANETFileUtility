@@ -1,1 +1,2 @@
-python "c:\Program Files (x86)\Python27\Tools\i18n\pygettext.py" -van -d EPANETOutputFile -p EPANETOutputFile EPANETOutputFile\EPANETOutputFile.py EPANETOutputFile\EPANETOutputFilePlugin.py EPANETOutputFile\EOFTInternalPlugin.py
+@REM python "c:\Program Files (x86)\Python27\Tools\i18n\pygettext.py" -van -d EPANETOutputFile -p EPANETOutputFile EPANETOutputFile\EPANETOutputFile.py EPANETOutputFile\EPANETOutputFilePlugin.py EPANETOutputFile\EOFTInternalPlugin.py
+"c:\Program Files (x86)\GnuWin32\bin\xgettext.exe" -n -d EPANETOutputFile -p EPANETOutputFile -o EPANETOutputFile.pot -L Python EPANETOutputFile\EPANETOutputFile.py EPANETOutputFile\EPANETOutputFilePlugin.py EPANETOutputFile\EOFTInternalPlugin.py
