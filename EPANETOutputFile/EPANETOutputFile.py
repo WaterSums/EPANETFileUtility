@@ -324,7 +324,7 @@ def CallInternalPlugin(msg, *args):
     elif msg == EOFTPLUGIN_FILETERM:
         EOFTInternalPlugin.FileTerm(*args)
     else:
-        print(_('Invalid message passed to CallInternalPlugin'))
+        print(_('Invalid message %d passed to CallInternalPlugin') % msg)
 
 
 def CallUserPlugins(msg, progress, *args):
@@ -384,7 +384,7 @@ def CallUserPlugins(msg, progress, *args):
         elif msg == EOFTPLUGIN_FILETERM:
             p.FileTerm(*args)
         else:
-            print(_('Invalid message passed to CallUserPlugins'))
+            print(_('Invalid message %d passed to CallUserPlugins') % msg)
 
         if progress is not None:
             prangemin = prangemax
@@ -743,5 +743,5 @@ if __name__ == '__main__':
     main()
     end_time = datetime.now()
     dt = end_time - start_time
-    print(_("Time taken: %s") % dt)
+    print(_("Time taken: %(deltat)s") % {deltat: dt})
 

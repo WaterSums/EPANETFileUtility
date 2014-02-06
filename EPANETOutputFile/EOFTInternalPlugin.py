@@ -124,7 +124,7 @@ class InternalPlugin(EPANETOutputFilePlugin.EOFTPlugin):
         eof.f.seek(0)
         eof.Prolog['magic'], = magicstart, = struct.unpack('<i', eof.f.read(4))
         if magicstart != magicend:
-            print(_('ERROR: magic number in prolog (%d) does not match magic number in epilog (%d)') % (magicstart, magicend))
+            print(_('ERROR: magic number in prolog (%(prologmagic)d) does not match magic number in epilog (%(epilogmagic)d)') % {'prologmagic': magicstart, 'epilogmagic': magicend})
             raise Exception(_('ERROR: magic numbers do not match: probably not an EPANET output file'))
         if progupdate is not None: progupdate(100,_('Verified file type.'))
 
@@ -145,7 +145,7 @@ class InternalPlugin(EPANETOutputFilePlugin.EOFTPlugin):
         if progupdate is not None: progupdate(5,_('Reading prolog info'))
         d['magic'], = struct.unpack('<i', f.read(4))
         if d['magic'] != magicend:
-            print(_('ERROR: magic number in prolog (%d) does not match magic number in epilog (%d)') % (d['magic'], magicend))
+            print(_('ERROR: magic number in prolog (%(prologmagic)d) does not match magic number in epilog (%(epilogmagic)d)') % {'prologmagic': d['magic'], 'epilogmagic': magicend})
             raise Exception(_('ERROR: magic numbers do not match: probably not an EPANET output file'))
         d['version'], = struct.unpack('<i', f.read(4))
         d['nNodes'], = struct.unpack('<i', f.read(4))
@@ -180,7 +180,7 @@ class InternalPlugin(EPANETOutputFilePlugin.EOFTPlugin):
         d['NodeTankResIndex'] = []
         if progupdate is not None: progupdate(20,_('Reading prolog node info'))
         if eof.options.verbose:
-            print(_('Reading Node IDs (%d)...') % d['nNodes'])
+            print(_('Reading Node IDs (%(nNodes)d)...') % {'nNodes': d['nNodes']})
         for i in range (0, d['nNodes']):
             d['NodeID'].append(f.read(32).strip('\0'))
             #print('  Node %d ID: %s' % (i, NodeID[i]))
@@ -195,7 +195,7 @@ class InternalPlugin(EPANETOutputFilePlugin.EOFTPlugin):
 
         if progupdate is not None: progupdate(50,_('Reading prolog link info'))
         if eof.options.verbose:
-            print(_('Reading Link IDs (%d)...') % d['nLinks'])
+            print(_('Reading Link IDs (%(nLinks)d)...') % {'nLinks': d['nLinks']})
         for i in range (0, d['nLinks']):
             d['LinkID'].append(f.read(32).strip('\0'))
             #print('  Link %d ID: %s' % (i, d['LinkID[i]))
@@ -210,7 +210,7 @@ class InternalPlugin(EPANETOutputFilePlugin.EOFTPlugin):
             #print('  LinkType %d ID: %d' % (i, LinkType[i]))
         d['TankResIndex'] = []
         if eof.options.verbose:
-            print(_('Reading Tank/Reservoir indexes (%d)...') % d['nResTanks'])
+            print(_('Reading Tank/Reservoir indexes (%(nResTanks)d)...') % {'nResTanks': d['nResTanks']})
         for i in range (0, d['nResTanks']):
             # read the index of tank/res and take off 1 to make it zero-based
             d['TankResIndex'].append(struct.unpack('<i', f.read(4))[0] - 1)
@@ -219,7 +219,7 @@ class InternalPlugin(EPANETOutputFilePlugin.EOFTPlugin):
             d['NodeTankResIndex'][d['TankResIndex'][i]] = i
         d['TankResXSectArea'] = []
         if eof.options.verbose:
-            print(_('Reading Cross Sectional Areas of Tanks/Reservoirs (%d)...') % d['nResTanks'])
+            print(_('Reading Cross Sectional Areas of Tanks/Reservoirs (%(nResTanks)d)...') % {'nResTanks': d['nResTanks']})
         nReservoirs = 0
         for i in range (0, d['nResTanks']):
             val = struct.unpack('<f', f.read(4))[0]
@@ -237,12 +237,12 @@ class InternalPlugin(EPANETOutputFilePlugin.EOFTPlugin):
         if progupdate is not None: progupdate(80,_('Reading prolog extra info'))
 
         if eof.options.verbose:
-            print(_('Reading Link lengths (%d)...') % d['nLinks'])
+            print(_('Reading Link lengths (%(nLinks)d)...') % {'nLinks': d['nLinks']})
         for i in range (0, d['nLinks']):
             d['LinkLength'].append(struct.unpack('<f', f.read(4))[0])
             #print('  Link %d length: %s' % (i, LinkLength[i]))
         if eof.options.verbose:
-            print(_('Reading Link diameters (%d)...') % d['nLinks'])
+            print(_('Reading Link diameters (%(nLinks)d)...') % {'nLinks': d['nLinks']})
         for i in range (0, d['nLinks']):
             d['LinkDiam'].append(struct.unpack('<f', f.read(4))[0])
             #print('  Link %d diameter: %s' % (i, LinkDiam[i]))
@@ -267,17 +267,20 @@ class InternalPlugin(EPANETOutputFilePlugin.EOFTPlugin):
         print(_('Magic number: %d') % d['magic'])
         print(_('EPANET Version: %d') % d['version'])
         print(_('Number of Nodes: %d') % d['nNodes'])
-        print(_('Number of Reservoirs (%d) + Tanks (%d): %d (so %d Junctions)')
-                % (d['nReservoirs'], d['nTanks'],d['nResTanks'],d['nJunctions']))
+        print(_('Number of Reservoirs (%(nRes)d) + Tanks (%(nTank)d): %(nResTank)d (so %(nJunc)d Junctions)')
+                % { 'nRes': d['nReservoirs'],
+                    'nTank': d['nTanks'],
+                    'nResTank': d['nResTanks'],
+                    'nJunc': d['nJunctions']})
         print(_('Number of Links: %d') % d['nLinks'])
         print(_('Number of Pumps: %d') % d['nPumps'])
         print(_('Number of Valves: %d') % d['nValves'])
         print(_('  (Number of Pipes: %d)') % d['nPipes'])
-        print(_('Water Quality Option: %d (%s)') % (d['WaterQualityOptNum'], d['WaterQualityOption']))
+        print(_('Water Quality Option: %(optnum)d (%(opttext)s)') % {'optnum': d['WaterQualityOptNum'], 'opttext': d['WaterQualityOption']})
         print(_('Index of node for Source Tracing: %d') % d['source_node_index'])
-        print(_('Flow Units Option: %d (%s)') % (d['FlowUnitsOptNum'], d['FlowUnitsOption']))
-        print(_('Pressure Units Option: %d (%s)') % (d['PressureUnitsOptNum'], d['PressureUnitsOption']))
-        print(_('Time Statistics Flag: %d (%s)') % (d['TimeStatsOptNum'], d['TimeStatsOption']))
+        print(_('Flow Units Option: %(optnum)d (%(opttext)s)') % {'optnum': d['FlowUnitsOptNum'], 'opttext': d['FlowUnitsOption']})
+        print(_('Pressure Units Option: %(optnum)d (%(opttext)s)') % {'optnum': d['PressureUnitsOptNum'], 'opttext': d['PressureUnitsOption']})
+        print(_('Time Statistics Flag: %(optnum)d (%(opttext)s)') % {'optnum': d['TimeStatsOptNum'], 'opttext': d['TimeStatsOption']})
         print(_('Reporting Start Time: %d') % d['StartTime'])
         print(_('Reporting Time Step: %d') % d['ReportTimeStep'])
         print(_('Simulation Duration: %d') % d['SimulationDuration'])
@@ -292,17 +295,17 @@ class InternalPlugin(EPANETOutputFilePlugin.EOFTPlugin):
         print(_('Node details (%d):') % d['nNodes'])
         for i in range (0, d['nNodes']):
             if d['NodeTankResIndex'][i] == -1:
-                print(_('  %d: ID %s, elevation: %f')
-                        % (i, d['NodeID'][i], d['NodeElev'][i]))
+                print(_('  %(index)d: ID %(id)s, elevation: %(elev)f')
+                        % {'index': i, 'id': d['NodeID'][i], 'elev': d['NodeElev'][i]})
             elif d['TankResXSectArea'][d['NodeTankResIndex'][i]] == 0.0:
-                print(_('  %d: ID %s, elevation: %f (RESERVOIR)')
-                        % (i, d['NodeID'][i], d['NodeElev'][i]))
+                print(_('  %(index)d: ID %(id)s, elevation: %(elev)f (RESERVOIR)')
+                        % {'index': i, 'id': d['NodeID'][i], 'elev': d['NodeElev'][i]})
             else:
-                print(_('  %d: ID %s, elevation: %f, Tank x-sect area: %f')
-                        % (i, d['NodeID'][i], d['NodeElev'][i],
-                        d['TankResXSectArea'][d['NodeTankResIndex'][i]]))
+                print(_('  %(index)d: ID %(id)s, elevation: %(elev)f, Tank x-sect area: %(xsect)f')
+                        % {'index': i, 'id': d['NodeID'][i], 'elev':  d['NodeElev'][i],
+                            'xsect': d['TankResXSectArea'][d['NodeTankResIndex'][i]]})
 
-        print(_('Link details (%d):') % d['nLinks'])
+        print(_('Link details (%(nLinks)d):') % {'nLinks': d['nLinks']})
         for i in range (0, d['nLinks']):
             option = eof.getLinkTypeText(d['LinkType'][i])
             # NB: the LinkStart and LinkEnd values are indexes which are
@@ -425,7 +428,7 @@ class InternalPlugin(EPANETOutputFilePlugin.EOFTPlugin):
         headingtext = _("Energy Use")
         print(headingtext)
         print('='*len(headingtext))
-        print(_("Energy Use for %d Pumps") % prolog['nPumps'])
+        print(_("Energy Use for %(nPumps)d Pumps") % {'nPumps': prolog['nPumps']})
         for i in range(0,prolog['nPumps']):
             ind = d['PumpIndex'][i]
             print(_("Pump %d: link %d, util %f%%, effic %f%%, Ave kW/vol %f, Ave %f kW, Peak %f kW, Ave cost/day %f")
