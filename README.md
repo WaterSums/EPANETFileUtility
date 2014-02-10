@@ -5,6 +5,20 @@ EPANET file utility planned to read/load different types of EPANET files.
 
 Written for Python 2.6 and 2.7.
 
+Requirements and Support
+------------------------
+
+Written and tested on:
+- MacOS X 10.9.1 using Python 2.7.5
+- Windows Vista using Python 2.6.4 and 2.7.5
+
+To build the language template (.pot) file requires GNU gettext tools
+available from http://www.gnu.org/software/gettext/.  Version 0.18.3.1 has
+been used.
+
+Scripts for generating language template (.pot) file and testing the utilities
+are provided for MacOS (.sh) and Windows (.bat).
+
 Current functionality
 ---------------------
 
@@ -51,6 +65,18 @@ Details
                               DYNAMIC_LINK_CSV
         -c, --coda, --epilog  display file epilog
         -v, --verbose         display verbose output
+
+   An example plugin is included in EPANETOutputFile/plugins/demo/__init__.py.
+
+   Tests can be run with test\runtests.bat on Windows or
+   test/runtests.sh on MacOS X.  This contains a typical command line and
+   also shows the setting of the LANG environment variable.
+
+   Language can be specified by setting the LANG environment variable to the
+   required locale (eg. en_AU for Australian English - the only translation
+   included at present).  This is necessary particularly for Windows where the
+   Window/Python locale names do not match the Posix names, but specifying
+   the Posix name in the LANG variable will make it work properly.
 
 How to get an EPANET output file:
 

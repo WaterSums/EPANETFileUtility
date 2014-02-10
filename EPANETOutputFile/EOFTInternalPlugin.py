@@ -4,6 +4,7 @@
 #
 import EPANETOutputFilePlugin
 import struct
+import gettext
 
 class InternalPlugin(EPANETOutputFilePlugin.EOFTPlugin):
 
@@ -428,7 +429,10 @@ class InternalPlugin(EPANETOutputFilePlugin.EOFTPlugin):
         headingtext = _("Energy Use")
         print(headingtext)
         print('='*len(headingtext))
-        print(_("Energy Use for %(nPumps)d Pumps") % {'nPumps': prolog['nPumps']})
+        print(gettext.ngettext(
+                'Energy Use for one Pump',
+                'Energy Use for %(nPumps)d Pumps', prolog['nPumps'])
+                % {'nPumps': prolog['nPumps']})
         for i in range(0,prolog['nPumps']):
             ind = d['PumpIndex'][i]
             print(_("Pump %d: link %d, util %f%%, effic %f%%, Ave kW/vol %f, Ave %f kW, Peak %f kW, Ave cost/day %f")

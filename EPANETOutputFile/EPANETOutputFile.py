@@ -499,7 +499,8 @@ class EPANETOutputFile():
             print(gettext.ngettext(
                 'Analysis had one reporting period',
                 'Analysis had %d reporting periods',
-                self.Epilog['nPeriods']))
+                self.Epilog['nPeriods']) %
+                self.Epilog['nPeriods'])
 
             if self.Epilog['WarningFlag'] == 0:
                 print(_('Analysis generated no errors or warnings'))
