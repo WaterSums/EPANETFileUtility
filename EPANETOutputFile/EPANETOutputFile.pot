@@ -1,17 +1,17 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
+# EPANET File Utility.
+# Copyright (C) 2014 Mark Morgan
+# This file is distributed under the same license as the EPANET File Utility package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-06 17:04+1100\n"
+"POT-Creation-Date: 2014-02-10 22:45+1100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Last-Translator: Mark Morgan <EMAIL@ADDRESS>\n"
+"Language-Team: en <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -59,589 +59,591 @@ msgid_plural "Analysis had %d reporting periods"
 msgstr[0] ""
 msgstr[1] ""
 
-#: EPANETOutputFile\EPANETOutputFile.py:505
-#: EPANETOutputFile\EOFTInternalPlugin.py:719
+#: EPANETOutputFile\EPANETOutputFile.py:506
+#: EPANETOutputFile\EOFTInternalPlugin.py:723
 msgid "Analysis generated no errors or warnings"
 msgstr ""
 
-#: EPANETOutputFile\EPANETOutputFile.py:507
-#: EPANETOutputFile\EOFTInternalPlugin.py:721
+#: EPANETOutputFile\EPANETOutputFile.py:508
+#: EPANETOutputFile\EOFTInternalPlugin.py:725
 msgid "Analysis generated warning(s)"
 msgstr ""
 
-#: EPANETOutputFile\EPANETOutputFile.py:588
+#: EPANETOutputFile\EPANETOutputFile.py:589
 msgid "Done."
 msgstr ""
 
-#: EPANETOutputFile\EPANETOutputFile.py:590
+#: EPANETOutputFile\EPANETOutputFile.py:591
 msgid "Finished reading file"
 msgstr ""
 
-#: EPANETOutputFile\EPANETOutputFile.py:610
+#: EPANETOutputFile\EPANETOutputFile.py:611
 msgid "none"
 msgstr ""
 
-#: EPANETOutputFile\EPANETOutputFile.py:612
+#: EPANETOutputFile\EPANETOutputFile.py:613
 msgid "chemical"
 msgstr ""
 
-#: EPANETOutputFile\EPANETOutputFile.py:614
+#: EPANETOutputFile\EPANETOutputFile.py:615
 msgid "age"
 msgstr ""
 
-#: EPANETOutputFile\EPANETOutputFile.py:616
+#: EPANETOutputFile\EPANETOutputFile.py:617
 msgid "source trace"
 msgstr ""
 
-#: EPANETOutputFile\EPANETOutputFile.py:618
-#: EPANETOutputFile\EPANETOutputFile.py:652
-#: EPANETOutputFile\EPANETOutputFile.py:672
-#: EPANETOutputFile\EPANETOutputFile.py:696
-#: EPANETOutputFile\EPANETOutputFile.py:728
+#: EPANETOutputFile\EPANETOutputFile.py:619
+#: EPANETOutputFile\EPANETOutputFile.py:653
+#: EPANETOutputFile\EPANETOutputFile.py:673
+#: EPANETOutputFile\EPANETOutputFile.py:697
+#: EPANETOutputFile\EPANETOutputFile.py:729
 msgid "unknown"
 msgstr ""
 
-#: EPANETOutputFile\EPANETOutputFile.py:632
+#: EPANETOutputFile\EPANETOutputFile.py:633
 msgid "cubic feet/second"
 msgstr ""
 
-#: EPANETOutputFile\EPANETOutputFile.py:634
+#: EPANETOutputFile\EPANETOutputFile.py:635
 msgid "gallons/minute"
 msgstr ""
 
-#: EPANETOutputFile\EPANETOutputFile.py:636
+#: EPANETOutputFile\EPANETOutputFile.py:637
 msgid "million gallons/day"
 msgstr ""
 
-#: EPANETOutputFile\EPANETOutputFile.py:638
+#: EPANETOutputFile\EPANETOutputFile.py:639
 msgid "Imperial million gallons/day"
 msgstr ""
 
-#: EPANETOutputFile\EPANETOutputFile.py:640
+#: EPANETOutputFile\EPANETOutputFile.py:641
 msgid "acre-ft/day"
 msgstr ""
 
-#: EPANETOutputFile\EPANETOutputFile.py:642
+#: EPANETOutputFile\EPANETOutputFile.py:643
 msgid "liters/second"
 msgstr ""
 
-#: EPANETOutputFile\EPANETOutputFile.py:644
+#: EPANETOutputFile\EPANETOutputFile.py:645
 msgid "liters/minute"
 msgstr ""
 
-#: EPANETOutputFile\EPANETOutputFile.py:646
+#: EPANETOutputFile\EPANETOutputFile.py:647
 msgid "megaliters/day"
 msgstr ""
 
-#: EPANETOutputFile\EPANETOutputFile.py:648
+#: EPANETOutputFile\EPANETOutputFile.py:649
 msgid "cubic meters/hour"
 msgstr ""
 
-#: EPANETOutputFile\EPANETOutputFile.py:650
+#: EPANETOutputFile\EPANETOutputFile.py:651
 msgid "cubic meters/day"
 msgstr ""
 
-#: EPANETOutputFile\EPANETOutputFile.py:666
+#: EPANETOutputFile\EPANETOutputFile.py:667
 msgid "pounds/square inch"
 msgstr ""
 
-#: EPANETOutputFile\EPANETOutputFile.py:668
+#: EPANETOutputFile\EPANETOutputFile.py:669
 msgid "meters"
 msgstr ""
 
-#: EPANETOutputFile\EPANETOutputFile.py:670
+#: EPANETOutputFile\EPANETOutputFile.py:671
 msgid "kiloPascals"
 msgstr ""
 
-#: EPANETOutputFile\EPANETOutputFile.py:686
+#: EPANETOutputFile\EPANETOutputFile.py:687
 msgid "none (report time series)"
 msgstr ""
 
-#: EPANETOutputFile\EPANETOutputFile.py:688
+#: EPANETOutputFile\EPANETOutputFile.py:689
 msgid "report time-averaged values"
 msgstr ""
 
-#: EPANETOutputFile\EPANETOutputFile.py:690
+#: EPANETOutputFile\EPANETOutputFile.py:691
 msgid "report minimum values"
 msgstr ""
 
-#: EPANETOutputFile\EPANETOutputFile.py:692
+#: EPANETOutputFile\EPANETOutputFile.py:693
 msgid "report maximum values"
 msgstr ""
 
-#: EPANETOutputFile\EPANETOutputFile.py:694
+#: EPANETOutputFile\EPANETOutputFile.py:695
 msgid "report ranges"
 msgstr ""
 
-#: EPANETOutputFile\EPANETOutputFile.py:710
+#: EPANETOutputFile\EPANETOutputFile.py:711
 msgid "Pipe with CV"
 msgstr ""
 
-#: EPANETOutputFile\EPANETOutputFile.py:712
+#: EPANETOutputFile\EPANETOutputFile.py:713
 msgid "Pipe"
 msgstr ""
 
-#: EPANETOutputFile\EPANETOutputFile.py:714
+#: EPANETOutputFile\EPANETOutputFile.py:715
 msgid "Pump"
 msgstr ""
 
-#: EPANETOutputFile\EPANETOutputFile.py:716
+#: EPANETOutputFile\EPANETOutputFile.py:717
 msgid "PRV"
 msgstr ""
 
-#: EPANETOutputFile\EPANETOutputFile.py:718
+#: EPANETOutputFile\EPANETOutputFile.py:719
 msgid "PSV"
 msgstr ""
 
-#: EPANETOutputFile\EPANETOutputFile.py:720
+#: EPANETOutputFile\EPANETOutputFile.py:721
 msgid "PBV"
 msgstr ""
 
-#: EPANETOutputFile\EPANETOutputFile.py:722
+#: EPANETOutputFile\EPANETOutputFile.py:723
 msgid "FCV"
 msgstr ""
 
-#: EPANETOutputFile\EPANETOutputFile.py:724
+#: EPANETOutputFile\EPANETOutputFile.py:725
 msgid "TCV"
 msgstr ""
 
-#: EPANETOutputFile\EPANETOutputFile.py:726
+#: EPANETOutputFile\EPANETOutputFile.py:727
 msgid "GPV"
 msgstr ""
 
-#: EPANETOutputFile\EPANETOutputFile.py:746
+#: EPANETOutputFile\EPANETOutputFile.py:747
 #, python-format
 msgid "Time taken: %(deltat)s"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:25
+#: EPANETOutputFile\EOFTInternalPlugin.py:26
 msgid "display all output file sections (default)"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:28
+#: EPANETOutputFile\EOFTInternalPlugin.py:29
 msgid "don't display any output file sections"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:31
+#: EPANETOutputFile\EOFTInternalPlugin.py:32
 msgid "display prolog section"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:35
+#: EPANETOutputFile\EOFTInternalPlugin.py:36
 msgid "write CSV for nodes from prolog to PROLOG_NODE_CSV"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:39
+#: EPANETOutputFile\EOFTInternalPlugin.py:40
 msgid "write CSV for links from prolog to PROLOG_LINK_CSV"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:42
+#: EPANETOutputFile\EOFTInternalPlugin.py:43
 msgid "display energy use section"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:46
+#: EPANETOutputFile\EOFTInternalPlugin.py:47
 msgid "write CSV from energy use section to ENERGY_CSV"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:49
+#: EPANETOutputFile\EOFTInternalPlugin.py:50
 msgid "display dynamic results section"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:53
+#: EPANETOutputFile\EOFTInternalPlugin.py:54
 msgid "write CSV for nodes from dynamic results to DYNAMIC_NODE_CSV"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:57
+#: EPANETOutputFile\EOFTInternalPlugin.py:58
 msgid "write CSV for links from dynamic results to DYNAMIC_LINK_CSV"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:60
+#: EPANETOutputFile\EOFTInternalPlugin.py:61
 msgid "display file epilog"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:84
+#: EPANETOutputFile\EOFTInternalPlugin.py:85
 msgid "User requested display of file prolog section"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:86
+#: EPANETOutputFile\EOFTInternalPlugin.py:87
 #, python-format
 msgid "User requested writing of prolog node info as CSV to: %s"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:88
+#: EPANETOutputFile\EOFTInternalPlugin.py:89
 #, python-format
 msgid "User requested writing of prolog link info as CSV to: %s"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:90
+#: EPANETOutputFile\EOFTInternalPlugin.py:91
 msgid "User requested display of energy use section"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:92
+#: EPANETOutputFile\EOFTInternalPlugin.py:93
 #, python-format
 msgid "User requested writing of energy use section as CSV to: %s"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:94
+#: EPANETOutputFile\EOFTInternalPlugin.py:95
 msgid "User requested display of file dynamic results section"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:96
+#: EPANETOutputFile\EOFTInternalPlugin.py:97
 #, python-format
 msgid "User requested writing of dynamic node info as CSV to: %s"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:98
+#: EPANETOutputFile\EOFTInternalPlugin.py:99
 #, python-format
 msgid "User requested writing of dynamic link info as CSV to: %s"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:100
+#: EPANETOutputFile\EOFTInternalPlugin.py:101
 msgid "User requested display of file epilog section"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:102
+#: EPANETOutputFile\EOFTInternalPlugin.py:103
 msgid "User requested display of content from all file sections"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:117
+#: EPANETOutputFile\EOFTInternalPlugin.py:118
 msgid "Verifying file type..."
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:127
-#: EPANETOutputFile\EOFTInternalPlugin.py:148
+#: EPANETOutputFile\EOFTInternalPlugin.py:128
+#: EPANETOutputFile\EOFTInternalPlugin.py:149
 #, python-format
 msgid ""
 "ERROR: magic number in prolog (%(prologmagic)d) does not match magic number "
 "in epilog (%(epilogmagic)d)"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:128
-#: EPANETOutputFile\EOFTInternalPlugin.py:149
+#: EPANETOutputFile\EOFTInternalPlugin.py:129
+#: EPANETOutputFile\EOFTInternalPlugin.py:150
 msgid "ERROR: magic numbers do not match: probably not an EPANET output file"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:129
+#: EPANETOutputFile\EOFTInternalPlugin.py:130
 msgid "Verified file type."
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:145
+#: EPANETOutputFile\EOFTInternalPlugin.py:146
 msgid "Reading prolog info"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:181
+#: EPANETOutputFile\EOFTInternalPlugin.py:182
 msgid "Reading prolog node info"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:183
+#: EPANETOutputFile\EOFTInternalPlugin.py:184
 #, python-format
 msgid "Reading Node IDs (%(nNodes)d)..."
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:196
+#: EPANETOutputFile\EOFTInternalPlugin.py:197
 msgid "Reading prolog link info"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:198
+#: EPANETOutputFile\EOFTInternalPlugin.py:199
 #, python-format
 msgid "Reading Link IDs (%(nLinks)d)..."
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:213
+#: EPANETOutputFile\EOFTInternalPlugin.py:214
 #, python-format
 msgid "Reading Tank/Reservoir indexes (%(nResTanks)d)..."
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:222
+#: EPANETOutputFile\EOFTInternalPlugin.py:223
 #, python-format
 msgid "Reading Cross Sectional Areas of Tanks/Reservoirs (%(nResTanks)d)..."
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:237
+#: EPANETOutputFile\EOFTInternalPlugin.py:238
 msgid "Reading prolog extra info"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:240
+#: EPANETOutputFile\EOFTInternalPlugin.py:241
 #, python-format
 msgid "Reading Link lengths (%(nLinks)d)..."
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:245
+#: EPANETOutputFile\EOFTInternalPlugin.py:246
 #, python-format
 msgid "Reading Link diameters (%(nLinks)d)..."
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:264
+#: EPANETOutputFile\EOFTInternalPlugin.py:265
 msgid "Prolog"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:267
-#: EPANETOutputFile\EOFTInternalPlugin.py:722
+#: EPANETOutputFile\EOFTInternalPlugin.py:268
+#: EPANETOutputFile\EOFTInternalPlugin.py:726
 #, python-format
 msgid "Magic number: %d"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:268
+#: EPANETOutputFile\EOFTInternalPlugin.py:269
 #, python-format
 msgid "EPANET Version: %d"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:269
+#: EPANETOutputFile\EOFTInternalPlugin.py:270
 #, python-format
 msgid "Number of Nodes: %d"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:270
+#: EPANETOutputFile\EOFTInternalPlugin.py:271
 #, python-format
 msgid ""
 "Number of Reservoirs (%(nRes)d) + Tanks (%(nTank)d): %(nResTank)d (so %"
 "(nJunc)d Junctions)"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:275
+#: EPANETOutputFile\EOFTInternalPlugin.py:276
 #, python-format
 msgid "Number of Links: %d"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:276
+#: EPANETOutputFile\EOFTInternalPlugin.py:277
 #, python-format
 msgid "Number of Pumps: %d"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:277
+#: EPANETOutputFile\EOFTInternalPlugin.py:278
 #, python-format
 msgid "Number of Valves: %d"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:278
+#: EPANETOutputFile\EOFTInternalPlugin.py:279
 #, python-format
 msgid "  (Number of Pipes: %d)"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:279
+#: EPANETOutputFile\EOFTInternalPlugin.py:280
 #, python-format
 msgid "Water Quality Option: %(optnum)d (%(opttext)s)"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:280
+#: EPANETOutputFile\EOFTInternalPlugin.py:281
 #, python-format
 msgid "Index of node for Source Tracing: %d"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:281
+#: EPANETOutputFile\EOFTInternalPlugin.py:282
 #, python-format
 msgid "Flow Units Option: %(optnum)d (%(opttext)s)"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:282
+#: EPANETOutputFile\EOFTInternalPlugin.py:283
 #, python-format
 msgid "Pressure Units Option: %(optnum)d (%(opttext)s)"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:283
+#: EPANETOutputFile\EOFTInternalPlugin.py:284
 #, python-format
 msgid "Time Statistics Flag: %(optnum)d (%(opttext)s)"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:284
+#: EPANETOutputFile\EOFTInternalPlugin.py:285
 #, python-format
 msgid "Reporting Start Time: %d"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:285
+#: EPANETOutputFile\EOFTInternalPlugin.py:286
 #, python-format
 msgid "Reporting Time Step: %d"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:286
+#: EPANETOutputFile\EOFTInternalPlugin.py:287
 #, python-format
 msgid "Simulation Duration: %d"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:287
+#: EPANETOutputFile\EOFTInternalPlugin.py:288
 #, python-format
 msgid "Problem Title1: %s"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:288
+#: EPANETOutputFile\EOFTInternalPlugin.py:289
 #, python-format
 msgid "Problem Title2: %s"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:289
+#: EPANETOutputFile\EOFTInternalPlugin.py:290
 #, python-format
 msgid "Problem Title3: %s"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:290
+#: EPANETOutputFile\EOFTInternalPlugin.py:291
 #, python-format
 msgid "Name of Input File: %s"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:291
+#: EPANETOutputFile\EOFTInternalPlugin.py:292
 #, python-format
 msgid "Name of Report File: %s"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:292
+#: EPANETOutputFile\EOFTInternalPlugin.py:293
 #, python-format
 msgid "Name of Chemical: %s"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:293
+#: EPANETOutputFile\EOFTInternalPlugin.py:294
 #, python-format
 msgid "Chemical Concentration Units: %s"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:295
+#: EPANETOutputFile\EOFTInternalPlugin.py:296
 #, python-format
 msgid "Node details (%d):"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:298
+#: EPANETOutputFile\EOFTInternalPlugin.py:299
 #, python-format
 msgid "  %(index)d: ID %(id)s, elevation: %(elev)f"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:301
+#: EPANETOutputFile\EOFTInternalPlugin.py:302
 #, python-format
 msgid "  %(index)d: ID %(id)s, elevation: %(elev)f (RESERVOIR)"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:304
+#: EPANETOutputFile\EOFTInternalPlugin.py:305
 #, python-format
 msgid ""
 "  %(index)d: ID %(id)s, elevation: %(elev)f, Tank x-sect area: %(xsect)f"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:308
+#: EPANETOutputFile\EOFTInternalPlugin.py:309
 #, python-format
 msgid "Link details (%(nLinks)d):"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:313
+#: EPANETOutputFile\EOFTInternalPlugin.py:314
 #, python-format
 msgid "  %d: ID %s, start: %d, end: %d, type: %d (%s), length: %f, diam: %f"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:330
+#: EPANETOutputFile\EOFTInternalPlugin.py:331
 #, python-format
 msgid "Writing prolog node info CSV: %s"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:332
+#: EPANETOutputFile\EOFTInternalPlugin.py:333
 msgid "\"ID\", \"Type\", \"Elevation\", \"XSectArea\"\n"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:353
+#: EPANETOutputFile\EOFTInternalPlugin.py:354
 #, python-format
 msgid "Writing prolog link info CSV: %s"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:355
+#: EPANETOutputFile\EOFTInternalPlugin.py:356
 msgid ""
 "\"ID\", \"StartNodeID\", \"EndNodeID\", \"Type\", \"Length\", \"Diameter\"\n"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:389
+#: EPANETOutputFile\EOFTInternalPlugin.py:390
 msgid "Reading energy usage"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:410
+#: EPANETOutputFile\EOFTInternalPlugin.py:411
 msgid "Read energy usage"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:428
+#: EPANETOutputFile\EOFTInternalPlugin.py:429
 msgid "Energy Use"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:431
+#: EPANETOutputFile\EOFTInternalPlugin.py:433
 #, python-format
-msgid "Energy Use for %(nPumps)d Pumps"
-msgstr ""
+msgid "Energy Use for one Pump"
+msgid_plural "Energy Use for %(nPumps)d Pumps"
+msgstr[0] ""
+msgstr[1] ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:434
+#: EPANETOutputFile\EOFTInternalPlugin.py:438
 #, python-format
 msgid ""
 "Pump %d: link %d, util %f%%, effic %f%%, Ave kW/vol %f, Ave %f kW, Peak %f "
 "kW, Ave cost/day %f"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:439
+#: EPANETOutputFile\EOFTInternalPlugin.py:443
 #, python-format
 msgid "Peak energy usage: %f"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:458
+#: EPANETOutputFile\EOFTInternalPlugin.py:462
 #, python-format
 msgid "Writing energy usage to CSV: %s"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:460
+#: EPANETOutputFile\EOFTInternalPlugin.py:464
 msgid ""
 "\"ID\", \"PumpUtilization\", \"PumpAveEfficiency\", \"PumpAvekWPerVol\", "
 "\"PumpAvekW\", \"PumpPeakkW\", \"PumpAveCostPerDay\"\n"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:493
+#: EPANETOutputFile\EOFTInternalPlugin.py:497
 msgid "Reading dynamic results"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:505
+#: EPANETOutputFile\EOFTInternalPlugin.py:509
 #, python-format
 msgid "Reading dynamic results timestep %d"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:560
+#: EPANETOutputFile\EOFTInternalPlugin.py:564
 msgid "Finished reading dynamic results"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:579
+#: EPANETOutputFile\EOFTInternalPlugin.py:583
 msgid "Dynamic Results"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:584
+#: EPANETOutputFile\EOFTInternalPlugin.py:588
 #, python-format
 msgid "TimeStep %d"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:585
+#: EPANETOutputFile\EOFTInternalPlugin.py:589
 msgid " Nodes"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:587
+#: EPANETOutputFile\EOFTInternalPlugin.py:591
 #, python-format
 msgid "  Node %d: demand %f, head %f, pressure %f, water quality %f"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:588
+#: EPANETOutputFile\EOFTInternalPlugin.py:592
 msgid " Links"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:590
+#: EPANETOutputFile\EOFTInternalPlugin.py:594
 #, python-format
 msgid ""
 "  Link %d: flow %f, velocity %f, headloss %f, ave water qual %f, status %f, "
 "react rate %f, frict fact %f"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:615
+#: EPANETOutputFile\EOFTInternalPlugin.py:619
 #, python-format
 msgid "Writing dynamic results for nodes to CSV: %s"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:617
+#: EPANETOutputFile\EOFTInternalPlugin.py:621
 #, python-format
 msgid ""
 "\"TimeStep\",\"Time (sec)\",\"ID\", \"Demand\", \"Head\", \"Pressure (%s)\", "
 "\"WaterQuality (%s)\"\n"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:639
+#: EPANETOutputFile\EOFTInternalPlugin.py:643
 #, python-format
 msgid "Writing dynamic results for links to CSV: %s"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:641
+#: EPANETOutputFile\EOFTInternalPlugin.py:645
 #, python-format
 msgid ""
 "\"TimeStep\",\"Time (sec)\",\"ID\", \"Flow (%s)\", \"Velocity\", \"Headloss"
@@ -649,47 +651,47 @@ msgid ""
 "\"FrictionFactor\"\n"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:681
+#: EPANETOutputFile\EOFTInternalPlugin.py:685
 msgid "Reading epilog"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:689
+#: EPANETOutputFile\EOFTInternalPlugin.py:693
 msgid "ERROR: reading epilog nPeriods value again gives a different answer"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:693
+#: EPANETOutputFile\EOFTInternalPlugin.py:697
 msgid "ERROR: reading epilog magic value again gives a different answer"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:694
+#: EPANETOutputFile\EOFTInternalPlugin.py:698
 msgid "Finished reading epilog"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:710
+#: EPANETOutputFile\EOFTInternalPlugin.py:714
 msgid "Epilog"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:713
+#: EPANETOutputFile\EOFTInternalPlugin.py:717
 #, python-format
 msgid "Average Bulk Reaction Rate: %f"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:714
+#: EPANETOutputFile\EOFTInternalPlugin.py:718
 #, python-format
 msgid "Average Wall Reaction Rate: %f"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:715
+#: EPANETOutputFile\EOFTInternalPlugin.py:719
 #, python-format
 msgid "Average Tank Reaction Rate: %f"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:716
+#: EPANETOutputFile\EOFTInternalPlugin.py:720
 #, python-format
 msgid "Average Source Inflow Rate: %f"
 msgstr ""
 
-#: EPANETOutputFile\EOFTInternalPlugin.py:717
+#: EPANETOutputFile\EOFTInternalPlugin.py:721
 #, python-format
 msgid "Number of reporting periods: %d"
 msgstr ""
