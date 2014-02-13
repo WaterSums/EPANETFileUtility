@@ -378,5 +378,5 @@ class DemoPlugin(EPANETOutputFilePlugin.EOFTPlugin):
 
 
 def Initialize():
-    print("demo.__init__.py: Initialize()")
+    #print("demo.__init__.py: Initialize()")
     return DemoPlugin()

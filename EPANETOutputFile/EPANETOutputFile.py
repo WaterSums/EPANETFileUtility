@@ -163,15 +163,15 @@ import os
 #print('Current file: %s' % os.path.realpath(__file__))
 # look first for a locale directory in same directory as this file
 localedir = os.path.dirname(os.path.realpath(__file__)) + '/locale'
-print('looking for locale directory: %s' % localedir)
+#print('looking for locale directory: %s' % localedir)
 if os.path.exists(localedir) == False or os.path.isdir(localedir) == False:
     # next try up a directory
     localedir = os.path.dirname(os.path.realpath(__file__)) + '/../locale'
-    print('looking for locale directory: %s' % localedir)
+    #print('looking for locale directory: %s' % localedir)
     if os.path.exists(localedir) == False or os.path.isdir(localedir) == False:
         # and finally we look for it in the current working directory
         localedir = os.getcwd() + '/locale'
-        print('looking for locale directory: %s' % localedir)
+        #print('looking for locale directory: %s' % localedir)
 #print('using locale directory: %s' % localedir)
 gettext.install('EPANETOutputFile', localedir, unicode=1)
 
