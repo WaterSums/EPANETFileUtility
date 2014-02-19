@@ -43,7 +43,9 @@ is expected to work on both.
         Usage: python EPANETFileUtility.py
 
 At startup, the user will currently be prompted to select an EPANET output
-file which will then be loaded and its contents displayed.
+file which will then be loaded and its contents displayed.  Three example files
+are included in the `test/data` directory.  These are the output files generated
+for the Net1, Net2 and Net3 examples included with the EPANET software.
 
 Some options are available on the left of the main window, but only the `Data`
 option has any contents.  This option displays a `PropertyGridManager` with 4
