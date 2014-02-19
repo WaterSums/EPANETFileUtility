@@ -1,24 +1,18 @@
-__import(EPANETOutputFile.plugins.demo)
-__import(EPANETOutputFile.plugins.demo2)
-demo2.__init__.py: Initialize()
-Loading EPANET output file test\data\Net2.hyd
-DemoPlugin2:Test function
+Loading EPANET output file data/Net2.hyd
 User requested display of file prolog section
-User requested writing of prolog node info as CSV to: test\output\Net2_pnode.csv
-User requested writing of prolog link info as CSV to: test\output\Net2_plink.csv
+User requested writing of prolog node info as CSV to: output/Net2_pnode.csv
+User requested writing of prolog link info as CSV to: output/Net2_plink.csv
 User requested display of energy use section
-User requested writing of energy use section as CSV to: test\output\Net2_e.csv
+User requested writing of energy use section as CSV to: output/Net2_e.csv
 User requested display of file dynamic results section
-User requested writing of dynamic node info as CSV to: test\output\Net2_dnode.csv
-User requested writing of dynamic link info as CSV to: test\output\Net2_dlink.csv
+User requested writing of dynamic node info as CSV to: output/Net2_dnode.csv
+User requested writing of dynamic link info as CSV to: output/Net2_dlink.csv
 User requested display of file epilog section
 User requested display of content from all file sections
-DEMO: DemoPlugin:FileInit(eof, {'demo_all': True, 'all': True, 'energy_use_csv': 'test\\output\\Net2_e.csv', 'verbose': True, 'prolog_node_csv': 'test\\output\\Net2_pnode.csv', 'prolog_link_csv': 'test\\output\\Net2_plink.csv', 'demo_plugin_info': True, 'demo_dynamic_results_info': True, 'energy_use': True, 'prolog': True, 'silent': False, 'demo_verbose': True, 'dynamic_node_csv': 'test\\output\\Net2_dnode.csv', 'demo_prolog_info': True, 'dynamic_results': True, 'epilog': True, 'dynamic_link_csv': 'test\\output\\Net2_dlink.csv', 'demo_info': True})
+DEMO: DemoPlugin:FileInit(eof, {'demo_all': True, 'all': True, 'energy_use_csv': 'output/Net2_e.csv', 'verbose': True, 'prolog_node_csv': 'output/Net2_pnode.csv', 'prolog_link_csv': 'output/Net2_plink.csv', 'demo_plugin_info': True, 'demo_dynamic_results_info': True, 'energy_use': True, 'prolog': True, 'silent': False, 'demo_verbose': True, 'dynamic_node_csv': 'output/Net2_dnode.csv', 'demo_prolog_info': True, 'dynamic_results': True, 'epilog': True, 'dynamic_link_csv': 'output/Net2_dlink.csv', 'demo_info': True})
 DEMO: EPANETOutputFile loaded plugins:
-DEMO:   .svn
 DEMO:   demo
-DEMO:   demo2
-DEMO: File test\data\Net2.hyd, size 108236
+DEMO: File data/Net2.hyd, size 108236
 DEMO: DemoPlugin:FileOpen(eof)
 DEMO: No progress bar to update
 DEMO: File section size definitions:
@@ -156,8 +150,8 @@ Link details (40):
 DEMO: DemoPlugin:PrologPrint(eof)
 DEMO: Node elevation Average=150.694444
 DEMO: Link length Average=900.000000
-Writing prolog node info CSV: test\output\Net2_pnode.csv
-Writing prolog link info CSV: test\output\Net2_plink.csv
+Writing prolog node info CSV: output/Net2_pnode.csv
+Writing prolog link info CSV: output/Net2_plink.csv
 DEMO: DemoPlugin:PrologExport(eof)
 DEMO: DemoPlugin:EnergyUsageRead(eof)
 
@@ -167,7 +161,7 @@ Energy Use for 0 Pumps
 Peak energy usage: 0.000000
 
 DEMO: DemoPlugin:EnergyUsagePrint(eof)
-Writing energy usage to CSV: test\output\Net2_e.csv
+Writing energy usage to CSV: output/Net2_e.csv
 DEMO: DemoPlugin:EnergyUsageExport(eof)
 DEMO: DemoPlugin:DynamicResultsRead(eof)
 
@@ -5001,8 +4995,8 @@ DEMO:   Minimum node water quality 0.070000 (timestep: 39/node index: 0)
 DEMO:   Maximum node water quality 1.050000 (timestep: 3/node index: 0)
 DEMO:   Minimum link velocity 0.000000 (timestep: 23/link index: 0)
 DEMO:   Maximum link velocity 2.252522 (timestep: 10/link index: 28)
-Writing dynamic results for nodes to CSV: test\output\Net2_dnode.csv
-Writing dynamic results for links to CSV: test\output\Net2_dlink.csv
+Writing dynamic results for nodes to CSV: output/Net2_dnode.csv
+Writing dynamic results for links to CSV: output/Net2_dlink.csv
 DEMO: DemoPlugin:DynamicResultsExport(eof)
 DEMO: DemoPlugin:EpilogRead(eof)
 
@@ -5020,4 +5014,4 @@ DEMO: DemoPlugin:EpilogPrint(eof)
 DEMO: DemoPlugin:EpilogExport(eof)
 Done like a dinner.
 DEMO: DemoPlugin:FileClose(eof)
-Time taken: 0:00:00.167000
+Time taken: 0:00:00.100992

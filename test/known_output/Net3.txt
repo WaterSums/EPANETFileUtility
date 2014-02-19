@@ -1,24 +1,18 @@
-__import(EPANETOutputFile.plugins.demo)
-__import(EPANETOutputFile.plugins.demo2)
-demo2.__init__.py: Initialize()
-Loading EPANET output file test\data\Net3.hyd
-DemoPlugin2:Test function
+Loading EPANET output file data/Net3.hyd
 User requested display of file prolog section
-User requested writing of prolog node info as CSV to: test\output\Net3_pnode.csv
-User requested writing of prolog link info as CSV to: test\output\Net3_plink.csv
+User requested writing of prolog node info as CSV to: output/Net3_pnode.csv
+User requested writing of prolog link info as CSV to: output/Net3_plink.csv
 User requested display of energy use section
-User requested writing of energy use section as CSV to: test\output\Net3_e.csv
+User requested writing of energy use section as CSV to: output/Net3_e.csv
 User requested display of file dynamic results section
-User requested writing of dynamic node info as CSV to: test\output\Net3_dnode.csv
-User requested writing of dynamic link info as CSV to: test\output\Net3_dlink.csv
+User requested writing of dynamic node info as CSV to: output/Net3_dnode.csv
+User requested writing of dynamic link info as CSV to: output/Net3_dlink.csv
 User requested display of file epilog section
 User requested display of content from all file sections
-DEMO: DemoPlugin:FileInit(eof, {'demo_all': True, 'all': True, 'energy_use_csv': 'test\\output\\Net3_e.csv', 'verbose': True, 'prolog_node_csv': 'test\\output\\Net3_pnode.csv', 'prolog_link_csv': 'test\\output\\Net3_plink.csv', 'demo_plugin_info': True, 'demo_dynamic_results_info': True, 'energy_use': True, 'prolog': True, 'silent': False, 'demo_verbose': True, 'dynamic_node_csv': 'test\\output\\Net3_dnode.csv', 'demo_prolog_info': True, 'dynamic_results': True, 'epilog': True, 'dynamic_link_csv': 'test\\output\\Net3_dlink.csv', 'demo_info': True})
+DEMO: DemoPlugin:FileInit(eof, {'demo_all': True, 'all': True, 'energy_use_csv': 'output/Net3_e.csv', 'verbose': True, 'prolog_node_csv': 'output/Net3_pnode.csv', 'prolog_link_csv': 'output/Net3_plink.csv', 'demo_plugin_info': True, 'demo_dynamic_results_info': True, 'energy_use': True, 'prolog': True, 'silent': False, 'demo_verbose': True, 'dynamic_node_csv': 'output/Net3_dnode.csv', 'demo_prolog_info': True, 'dynamic_results': True, 'epilog': True, 'dynamic_link_csv': 'output/Net3_dlink.csv', 'demo_info': True})
 DEMO: EPANETOutputFile loaded plugins:
-DEMO:   .svn
 DEMO:   demo
-DEMO:   demo2
-DEMO: File test\data\Net3.hyd, size 144692
+DEMO: File data/Net3.hyd, size 144692
 DEMO: DemoPlugin:FileOpen(eof)
 DEMO: No progress bar to update
 DEMO: File section size definitions:
@@ -296,8 +290,8 @@ Link details (119):
 DEMO: DemoPlugin:PrologPrint(eof)
 DEMO: Node elevation Average=24.722680
 DEMO: Link length Average=1812.704202
-Writing prolog node info CSV: test\output\Net3_pnode.csv
-Writing prolog link info CSV: test\output\Net3_plink.csv
+Writing prolog node info CSV: output/Net3_pnode.csv
+Writing prolog link info CSV: output/Net3_plink.csv
 DEMO: DemoPlugin:PrologExport(eof)
 DEMO: DemoPlugin:EnergyUsageRead(eof)
 
@@ -309,7 +303,7 @@ Pump 1: link 118, util 28.743055%, effic 75.000000%, Ave kW/vol 394.078979, Ave 
 Peak energy usage: 0.000000
 
 DEMO: DemoPlugin:EnergyUsagePrint(eof)
-Writing energy usage to CSV: test\output\Net3_e.csv
+Writing energy usage to CSV: output/Net3_e.csv
 DEMO: DemoPlugin:EnergyUsageExport(eof)
 DEMO: DemoPlugin:DynamicResultsRead(eof)
 
@@ -5977,8 +5971,8 @@ DEMO:   Minimum node water quality 0.000000 (timestep: 0/node index: 0)
 DEMO:   Maximum node water quality 100.000000 (timestep: 0/node index: 93)
 DEMO:   Minimum link velocity 0.000000 (timestep: 0/link index: 115)
 DEMO:   Maximum link velocity 9.365411 (timestep: 23/link index: 3)
-Writing dynamic results for nodes to CSV: test\output\Net3_dnode.csv
-Writing dynamic results for links to CSV: test\output\Net3_dlink.csv
+Writing dynamic results for nodes to CSV: output/Net3_dnode.csv
+Writing dynamic results for links to CSV: output/Net3_dlink.csv
 DEMO: DemoPlugin:DynamicResultsExport(eof)
 DEMO: DemoPlugin:EpilogRead(eof)
 
@@ -5996,4 +5990,4 @@ DEMO: DemoPlugin:EpilogPrint(eof)
 DEMO: DemoPlugin:EpilogExport(eof)
 Done like a dinner.
 DEMO: DemoPlugin:FileClose(eof)
-Time taken: 0:00:01.237000
+Time taken: 0:00:00.112457
