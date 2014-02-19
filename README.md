@@ -62,6 +62,8 @@ pages, viz:
 
 The `Tables`, `Graphs` and `Export` options do not do anything at present.
 
+![EPANETFileUtility Screenshot](screenshots/EPANETFileUtility1.PNG "Output
+File Prolog section")
 
 Utility Details
 ---------------
