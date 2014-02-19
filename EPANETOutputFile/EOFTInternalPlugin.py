@@ -429,10 +429,13 @@ class InternalPlugin(EPANETOutputFilePlugin.EOFTPlugin):
         headingtext = _("Energy Use")
         print(headingtext)
         print('='*len(headingtext))
-        print(gettext.ngettext(
+        tmpstr = gettext.ngettext(
                 'Energy Use for one Pump',
                 'Energy Use for %(nPumps)d Pumps', prolog['nPumps'])
-                % {'nPumps': prolog['nPumps']})
+        if '%' in tmpstr:
+            print(tmpstr % {'nPumps': prolog['nPumps']})
+        else:
+            print(tmpstr)
         for i in range(0,prolog['nPumps']):
             ind = d['PumpIndex'][i]
             print(_("Pump %d: link %d, util %f%%, effic %f%%, Ave kW/vol %f, Ave %f kW, Peak %f kW, Ave cost/day %f")

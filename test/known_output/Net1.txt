@@ -1,0 +1,1006 @@
+__import(EPANETOutputFile.plugins.demo)
+__import(EPANETOutputFile.plugins.demo2)
+demo2.__init__.py: Initialize()
+Loading EPANET output file test\data\Net1.hyd
+DemoPlugin2:Test function
+User requested display of file prolog section
+User requested writing of prolog node info as CSV to: test\output\Net1_pnode.csv
+User requested writing of prolog link info as CSV to: test\output\Net1_plink.csv
+User requested display of energy use section
+User requested writing of energy use section as CSV to: test\output\Net1_e.csv
+User requested display of file dynamic results section
+User requested writing of dynamic node info as CSV to: test\output\Net1_dnode.csv
+User requested writing of dynamic link info as CSV to: test\output\Net1_dlink.csv
+User requested display of file epilog section
+User requested display of content from all file sections
+DEMO: DemoPlugin:FileInit(eof, {'demo_all': True, 'all': True, 'energy_use_csv': 'test\\output\\Net1_e.csv', 'verbose': True, 'prolog_node_csv': 'test\\output\\Net1_pnode.csv', 'prolog_link_csv': 'test\\output\\Net1_plink.csv', 'demo_plugin_info': True, 'demo_dynamic_results_info': True, 'energy_use': True, 'prolog': True, 'silent': False, 'demo_verbose': True, 'dynamic_node_csv': 'test\\output\\Net1_dnode.csv', 'demo_prolog_info': True, 'dynamic_results': True, 'epilog': True, 'dynamic_link_csv': 'test\\output\\Net1_dlink.csv', 'demo_info': True})
+DEMO: EPANETOutputFile loaded plugins:
+DEMO:   .svn
+DEMO:   demo
+DEMO:   demo2
+DEMO: File test\data\Net1.hyd, size 16832
+DEMO: DemoPlugin:FileOpen(eof)
+DEMO: No progress bar to update
+DEMO: File section size definitions:
+DEMO:   Prolog size: 884 + 36*Nnodes + 52*Nlinks + 8*Ntanks
+DEMO:   Energy use size: 28*Npumps + 4
+DEMO:   Dynamic results size: (16*Nnodes + 32*Nlinks)*Nperiods
+DEMO:   Epilog size: 28
+DEMO: Network data:
+DEMO:   Nnodes=11
+DEMO:   Ntanks=2 (actually reservoirs and tanks)
+DEMO:   Nlinks=13
+DEMO:   Npumps=1
+DEMO:   Nperiods=25
+DEMO: Caclulated file section sizes:
+DEMO:   Prolog size: 884 + 36*11 + 52*13 + 8*2 = 1972 (11.72%)
+DEMO:   Energy use size: 28*1 + 4 = 32 (0.19%)
+DEMO:   Dynamic results size: (16*11 + 32*13)*25 = 14800 (87.93%)
+DEMO:   Epilog size: 28 (0.17%)
+DEMO: Total file size: 16832
+DEMO: Actual file size matches calculated file size
+Analysis had 25 reporting periods
+Analysis generated no errors or warnings
+Reading Node IDs (11)...
+Reading Link IDs (13)...
+Reading Tank/Reservoir indexes (2)...
+Reading Cross Sectional Areas of Tanks/Reservoirs (2)...
+Reading Link lengths (13)...
+Reading Link diameters (13)...
+DEMO: DemoPlugin:PrologRead(eof)
+
+Prolog
+======
+Magic number: 516114521
+EPANET Version: 20012
+Number of Nodes: 11
+Number of Reservoirs (1) + Tanks (1): 2 (so 9 Junctions)
+Number of Links: 13
+Number of Pumps: 1
+Number of Valves: 0
+  (Number of Pipes: 12)
+Water Quality Option: 1 (chemical)
+Index of node for Source Tracing: -1
+Flow Units Option: 1 (gallons/minute)
+Pressure Units Option: 0 (pounds/square inch)
+Time Statistics Flag: 0 (none (report time series))
+Reporting Start Time: 0
+Reporting Time Step: 3600
+Simulation Duration: 86400
+Problem Title1:  EPANET Example Network 1 
+Problem Title2: A simple example of modeling chlorine decay. Both bulk and 
+Problem Title3: wall reactions are included.  
+Name of Input File: C:\Users\Mark Morgan\Documents\WaterSums\Examples\Net1.inp
+Name of Report File: 
+Name of Chemical: Chlorine
+Chemical Concentration Units: mg/L
+Node details (11):
+  0: ID 10, elevation: 710.000000
+  1: ID 11, elevation: 710.000000
+  2: ID 12, elevation: 700.000000
+  3: ID 13, elevation: 695.000000
+  4: ID 21, elevation: 700.000000
+  5: ID 22, elevation: 695.000000
+  6: ID 23, elevation: 690.000000
+  7: ID 31, elevation: 700.000000
+  8: ID 32, elevation: 710.000000
+  9: ID 9, elevation: 800.000000 (RESERVOIR)
+  10: ID 2, elevation: 850.000000, Tank x-sect area: 2002.961670
+Link details (13):
+  0: ID 10, start: 0, end: 1, type: 1 (Pipe), length: 10530.000000, diam: 18.000000
+  1: ID 11, start: 1, end: 2, type: 1 (Pipe), length: 5280.000000, diam: 14.000000
+  2: ID 12, start: 2, end: 3, type: 1 (Pipe), length: 5280.000000, diam: 10.000000
+  3: ID 21, start: 4, end: 5, type: 1 (Pipe), length: 5280.000000, diam: 10.000000
+  4: ID 22, start: 5, end: 6, type: 1 (Pipe), length: 5280.000000, diam: 12.000000
+  5: ID 31, start: 7, end: 8, type: 1 (Pipe), length: 5280.000000, diam: 6.000000
+  6: ID 110, start: 10, end: 2, type: 1 (Pipe), length: 200.000000, diam: 18.000000
+  7: ID 111, start: 1, end: 4, type: 1 (Pipe), length: 5280.000000, diam: 10.000000
+  8: ID 112, start: 2, end: 5, type: 1 (Pipe), length: 5280.000000, diam: 12.000000
+  9: ID 113, start: 3, end: 6, type: 1 (Pipe), length: 5280.000000, diam: 8.000000
+  10: ID 121, start: 4, end: 7, type: 1 (Pipe), length: 5280.000000, diam: 8.000000
+  11: ID 122, start: 5, end: 8, type: 1 (Pipe), length: 5280.000000, diam: 6.000000
+  12: ID 9, start: 9, end: 0, type: 2 (Pump), length: 0.000000, diam: 0.000000
+
+DEMO: DemoPlugin:PrologPrint(eof)
+DEMO: Node elevation Average=723.636364
+DEMO: Link length Average=4886.923077
+Writing prolog node info CSV: test\output\Net1_pnode.csv
+Writing prolog link info CSV: test\output\Net1_plink.csv
+DEMO: DemoPlugin:PrologExport(eof)
+DEMO: DemoPlugin:EnergyUsageRead(eof)
+
+Energy Use
+==========
+Energy Use for one Pump
+Pump 0: link 12, util 57.712959%, effic 75.000000%, Ave kW/vol 880.415833, Ave 96.254318 kW, Peak 96.707115 kW, Ave cost/day 0.000000
+Peak energy usage: 0.000000
+
+DEMO: DemoPlugin:EnergyUsagePrint(eof)
+Writing energy usage to CSV: test\output\Net1_e.csv
+DEMO: DemoPlugin:EnergyUsageExport(eof)
+DEMO: DemoPlugin:DynamicResultsRead(eof)
+
+Dynamic Results
+===============
+TimeStep 0
+ Nodes
+  Node 0: demand 0.000000, head 1004.347412, pressure 127.540733, water quality 0.500000
+  Node 1: demand 150.000000, head 985.230347, pressure 119.257309, water quality 0.500000
+  Node 2: demand 150.000000, head 970.069824, pressure 117.021255, water quality 0.500000
+  Node 3: demand 100.000000, head 968.872681, pressure 118.669029, water quality 0.500000
+  Node 4: demand 150.000000, head 971.546631, pressure 117.661156, water quality 0.500000
+  Node 5: demand 200.000000, head 969.078369, pressure 118.758156, water quality 0.500000
+  Node 6: demand 150.000000, head 968.645203, pressure 120.736969, water quality 0.500000
+  Node 7: demand 100.000000, head 967.391602, pressure 115.860779, water quality 0.500000
+  Node 8: demand 100.000000, head 965.689331, pressure 110.790184, water quality 0.500000
+  Node 9: demand -1866.175781, head 800.000000, pressure 0.000000, water quality 1.000000
+  Node 10: demand 766.175842, head 970.000000, pressure 51.995998, water quality 1.000000
+ Links
+  Link 0: flow 1866.175781, velocity 2.352867, headloss 1.815486, ave water qual 0.500000, status 3.000000, react rate 0.000000, frict fact 0.031679
+  Link 1: flow 1234.207153, velocity 2.572301, headloss 2.871311, ave water qual 0.500000, status 3.000000, react rate 0.000000, frict fact 0.032604
+  Link 2: flow 129.335144, velocity 0.528331, headloss 0.226732, ave water qual 0.500000, status 3.000000, react rate 0.000000, frict fact 0.043592
+  Link 3: flow 191.158127, velocity 0.780877, headloss 0.467474, ave water qual 0.500000, status 3.000000, react rate 0.000000, frict fact 0.041143
+  Link 4: flow 120.664871, velocity 0.342301, headloss 0.082039, ave water qual 0.500000, status 3.000000, react rate 0.000000, frict fact 0.045091
+  Link 5: flow 40.810520, velocity 0.463084, headloss 0.322400, ave water qual 0.500000, status 3.000000, react rate 0.000000, frict fact 0.048409
+  Link 6: flow -766.175842, velocity 0.965991, headloss 0.349121, ave water qual 0.750000, status 3.000000, react rate 0.000000, frict fact 0.036141
+  Link 7: flow 481.968628, velocity 1.968831, headloss 2.591613, ave water qual 0.500000, status 3.000000, react rate 0.000000, frict fact 0.035880
+  Link 8: flow 188.696213, velocity 0.535292, headloss 0.187776, ave water qual 0.500000, status 3.000000, react rate 0.000000, frict fact 0.042203
+  Link 9: flow 29.335135, velocity 0.187240, headloss 0.043083, ave water qual 0.500000, status 3.000000, react rate 0.000000, frict fact 0.052760
+  Link 10: flow 140.810516, velocity 0.898762, headloss 0.786937, ave water qual 0.500000, status 3.000000, react rate 0.000000, frict fact 0.041826
+  Link 11: flow 59.189480, velocity 0.671633, headloss 0.641863, ave water qual 0.500000, status 3.000000, react rate 0.000000, frict fact 0.045818
+  Link 12: flow 1866.175781, velocity 0.000000, headloss -204.347412, ave water qual 0.750000, status 3.000000, react rate 0.000000, frict fact 0.000000
+
+TimeStep 1
+ Nodes
+  Node 0: demand 0.000000, head 1006.768127, pressure 128.589630, water quality 1.000000
+  Node 1: demand 150.000000, head 987.983582, pressure 120.450287, water quality 0.444080
+  Node 2: demand 150.000000, head 973.135010, pressure 118.349403, water quality 0.437663
+  Node 3: demand 100.000000, head 971.924500, pressure 119.991386, water quality 0.428277
+  Node 4: demand 150.000000, head 974.499756, pressure 118.940742, water quality 0.413426
+  Node 5: demand 200.000000, head 972.113770, pressure 120.073395, water quality 0.428047
+  Node 6: demand 150.000000, head 971.685791, pressure 122.054451, water quality 0.441525
+  Node 7: demand 100.000000, head 970.363586, pressure 117.148544, water quality 0.405030
+  Node 8: demand 100.000000, head 968.687988, pressure 112.089508, water quality 0.386358
+  Node 9: demand -1848.581177, head 800.000000, pressure 0.000000, water quality 1.000000
+  Node 10: demand 748.581116, head 973.068115, pressure 53.325413, water quality 0.967453
+ Links
+  Link 0: flow 1848.581177, velocity 2.330683, headloss 1.783908, ave water qual 0.818594, status 3.000000, react rate 2.247743, frict fact 0.031724
+  Link 1: flow 1220.427368, velocity 2.543581, headloss 2.812229, ave water qual 0.438601, status 3.000000, react rate 1.576187, frict fact 0.032658
+  Link 2: flow 130.111618, velocity 0.531503, headloss 0.229263, ave water qual 0.428559, status 3.000000, react rate 1.633762, frict fact 0.043554
+  Link 3: flow 187.689301, velocity 0.766707, headloss 0.451891, ave water qual 0.419096, status 3.000000, react rate 1.744125, frict fact 0.041255
+  Link 4: flow 119.888397, velocity 0.340098, headloss 0.081057, ave water qual 0.441923, status 3.000000, react rate 1.271659, frict fact 0.045130
+  Link 5: flow 40.464489, velocity 0.459157, headloss 0.317348, ave water qual 0.393037, status 3.000000, react rate 2.342997, frict fact 0.048469
+  Link 6: flow -748.581116, velocity 0.943808, headloss 0.334473, ave water qual 0.437663, status 3.000000, react rate 1.130535, frict fact 0.036272
+  Link 7: flow 478.153778, velocity 1.953248, headloss 2.553755, ave water qual 0.432855, status 3.000000, react rate 2.043837, frict fact 0.035923
+  Link 8: flow 191.734589, velocity 0.543911, headloss 0.193417, ave water qual 0.436874, status 3.000000, react rate 1.418845, frict fact 0.042104
+  Link 9: flow 30.111609, velocity 0.192196, headloss 0.045210, ave water qual 0.434858, status 3.000000, react rate 1.453267, frict fact 0.052546
+  Link 10: flow 140.464493, velocity 0.896554, headloss 0.783365, ave water qual 0.405458, status 3.000000, react rate 2.129203, frict fact 0.041841
+  Link 11: flow 59.535515, velocity 0.675559, headloss 0.648822, ave water qual 0.393085, status 3.000000, react rate 2.557748, frict fact 0.045778
+  Link 12: flow 1848.581177, velocity 0.000000, headloss -206.768127, ave water qual 1.000000, status 3.000000, react rate 0.000000, frict fact 0.000000
+
+TimeStep 2
+ Nodes
+  Node 0: demand 0.000000, head 1008.286255, pressure 129.247437, water quality 1.000000
+  Node 1: demand 180.000000, head 989.710449, pressure 121.198540, water quality 0.857315
+  Node 2: demand 180.000000, head 976.099609, pressure 119.633965, water quality 0.794950
+  Node 3: demand 120.000008, head 974.048767, pressure 120.911827, water quality 0.365875
+  Node 4: demand 180.000000, head 975.437744, pressure 119.347176, water quality 0.366031
+  Node 5: demand 240.000015, head 973.845947, pressure 120.823952, water quality 0.368313
+  Node 6: demand 180.000000, head 973.369446, pressure 122.783981, water quality 0.390205
+  Node 7: demand 120.000008, head 970.037659, pressure 117.007317, water quality 0.326376
+  Node 8: demand 120.000008, head 968.225159, pressure 111.888962, water quality 0.297983
+  Node 9: demand -1837.460938, head 800.000000, pressure 0.000000, water quality 1.000000
+  Node 10: demand 517.461121, head 976.065857, pressure 54.624336, water quality 0.934688
+ Links
+  Link 0: flow 1837.460938, velocity 2.316663, headloss 1.764084, ave water qual 0.933437, status 3.000000, react rate 2.655867, frict fact 0.031752
+  Link 1: flow 1164.400024, velocity 2.426811, headloss 2.577811, ave water qual 0.830019, status 3.000000, react rate 2.953979, frict fact 0.032886
+  Link 2: flow 172.960251, velocity 0.706539, headloss 0.388417, ave water qual 0.384669, status 3.000000, react rate 1.420076, frict fact 0.041757
+  Link 3: flow 150.844070, velocity 0.616195, headloss 0.301477, ave water qual 0.357883, status 3.000000, react rate 1.480965, frict fact 0.042611
+  Link 4: flow 127.039757, velocity 0.360385, headloss 0.090246, ave water qual 0.387799, status 3.000000, react rate 1.114384, frict fact 0.044749
+  Link 5: flow 42.216949, velocity 0.479043, headloss 0.343277, ave water qual 0.312295, status 3.000000, react rate 1.855910, frict fact 0.048167
+  Link 6: flow -517.461121, velocity 0.652413, headloss 0.168762, ave water qual 0.794950, status 3.000000, react rate 1.124406, frict fact 0.038301
+  Link 7: flow 493.061035, velocity 2.014144, headloss 2.703164, ave water qual 0.766767, status 3.000000, react rate 3.387121, frict fact 0.035760
+  Link 8: flow 293.978760, velocity 0.833956, headloss 0.426830, ave water qual 0.396458, status 3.000000, react rate 1.251017, frict fact 0.039523
+  Link 9: flow 52.960243, velocity 0.338033, headloss 0.128659, ave water qual 0.376952, status 3.000000, react rate 1.273223, frict fact 0.048341
+  Link 10: flow 162.216949, velocity 1.035395, headloss 1.022743, ave water qual 0.344361, status 3.000000, react rate 1.798858, frict fact 0.040959
+  Link 11: flow 77.783051, velocity 0.882617, headloss 1.064543, ave water qual 0.326463, status 3.000000, react rate 2.117262, frict fact 0.044002
+  Link 12: flow 1837.460938, velocity 0.000000, headloss -208.286255, ave water qual 1.000000, status 3.000000, react rate 0.000000, frict fact 0.000000
+
+TimeStep 3
+ Nodes
+  Node 0: demand 0.000000, head 1009.924744, pressure 129.957397, water quality 1.000000
+  Node 1: demand 180.000000, head 991.574463, pressure 122.006218, water quality 0.857394
+  Node 2: demand 180.000000, head 978.170288, pressure 120.531189, water quality 0.789562
+  Node 3: demand 120.000008, head 976.107788, pressure 121.804001, water quality 0.309099
+  Node 4: demand 180.000000, head 977.435242, pressure 120.212692, water quality 0.748852
+  Node 5: demand 240.000015, head 975.888672, pressure 121.709061, water quality 0.319776
+  Node 6: demand 180.000000, head 975.415894, pressure 123.670708, water quality 0.339593
+  Node 7: demand 120.000008, head 972.045288, pressure 117.877220, water quality 0.280650
+  Node 8: demand 120.000008, head 970.245850, pressure 112.764526, water quality 0.244482
+  Node 9: demand -1825.383179, head 800.000000, pressure 0.000000, water quality 1.000000
+  Node 10: demand 505.383179, head 978.138000, pressure 55.522194, water quality 0.913126
+ Links
+  Link 0: flow 1825.383179, velocity 2.301435, headloss 1.742667, ave water qual 0.932999, status 3.000000, react rate 2.653372, frict fact 0.031783
+  Link 1: flow 1154.817505, velocity 2.406839, headloss 2.538670, ave water qual 0.827742, status 3.000000, react rate 2.932788, frict fact 0.032926
+  Link 2: flow 173.490387, velocity 0.708704, headloss 0.390625, ave water qual 0.528027, status 3.000000, react rate 2.073479, frict fact 0.041738
+  Link 3: flow 148.513306, velocity 0.606674, headloss 0.292911, ave water qual 0.457859, status 3.000000, react rate 1.749352, frict fact 0.042710
+  Link 4: flow 126.509613, velocity 0.358881, headloss 0.089541, ave water qual 0.337668, status 3.000000, react rate 0.987809, frict fact 0.044772
+  Link 5: flow 42.052372, velocity 0.477175, headloss 0.340803, ave water qual 0.252306, status 3.000000, react rate 1.512425, frict fact 0.048195
+  Link 6: flow -505.383179, velocity 0.637185, headloss 0.161438, ave water qual 0.789321, status 3.000000, react rate 1.867085, frict fact 0.038411
+  Link 7: flow 490.565674, velocity 2.003950, headloss 2.677883, ave water qual 0.807790, status 3.000000, react rate 3.794321, frict fact 0.035787
+  Link 8: flow 295.943939, velocity 0.839531, headloss 0.432124, ave water qual 0.573898, status 3.000000, react rate 1.971169, frict fact 0.039484
+  Link 9: flow 53.490383, velocity 0.341417, headloss 0.131041, ave water qual 0.315546, status 3.000000, react rate 1.305138, frict fact 0.048265
+  Link 10: flow 162.052383, velocity 1.034344, headloss 1.020825, ave water qual 0.545388, status 3.000000, react rate 2.789377, frict fact 0.040965
+  Link 11: flow 77.947624, velocity 0.884484, headloss 1.068716, ave water qual 0.286705, status 3.000000, react rate 1.954350, frict fact 0.043988
+  Link 12: flow 1825.383179, velocity 0.000000, headloss -209.924744, ave water qual 1.000000, status 3.000000, react rate 0.000000, frict fact 0.000000
+
+TimeStep 4
+ Nodes
+  Node 0: demand 0.000000, head 1010.671082, pressure 130.280777, water quality 1.000000
+  Node 1: demand 210.000000, head 992.423584, pressure 122.374138, water quality 0.857469
+  Node 2: demand 210.000000, head 980.172607, pressure 121.398788, water quality 0.787785
+  Node 3: demand 140.000000, head 977.082336, pressure 122.226273, water quality 0.295729
+  Node 4: demand 210.000000, head 977.240967, pressure 120.128510, water quality 0.748265
+  Node 5: demand 280.000000, head 976.289246, pressure 121.882629, water quality 0.492201
+  Node 6: demand 210.000000, head 975.761963, pressure 123.820656, water quality 0.296701
+  Node 7: demand 140.000000, head 970.316589, pressure 117.128181, water quality 0.539220
+  Node 8: demand 140.000000, head 968.232300, pressure 111.892052, water quality 0.210607
+  Node 9: demand -1819.855103, head 800.000000, pressure 0.000000, water quality 1.000000
+  Node 10: demand 279.855194, head 980.161804, pressure 56.399109, water quality 0.892389
+ Links
+  Link 0: flow 1819.855103, velocity 2.294466, headloss 1.732906, ave water qual 0.932542, status 3.000000, react rate 2.650699, frict fact 0.031797
+  Link 1: flow 1100.063477, velocity 2.292722, headloss 2.320261, ave water qual 0.826781, status 3.000000, react rate 2.926603, frict fact 0.033164
+  Link 2: flow 215.822189, velocity 0.881629, headloss 0.585279, ave water qual 0.668094, status 3.000000, react rate 2.643897, frict fact 0.040410
+  Link 3: flow 114.267059, velocity 0.466778, headloss 0.180250, ave water qual 0.568719, status 3.000000, react rate 2.176424, frict fact 0.044397
+  Link 4: flow 134.177826, velocity 0.380634, headloss 0.099864, ave water qual 0.307838, status 3.000000, react rate 0.886960, frict fact 0.044389
+  Link 5: flow 45.524677, velocity 0.516576, headloss 0.394752, ave water qual 0.257634, status 3.000000, react rate 1.493810, frict fact 0.047633
+  Link 6: flow -279.855194, velocity 0.352840, headloss 0.054016, ave water qual 0.787335, status 3.000000, react rate 1.856322, frict fact 0.041912
+  Link 7: flow 509.791718, velocity 2.082488, headloss 2.875496, ave water qual 0.806827, status 3.000000, react rate 3.787719, frict fact 0.035584
+  Link 8: flow 394.386078, velocity 1.118791, headloss 0.735485, ave water qual 0.697823, status 3.000000, react rate 2.463544, frict fact 0.037841
+  Link 9: flow 75.822182, velocity 0.483956, headloss 0.250071, ave water qual 0.266020, status 3.000000, react rate 1.100917, frict fact 0.045840
+  Link 10: flow 185.524673, velocity 1.184163, headloss 1.311435, ave water qual 0.645568, status 3.000000, react rate 3.410618, frict fact 0.040153
+  Link 11: flow 94.475319, velocity 1.072027, headloss 1.525937, ave water qual 0.286549, status 3.000000, react rate 1.883991, frict fact 0.042754
+  Link 12: flow 1819.855103, velocity 0.000000, headloss -210.671082, ave water qual 1.000000, status 3.000000, react rate 0.000000, frict fact 0.000000
+
+TimeStep 5
+ Nodes
+  Node 0: demand 0.000000, head 1011.559692, pressure 130.665817, water quality 1.000000
+  Node 1: demand 210.000000, head 993.434570, pressure 122.812202, water quality 0.857514
+  Node 2: demand 210.000000, head 981.292786, pressure 121.884163, water quality 0.780469
+  Node 3: demand 140.000000, head 978.195068, pressure 122.708420, water quality 0.575499
+  Node 4: demand 210.000000, head 978.323608, pressure 120.597618, water quality 0.747245
+  Node 5: demand 280.000000, head 977.390869, pressure 122.359962, water quality 0.598209
+  Node 6: demand 210.000000, head 976.865662, pressure 124.298889, water quality 0.245236
+  Node 7: demand 140.000000, head 971.403381, pressure 117.599083, water quality 0.556471
+  Node 8: demand 140.000000, head 969.324341, pressure 112.365234, water quality 0.179007
+  Node 9: demand -1813.251587, head 800.000000, pressure 0.000000, water quality 1.000000
+  Node 10: demand 273.251556, head 981.282471, pressure 56.884693, water quality 0.873058
+ Links
+  Link 0: flow 1813.251587, velocity 2.286140, headloss 1.721284, ave water qual 0.932317, status 3.000000, react rate 2.649429, frict fact 0.031814
+  Link 1: flow 1094.759033, velocity 2.281667, headloss 2.299580, ave water qual 0.824809, status 3.000000, react rate 2.905141, frict fact 0.033188
+  Link 2: flow 216.103333, velocity 0.882777, headloss 0.586689, ave water qual 0.682060, status 3.000000, react rate 2.858685, frict fact 0.040403
+  Link 3: flow 113.028824, velocity 0.461720, headloss 0.176655, ave water qual 0.606924, status 3.000000, react rate 2.217827, frict fact 0.044470
+  Link 4: flow 133.896667, velocity 0.379837, headloss 0.099471, ave water qual 0.339707, status 3.000000, react rate 0.986209, frict fact 0.044400
+  Link 5: flow 45.463707, velocity 0.515884, headloss 0.393758, ave water qual 0.319778, status 3.000000, react rate 1.891089, frict fact 0.047641
+  Link 6: flow -273.251556, velocity 0.344514, headloss 0.051575, ave water qual 0.779429, status 3.000000, react rate 1.595758, frict fact 0.041976
+  Link 7: flow 508.492523, velocity 2.077181, headloss 2.861925, ave water qual 0.808387, status 3.000000, react rate 3.806843, frict fact 0.035597
+  Link 8: flow 395.404144, velocity 1.121679, headloss 0.738999, ave water qual 0.712816, status 3.000000, react rate 2.638842, frict fact 0.037826
+  Link 9: flow 76.103340, velocity 0.485751, headloss 0.251782, ave water qual 0.317776, status 3.000000, react rate 1.412880, frict fact 0.045813
+  Link 10: flow 185.463699, velocity 1.183774, headloss 1.310649, ave water qual 0.656543, status 3.000000, react rate 3.541042, frict fact 0.040155
+  Link 11: flow 94.536293, velocity 1.072719, headloss 1.527752, ave water qual 0.441905, status 3.000000, react rate 2.977775, frict fact 0.042750
+  Link 12: flow 1813.251587, velocity 0.000000, headloss -211.559692, ave water qual 1.000000, status 3.000000, react rate 0.000000, frict fact 0.000000
+
+TimeStep 6
+ Nodes
+  Node 0: demand 0.000000, head 1011.576172, pressure 130.672958, water quality 1.000000
+  Node 1: demand 240.000015, head 993.453369, pressure 122.820343, water quality 0.857555
+  Node 2: demand 240.000015, head 982.377197, pressure 122.354042, water quality 0.779436
+  Node 3: demand 160.000000, head 978.082153, pressure 122.659500, water quality 0.585719
+  Node 4: demand 240.000015, head 977.060791, pressure 120.050438, water quality 0.747185
+  Node 5: demand 320.000000, head 976.553528, pressure 121.997147, water quality 0.601042
+  Node 6: demand 240.000015, head 975.966431, pressure 123.909256, water quality 0.210329
+  Node 7: demand 160.000000, head 968.350952, pressure 116.276466, water quality 0.565035
+  Node 8: demand 160.000000, head 965.872498, pressure 110.869553, water quality 0.295687
+  Node 9: demand -1813.128662, head 800.000000, pressure 0.000000, water quality 1.000000
+  Node 10: demand 53.128723, head 982.376709, pressure 57.358829, water quality 0.854288
+ Links
+  Link 0: flow 1813.128662, velocity 2.285985, headloss 1.721064, ave water qual 0.932069, status 3.000000, react rate 2.647962, frict fact 0.031815
+  Link 1: flow 1041.785400, velocity 2.171261, headloss 2.097760, ave water qual 0.824297, status 3.000000, react rate 2.901716, frict fact 0.033432
+  Link 2: flow 257.806091, velocity 1.053132, headloss 0.813455, ave water qual 0.682959, status 3.000000, react rate 2.865531, frict fact 0.039361
+  Link 3: flow 81.354027, velocity 0.332329, headloss 0.096073, ave water qual 0.598859, status 3.000000, react rate 2.180592, frict fact 0.046684
+  Link 4: flow 142.193909, velocity 0.403374, headloss 0.111193, ave water qual 0.389200, status 3.000000, react rate 1.130334, frict fact 0.044009
+  Link 5: flow 49.989315, velocity 0.567237, headloss 0.469404, ave water qual 0.380991, status 3.000000, react rate 2.262164, frict fact 0.046976
+  Link 6: flow -53.128723, velocity 0.066984, headloss 0.002441, ave water qual 0.778730, status 3.000000, react rate 1.585919, frict fact 0.052561
+  Link 7: flow 531.343384, velocity 2.170526, headloss 3.104655, ave water qual 0.808137, status 3.000000, react rate 3.804793, frict fact 0.035366
+  Link 8: flow 490.850586, velocity 1.392440, headloss 1.102968, ave water qual 0.711940, status 3.000000, react rate 2.638505, frict fact 0.036635
+  Link 9: flow 97.806091, velocity 0.624275, headloss 0.400705, ave water qual 0.379978, status 3.000000, react rate 1.692846, frict fact 0.044143
+  Link 10: flow 209.989319, velocity 1.340315, headloss 1.649591, ave water qual 0.657648, status 3.000000, react rate 3.550158, frict fact 0.039423
+  Link 11: flow 110.010689, velocity 1.248309, headloss 2.022923, ave water qual 0.501797, status 3.000000, react rate 3.482564, frict fact 0.041801
+  Link 12: flow 1813.128662, velocity 0.000000, headloss -211.576172, ave water qual 1.000000, status 3.000000, react rate 0.000000, frict fact 0.000000
+
+TimeStep 7
+ Nodes
+  Node 0: demand 0.000000, head 1011.745422, pressure 130.746292, water quality 1.000000
+  Node 1: demand 240.000015, head 993.645935, pressure 122.903786, water quality 0.857565
+  Node 2: demand 240.000015, head 982.589905, pressure 122.446205, water quality 0.773978
+  Node 3: demand 160.000000, head 978.293274, pressure 122.750977, water quality 0.598327
+  Node 4: demand 240.000015, head 977.266846, pressure 120.139725, water quality 0.750122
+  Node 5: demand 320.000000, head 976.762146, pressure 122.087540, water quality 0.631794
+  Node 6: demand 240.000015, head 976.175476, pressure 123.999832, water quality 0.248195
+  Node 7: demand 160.000000, head 968.557556, pressure 116.365990, water quality 0.578051
+  Node 8: demand 160.000000, head 966.079651, pressure 110.959312, water quality 0.372461
+  Node 9: demand -1811.868530, head 800.000000, pressure 0.000000, water quality 1.000000
+  Node 10: demand 51.868488, head 982.589478, pressure 57.451019, water quality 0.836525
+ Links
+  Link 0: flow 1811.868530, velocity 2.284396, headloss 1.718850, ave water qual 0.932050, status 3.000000, react rate 2.647895, frict fact 0.031818
+  Link 1: flow 1040.761719, velocity 2.169127, headloss 2.093945, ave water qual 0.822478, status 3.000000, react rate 2.881297, frict fact 0.033437
+  Link 2: flow 257.857880, velocity 1.053344, headloss 0.813756, ave water qual 0.692906, status 3.000000, react rate 2.993485, frict fact 0.039360
+  Link 3: flow 81.125053, velocity 0.331394, headloss 0.095587, ave water qual 0.582040, status 3.000000, react rate 1.931416, frict fact 0.046710
+  Link 4: flow 142.142105, velocity 0.403227, headloss 0.111112, ave water qual 0.450207, status 3.000000, react rate 1.327848, frict fact 0.044009
+  Link 5: flow 49.981705, velocity 0.567151, headloss 0.469300, ave water qual 0.413242, status 3.000000, react rate 2.535820, frict fact 0.046979
+  Link 6: flow -51.868488, velocity 0.065396, headloss 0.002136, ave water qual 0.764756, status 3.000000, react rate 0.879092, frict fact 0.048253
+  Link 7: flow 531.106750, velocity 2.169560, headloss 3.102100, ave water qual 0.810268, status 3.000000, react rate 3.830237, frict fact 0.035368
+  Link 8: flow 491.035339, velocity 1.392964, headloss 1.103742, ave water qual 0.721275, status 3.000000, react rate 2.757660, frict fact 0.036633
+  Link 9: flow 97.857895, velocity 0.624605, headloss 0.401098, ave water qual 0.462781, status 3.000000, react rate 2.212132, frict fact 0.044140
+  Link 10: flow 209.981705, velocity 1.340267, headloss 1.649487, ave water qual 0.668528, status 3.000000, react rate 3.669982, frict fact 0.039424
+  Link 11: flow 110.018295, velocity 1.248395, headloss 2.023200, ave water qual 0.528776, status 3.000000, react rate 3.752364, frict fact 0.041801
+  Link 12: flow 1811.868530, velocity 0.000000, headloss -211.745422, ave water qual 1.000000, status 3.000000, react rate 0.000000, frict fact 0.000000
+
+TimeStep 8
+ Nodes
+  Node 0: demand 0.000000, head 1012.760620, pressure 131.186172, water quality 1.000000
+  Node 1: demand 210.000000, head 994.801147, pressure 123.404335, water quality 0.857572
+  Node 2: demand 210.000000, head 982.806885, pressure 122.540222, water quality 0.773948
+  Node 3: demand 140.000000, head 979.699036, pressure 123.360092, water quality 0.606858
+  Node 4: demand 210.000000, head 979.786926, pressure 121.231674, water quality 0.750089
+  Node 5: demand 280.000000, head 978.879700, pressure 123.005074, water quality 0.626327
+  Node 6: demand 210.000000, head 978.357239, pressure 124.945190, water quality 0.341976
+  Node 7: demand 140.000000, head 972.872375, pressure 118.235603, water quality 0.583748
+  Node 8: demand 140.000000, head 970.800293, pressure 113.004768, water quality 0.391022
+  Node 9: demand -1804.288208, head 800.000000, pressure 0.000000, water quality 1.000000
+  Node 10: demand 264.288177, head 982.797180, pressure 57.541019, water quality 0.819140
+ Links
+  Link 0: flow 1804.288208, velocity 2.274839, headloss 1.705553, ave water qual 0.932005, status 3.000000, react rate 2.647620, frict fact 0.031838
+  Link 1: flow 1087.556030, velocity 2.266655, headloss 2.271641, ave water qual 0.822393, status 3.000000, react rate 2.880745, frict fact 0.033220
+  Link 2: flow 216.484344, velocity 0.884334, headloss 0.588608, ave water qual 0.692216, status 3.000000, react rate 2.992792, frict fact 0.040392
+  Link 3: flow 111.350204, velocity 0.454863, headloss 0.171823, ave water qual 0.572303, status 3.000000, react rate 1.895783, frict fact 0.044568
+  Link 4: flow 133.515656, velocity 0.378756, headloss 0.098951, ave water qual 0.492837, status 3.000000, react rate 1.466275, frict fact 0.044421
+  Link 5: flow 45.381947, velocity 0.514956, headloss 0.392440, ave water qual 0.423286, status 3.000000, react rate 2.599886, frict fact 0.047653
+  Link 6: flow -264.288177, velocity 0.333213, headloss 0.048523, ave water qual 0.763564, status 3.000000, react rate 0.869776, frict fact 0.042216
+  Link 7: flow 506.732147, velocity 2.069990, headloss 2.843602, ave water qual 0.810204, status 3.000000, react rate 3.829770, frict fact 0.035615
+  Link 8: flow 396.783508, velocity 1.125592, headloss 0.743785, ave water qual 0.720077, status 3.000000, react rate 2.752289, frict fact 0.037807
+  Link 9: flow 76.484344, velocity 0.488183, headloss 0.254128, ave water qual 0.479655, status 3.000000, react rate 2.298191, frict fact 0.045781
+  Link 10: flow 185.381958, velocity 1.183252, headloss 1.309574, ave water qual 0.669849, status 3.000000, react rate 3.679806, frict fact 0.040158
+  Link 11: flow 94.618050, velocity 1.073646, headloss 1.530191, ave water qual 0.535297, status 3.000000, react rate 3.814330, frict fact 0.042744
+  Link 12: flow 1804.288208, velocity 0.000000, headloss -212.760620, ave water qual 1.000000, status 3.000000, react rate 0.000000, frict fact 0.000000
+
+TimeStep 9
+ Nodes
+  Node 0: demand 0.000000, head 1013.599731, pressure 131.549759, water quality 1.000000
+  Node 1: demand 210.000000, head 995.755981, pressure 123.818069, water quality 0.857611
+  Node 2: demand 210.000000, head 983.864807, pressure 122.998619, water quality 0.778008
+  Node 3: demand 140.000000, head 980.749817, pressure 123.815399, water quality 0.591076
+  Node 4: demand 210.000000, head 980.809387, pressure 121.674706, water quality 0.746469
+  Node 5: demand 280.000000, head 979.919861, pressure 123.455772, water quality 0.597235
+  Node 6: demand 210.000000, head 979.399353, pressure 125.396736, water quality 0.368484
+  Node 7: demand 140.000000, head 973.898804, pressure 118.680351, water quality 0.570558
+  Node 8: demand 140.000000, head 971.831421, pressure 113.451553, water quality 0.380329
+  Node 9: demand -1797.998779, head 800.000000, pressure 0.000000, water quality 1.000000
+  Node 10: demand 257.998840, head 983.855530, pressure 57.999599, water quality 0.801896
+ Links
+  Link 0: flow 1797.998779, velocity 2.266909, headloss 1.694563, ave water qual 0.931732, status 3.000000, react rate 2.645961, frict fact 0.031854
+  Link 1: flow 1082.501099, velocity 2.256119, headloss 2.252116, ave water qual 0.823582, status 3.000000, react rate 2.896980, frict fact 0.033243
+  Link 2: flow 216.751755, velocity 0.885426, headloss 0.589960, ave water qual 0.682218, status 3.000000, react rate 2.864671, frict fact 0.040385
+  Link 3: flow 110.172569, velocity 0.450053, headloss 0.168471, ave water qual 0.582558, status 3.000000, react rate 2.108286, frict fact 0.044638
+  Link 4: flow 133.248260, velocity 0.377997, headloss 0.098581, ave water qual 0.494075, status 3.000000, react rate 1.449898, frict fact 0.044432
+  Link 5: flow 45.325211, velocity 0.514313, headloss 0.391550, ave water qual 0.419898, status 3.000000, react rate 2.525570, frict fact 0.047664
+  Link 6: flow -257.998840, velocity 0.325284, headloss 0.046387, ave water qual 0.777788, status 3.000000, react rate 1.569286, frict fact 0.042349
+  Link 7: flow 505.497803, velocity 2.064948, headloss 2.830794, ave water qual 0.807472, status 3.000000, react rate 3.800084, frict fact 0.035628
+  Link 8: flow 397.750488, velocity 1.128335, headloss 0.747149, ave water qual 0.710273, status 3.000000, react rate 2.635555, frict fact 0.037793
+  Link 9: flow 76.751747, velocity 0.489889, headloss 0.255770, ave water qual 0.469536, status 3.000000, react rate 2.128297, frict fact 0.045756
+  Link 10: flow 185.325211, velocity 1.182890, headloss 1.308823, ave water qual 0.658882, status 3.000000, react rate 3.559049, frict fact 0.040159
+  Link 11: flow 94.674789, velocity 1.074290, headloss 1.531901, ave water qual 0.506815, status 3.000000, react rate 3.544014, frict fact 0.042741
+  Link 12: flow 1797.998779, velocity 0.000000, headloss -213.599731, ave water qual 1.000000, status 3.000000, react rate 0.000000, frict fact 0.000000
+
+TimeStep 10
+ Nodes
+  Node 0: demand 0.000000, head 1015.261536, pressure 132.269821, water quality 1.000000
+  Node 1: demand 180.000000, head 997.647217, pressure 124.637543, water quality 0.857654
+  Node 2: demand 180.000000, head 984.916382, pressure 123.454269, water quality 0.776924
+  Node 3: demand 120.000008, head 982.815247, pressure 124.710350, water quality 0.578560
+  Node 4: demand 180.000000, head 983.943237, pressure 123.032608, water quality 0.745856
+  Node 5: demand 240.000015, head 982.541687, pressure 124.591812, water quality 0.592958
+  Node 6: demand 180.000000, head 982.080872, pressure 126.558640, water quality 0.371501
+  Node 7: demand 120.000008, head 978.585815, pressure 120.711235, water quality 0.563412
+  Node 8: demand 120.000008, head 976.828064, pressure 115.616600, water quality 0.364019
+  Node 9: demand -1785.478149, head 800.000000, pressure 0.000000, water quality 1.000000
+  Node 10: demand 465.478210, head 984.888672, pressure 58.447262, water quality 0.785169
+ Links
+  Link 0: flow 1785.478149, velocity 2.251123, headloss 1.672775, ave water qual 0.931491, status 3.000000, react rate 2.644541, frict fact 0.031887
+  Link 1: flow 1123.124023, velocity 2.340785, headloss 2.411143, ave water qual 0.823013, status 3.000000, react rate 2.893373, frict fact 0.033062
+  Link 2: flow 175.238297, velocity 0.715845, headloss 0.397942, ave water qual 0.681586, status 3.000000, react rate 2.860120, frict fact 0.041676
+  Link 3: flow 140.829041, velocity 0.575284, headloss 0.265445, ave water qual 0.590209, status 3.000000, react rate 2.130949, frict fact 0.043044
+  Link 4: flow 124.761711, velocity 0.353923, headloss 0.087276, ave water qual 0.488343, status 3.000000, react rate 1.432817, frict fact 0.044870
+  Link 5: flow 41.525093, velocity 0.471192, headloss 0.332907, ave water qual 0.413379, status 3.000000, react rate 2.486317, frict fact 0.048282
+  Link 6: flow -465.478210, velocity 0.586873, headloss 0.138550, ave water qual 0.776816, status 3.000000, react rate 1.557204, frict fact 0.038859
+  Link 7: flow 482.354126, velocity 1.970406, headloss 2.595451, ave water qual 0.806944, status 3.000000, react rate 3.796425, frict fact 0.035876
+  Link 8: flow 302.407562, velocity 0.857867, headloss 0.449753, ave water qual 0.710756, status 3.000000, react rate 2.636848, frict fact 0.039357
+  Link 9: flow 55.238297, velocity 0.352574, headloss 0.139086, ave water qual 0.458382, status 3.000000, react rate 2.079966, frict fact 0.048037
+  Link 10: flow 161.525101, velocity 1.030979, headloss 1.014663, ave water qual 0.656483, status 3.000000, react rate 3.543297, frict fact 0.040984
+  Link 11: flow 78.474907, velocity 0.890467, headloss 1.082126, ave water qual 0.494979, status 3.000000, react rate 3.450870, frict fact 0.043944
+  Link 12: flow 1785.478149, velocity 0.000000, headloss -215.261536, ave water qual 1.000000, status 3.000000, react rate 0.000000, frict fact 0.000000
+
+TimeStep 11
+ Nodes
+  Node 0: demand 0.000000, head 1016.734802, pressure 132.908188, water quality 1.000000
+  Node 1: demand 180.000000, head 999.324158, pressure 125.364159, water quality 0.857728
+  Node 2: demand 180.000000, head 986.779175, pressure 124.261414, water quality 0.781679
+  Node 3: demand 120.000008, head 984.667175, pressure 125.512787, water quality 0.564870
+  Node 4: demand 180.000000, head 985.740417, pressure 123.811325, water quality 0.740930
+  Node 5: demand 240.000015, head 984.378174, pressure 125.387566, water quality 0.571780
+  Node 6: demand 180.000000, head 983.920715, pressure 127.355843, water quality 0.373236
+  Node 7: demand 120.000008, head 980.391724, pressure 121.493736, water quality 0.550394
+  Node 8: demand 120.000008, head 978.645081, pressure 116.403915, water quality 0.345819
+  Node 9: demand -1774.303589, head 800.000000, pressure 0.000000, water quality 1.000000
+  Node 10: demand 454.303589, head 986.752686, pressure 59.254940, water quality 0.768930
+ Links
+  Link 0: flow 1774.303589, velocity 2.237035, headloss 1.653432, ave water qual 0.931032, status 3.000000, react rate 2.641755, frict fact 0.031917
+  Link 1: flow 1114.240601, velocity 2.322270, headloss 2.375944, ave water qual 0.823779, status 3.000000, react rate 2.906607, frict fact 0.033101
+  Link 2: flow 175.727188, velocity 0.717842, headloss 0.400000, ave water qual 0.668720, status 3.000000, react rate 2.696899, frict fact 0.041659
+  Link 3: flow 138.681213, velocity 0.566510, headloss 0.258001, ave water qual 0.606827, status 3.000000, react rate 2.328787, frict fact 0.043143
+  Link 4: flow 124.272804, velocity 0.352536, headloss 0.086640, ave water qual 0.474710, status 3.000000, react rate 1.368236, frict fact 0.044895
+  Link 5: flow 41.381775, velocity 0.469566, headloss 0.330804, ave water qual 0.401441, status 3.000000, react rate 2.362996, frict fact 0.048309
+  Link 6: flow -454.303589, velocity 0.572784, headloss 0.132446, ave water qual 0.780836, status 3.000000, react rate 1.816867, frict fact 0.038997
+  Link 7: flow 480.062988, velocity 1.961047, headloss 2.572678, ave water qual 0.804140, status 3.000000, react rate 3.765345, frict fact 0.035901
+  Link 8: flow 304.209808, velocity 0.862980, headloss 0.454735, ave water qual 0.696424, status 3.000000, react rate 2.470827, frict fact 0.039323
+  Link 9: flow 55.727196, velocity 0.355694, headloss 0.141375, ave water qual 0.436939, status 3.000000, react rate 1.811008, frict fact 0.047975
+  Link 10: flow 161.381775, velocity 1.030064, headloss 1.013010, ave water qual 0.644176, status 3.000000, react rate 3.407353, frict fact 0.040990
+  Link 11: flow 78.618225, velocity 0.892094, headloss 1.085813, ave water qual 0.470528, status 3.000000, react rate 3.187067, frict fact 0.043933
+  Link 12: flow 1774.303589, velocity 0.000000, headloss -216.734802, ave water qual 1.000000, status 3.000000, react rate 0.000000, frict fact 0.000000
+
+TimeStep 12
+ Nodes
+  Node 0: demand 0.000000, head 1018.993347, pressure 133.886810, water quality 1.000000
+  Node 1: demand 150.000000, head 1001.895142, pressure 126.478165, water quality 0.857804
+  Node 2: demand 150.000000, head 988.624451, pressure 125.060974, water quality 0.781149
+  Node 3: demand 100.000000, head 987.343262, pressure 126.672333, water quality 0.551931
+  Node 4: demand 150.000000, head 989.422852, pressure 125.406921, water quality 0.739045
+  Node 5: demand 200.000000, head 987.443298, pressure 126.715683, water quality 0.568193
+  Node 6: demand 150.000000, head 987.041687, pressure 128.708160, water quality 0.363305
+  Node 7: demand 100.000000, head 985.379578, pressure 123.654968, water quality 0.540879
+  Node 8: demand 100.000000, head 983.832825, pressure 118.651764, water quality 0.327829
+  Node 9: demand -1757.035522, head 800.000000, pressure 0.000000, water quality 1.000000
+  Node 10: demand 657.035583, head 988.571899, pressure 60.043205, water quality 0.753241
+ Links
+  Link 0: flow 1757.035522, velocity 2.215263, headloss 1.623761, ave water qual 0.930607, status 3.000000, react rate 2.639215, frict fact 0.031963
+  Link 1: flow 1148.596558, velocity 2.393873, headloss 2.513388, ave water qual 0.822490, status 3.000000, react rate 2.899941, frict fact 0.032952
+  Link 2: flow 134.160172, velocity 0.548041, headloss 0.242649, ave water qual 0.664932, status 3.000000, react rate 2.680791, frict fact 0.043357
+  Link 3: flow 169.686356, velocity 0.693165, headloss 0.374915, ave water qual 0.610681, status 3.000000, react rate 2.337723, frict fact 0.041876
+  Link 4: flow 115.839821, velocity 0.328613, headloss 0.076063, ave water qual 0.462253, status 3.000000, react rate 1.330468, frict fact 0.045361
+  Link 5: flow 38.752640, velocity 0.439732, headloss 0.292946, ave water qual 0.391035, status 3.000000, react rate 2.298506, frict fact 0.048783
+  Link 6: flow -657.035583, velocity 0.828388, headloss 0.262756, ave water qual 0.779957, status 3.000000, react rate 1.802572, frict fact 0.036988
+  Link 7: flow 458.438965, velocity 1.872713, headloss 2.362176, ave water qual 0.803254, status 3.000000, react rate 3.758540, frict fact 0.036147
+  Link 8: flow 207.400833, velocity 0.588353, headloss 0.223703, ave water qual 0.694436, status 3.000000, react rate 2.464113, frict fact 0.041618
+  Link 9: flow 34.160179, velocity 0.218037, headloss 0.057116, ave water qual 0.420312, status 3.000000, react rate 1.745251, frict fact 0.051582
+  Link 10: flow 138.752640, velocity 0.885627, headloss 0.765772, ave water qual 0.640634, status 3.000000, react rate 3.385444, frict fact 0.041917
+  Link 11: flow 61.247360, velocity 0.694984, headloss 0.683802, ave water qual 0.460656, status 3.000000, react rate 3.113158, frict fact 0.045586
+  Link 12: flow 1757.035522, velocity 0.000000, headloss -218.993347, ave water qual 1.000000, status 3.000000, react rate 0.000000, frict fact 0.000000
+
+TimeStep 13
+ Nodes
+  Node 0: demand 0.000000, head 986.314697, pressure 119.727158, water quality 0.987132
+  Node 1: demand 150.000000, head 986.314697, pressure 119.727158, water quality 0.787963
+  Node 2: demand 150.000000, head 987.849548, pressure 124.725212, water quality 0.735222
+  Node 3: demand 100.000000, head 985.442871, pressure 125.848900, water quality 0.549202
+  Node 4: demand 150.000000, head 983.419250, pressure 122.805565, water quality 0.705095
+  Node 5: demand 200.000000, head 983.806396, pressure 125.139809, water quality 0.608710
+  Node 6: demand 150.000000, head 983.682312, pressure 127.252548, water quality 0.325914
+  Node 7: demand 100.000000, head 979.903320, pressure 121.282112, water quality 0.524700
+  Node 8: demand 100.000000, head 979.018250, pressure 116.565605, water quality 0.320335
+  Node 9: demand 0.000000, head 800.000000, pressure 0.000000, water quality 1.000000
+  Node 10: demand -1100.000854, head 987.985962, pressure 59.789318, water quality 0.737959
+ Links
+  Link 0: flow -0.000835, velocity 0.000001, headloss 0.000000, ave water qual 0.921334, status 3.000000, react rate 0.464737, frict fact 0.000000
+  Link 1: flow -358.364868, velocity 0.746894, headloss 0.290691, ave water qual 0.758537, status 3.000000, react rate 2.305190, frict fact 0.039151
+  Link 2: flow 188.567505, velocity 0.770294, headloss 0.455810, ave water qual 0.651619, status 3.000000, react rate 2.666681, frict fact 0.041226
+  Link 3: flow -70.303696, velocity 0.287189, headloss 0.073323, ave water qual 0.572686, status 3.000000, react rate 1.821750, frict fact 0.047710
+  Link 4: flow 61.432487, velocity 0.174271, headloss 0.023501, ave water qual 0.448418, status 3.000000, react rate 1.013658, frict fact 0.049833
+  Link 5: flow 28.667728, velocity 0.325297, headloss 0.167627, ave water qual 0.373707, status 3.000000, react rate 1.973735, frict fact 0.051008
+  Link 6: flow 1100.000854, velocity 1.386876, headloss 0.682068, ave water qual 0.737959, status 3.000000, react rate 1.989239, frict fact 0.034255
+  Link 7: flow 208.364029, velocity 0.851163, headloss 0.548380, ave water qual 0.764371, status 3.000000, react rate 3.200060, frict fact 0.040622
+  Link 8: flow 403.068451, velocity 1.143421, headloss 0.765748, ave water qual 0.684083, status 3.000000, react rate 2.543439, frict fact 0.037719
+  Link 9: flow 88.567513, velocity 0.565307, headloss 0.333439, ave water qual 0.412979, status 3.000000, react rate 1.934827, frict fact 0.044796
+  Link 10: flow 128.667740, velocity 0.821258, headloss 0.665896, ave water qual 0.620325, status 3.000000, react rate 3.156534, frict fact 0.042388
+  Link 11: flow 71.332268, velocity 0.809419, headloss 0.906846, ave water qual 0.452773, status 3.000000, react rate 2.999139, frict fact 0.044570
+  Link 12: flow 0.000000, velocity 0.000000, headloss 0.000000, ave water qual 0.993566, status 2.000000, react rate 0.000000, frict fact 0.000000
+
+TimeStep 14
+ Nodes
+  Node 0: demand 0.000000, head 982.475464, pressure 118.063622, water quality 0.966601
+  Node 1: demand 120.000008, head 982.475464, pressure 118.063622, water quality 0.677583
+  Node 2: demand 120.000008, head 983.490784, pressure 122.836555, water quality 0.717217
+  Node 3: demand 80.000000, head 981.898804, pressure 124.313255, water quality 0.548919
+  Node 4: demand 120.000008, head 980.560181, pressure 121.566727, water quality 0.621717
+  Node 5: demand 160.000000, head 980.816284, pressure 123.844193, water quality 0.605956
+  Node 6: demand 120.000008, head 980.734192, pressure 125.975128, water quality 0.323925
+  Node 7: demand 80.000000, head 978.234436, pressure 120.558983, water quality 0.507740
+  Node 8: demand 80.000000, head 977.648987, pressure 115.972305, water quality 0.304158
+  Node 9: demand 0.000000, head 800.000000, pressure 0.000000, water quality 1.000000
+  Node 10: demand -880.000793, head 983.581055, pressure 57.880672, water quality 0.722731
+ Links
+  Link 0: flow -0.000818, velocity 0.000001, headloss 0.000000, ave water qual 0.902171, status 3.000000, react rate 0.455480, frict fact 0.000000
+  Link 1: flow -286.692017, velocity 0.597516, headloss 0.192295, ave water qual 0.667404, status 3.000000, react rate 2.031211, frict fact 0.040467
+  Link 2: flow 150.854019, velocity 0.616235, headloss 0.301511, ave water qual 0.633765, status 3.000000, react rate 2.598219, frict fact 0.042610
+  Link 3: flow -56.242973, velocity 0.229751, headloss 0.048504, ave water qual 0.503337, status 3.000000, react rate 1.605826, frict fact 0.049314
+  Link 4: flow 49.145985, velocity 0.139417, headloss 0.015548, ave water qual 0.438463, status 3.000000, react rate 0.992002, frict fact 0.051514
+  Link 5: flow 22.934181, velocity 0.260238, headloss 0.110881, ave water qual 0.353108, status 3.000000, react rate 1.868444, frict fact 0.052719
+  Link 6: flow 880.000793, velocity 1.109501, headloss 0.451355, ave water qual 0.722731, status 3.000000, react rate 1.949929, frict fact 0.035419
+  Link 7: flow 166.691208, velocity 0.680930, headloss 0.362743, ave water qual 0.668253, status 3.000000, react rate 2.818655, frict fact 0.041985
+  Link 8: flow 322.454773, velocity 0.914737, headloss 0.506534, ave water qual 0.662066, status 3.000000, react rate 2.465457, frict fact 0.038985
+  Link 9: flow 70.854019, velocity 0.452246, headloss 0.220570, ave water qual 0.425832, status 3.000000, react rate 1.994093, frict fact 0.046301
+  Link 10: flow 102.934181, velocity 0.657006, headloss 0.440482, ave water qual 0.574851, status 3.000000, react rate 2.944225, frict fact 0.043811
+  Link 11: flow 57.065819, velocity 0.647535, headloss 0.599867, ave water qual 0.478875, status 3.000000, react rate 3.166473, frict fact 0.046066
+  Link 12: flow 0.000000, velocity 0.000000, headloss 0.000000, ave water qual 0.983300, status 2.000000, react rate 0.000000, frict fact 0.000000
+
+TimeStep 15
+ Nodes
+  Node 0: demand 0.000000, head 978.951538, pressure 116.536705, water quality 0.946497
+  Node 1: demand 120.000008, head 978.951538, pressure 116.536705, water quality 0.559605
+  Node 2: demand 120.000008, head 979.966858, pressure 121.309639, water quality 0.702617
+  Node 3: demand 80.000000, head 978.374817, pressure 122.786308, water quality 0.517268
+  Node 4: demand 120.000008, head 977.036255, pressure 120.039810, water quality 0.541498
+  Node 5: demand 160.000000, head 977.292297, pressure 122.317253, water quality 0.576993
+  Node 6: demand 120.000008, head 977.210266, pressure 124.448212, water quality 0.315591
+  Node 7: demand 80.000000, head 974.710510, pressure 119.032066, water quality 0.467277
+  Node 8: demand 80.000000, head 974.125000, pressure 114.445366, water quality 0.312381
+  Node 9: demand 0.000000, head 800.000000, pressure 0.000000, water quality 1.000000
+  Node 10: demand -880.000793, head 980.057068, pressure 56.353729, water quality 0.707817
+ Links
+  Link 0: flow -0.000805, velocity 0.000001, headloss 0.000000, ave water qual 0.883407, status 3.000000, react rate 0.446007, frict fact 0.000000
+  Link 1: flow -286.692017, velocity 0.597516, headloss 0.192295, ave water qual 0.629485, status 3.000000, react rate 1.818421, frict fact 0.040467
+  Link 2: flow 150.854019, velocity 0.616235, headloss 0.301523, ave water qual 0.603904, status 3.000000, react rate 2.363561, frict fact 0.042612
+  Link 3: flow -56.242973, velocity 0.229751, headloss 0.048493, ave water qual 0.458294, status 3.000000, react rate 1.350446, frict fact 0.049302
+  Link 4: flow 49.145988, velocity 0.139417, headloss 0.015536, ave water qual 0.425441, status 3.000000, react rate 0.881734, frict fact 0.051475
+  Link 5: flow 22.934181, velocity 0.260238, headloss 0.110892, ave water qual 0.329465, status 3.000000, react rate 1.618942, frict fact 0.052725
+  Link 6: flow 880.000793, velocity 1.109501, headloss 0.451050, ave water qual 0.707817, status 3.000000, react rate 1.852017, frict fact 0.035395
+  Link 7: flow 166.691208, velocity 0.680930, headloss 0.362743, ave water qual 0.566453, status 3.000000, react rate 2.292051, frict fact 0.041985
+  Link 8: flow 322.454773, velocity 0.914737, headloss 0.506546, ave water qual 0.639262, status 3.000000, react rate 2.297115, frict fact 0.038986
+  Link 9: flow 70.854012, velocity 0.452245, headloss 0.220559, ave water qual 0.419300, status 3.000000, react rate 1.864318, frict fact 0.046299
+  Link 10: flow 102.934181, velocity 0.657006, headloss 0.440482, ave water qual 0.506695, status 3.000000, react rate 2.488256, frict fact 0.043811
+  Link 11: flow 57.065819, velocity 0.647535, headloss 0.599867, ave water qual 0.463916, status 3.000000, react rate 2.953230, frict fact 0.046066
+  Link 12: flow 0.000000, velocity 0.000000, headloss 0.000000, ave water qual 0.973248, status 2.000000, react rate 0.000000, frict fact 0.000000
+
+TimeStep 16
+ Nodes
+  Node 0: demand 0.000000, head 975.884216, pressure 115.207634, water quality 0.926811
+  Node 1: demand 90.000000, head 975.884216, pressure 115.207634, water quality 0.545802
+  Node 2: demand 90.000000, head 976.480164, pressure 119.798859, water quality 0.688118
+  Node 3: demand 60.000004, head 975.545715, pressure 121.560455, water quality 0.494715
+  Node 4: demand 90.000000, head 974.760010, pressure 119.053513, water quality 0.455968
+  Node 5: demand 120.000008, head 974.910278, pressure 121.285126, water quality 0.560722
+  Node 6: demand 90.000000, head 974.862122, pressure 123.430756, water quality 0.312772
+  Node 7: demand 60.000004, head 973.394836, pressure 118.461983, water quality 0.409843
+  Node 8: demand 60.000004, head 973.051208, pressure 113.980087, water quality 0.309407
+  Node 9: demand 0.000000, head 800.000000, pressure 0.000000, water quality 1.000000
+  Node 10: demand -660.000793, head 976.533142, pressure 54.826809, water quality 0.693211
+ Links
+  Link 0: flow -0.000789, velocity 0.000001, headloss 0.000000, ave water qual 0.865034, status 3.000000, react rate 0.436730, frict fact 0.000000
+  Link 1: flow -215.019165, velocity 0.448137, headloss 0.112869, ave water qual 0.613026, status 3.000000, react rate 1.770576, frict fact 0.042226
+  Link 2: flow 113.140511, velocity 0.462177, headloss 0.176979, ave water qual 0.587033, status 3.000000, react rate 2.295699, frict fact 0.044464
+  Link 3: flow -42.182259, velocity 0.172314, headloss 0.028460, ave water qual 0.427769, status 3.000000, react rate 1.257758, frict fact 0.051440
+  Link 4: flow 36.859486, velocity 0.104563, headloss 0.009121, ave water qual 0.412532, status 3.000000, react rate 0.854992, frict fact 0.053722
+  Link 5: flow 17.200636, velocity 0.195178, headloss 0.065081, ave water qual 0.304350, status 3.000000, react rate 1.496950, frict fact 0.055010
+  Link 6: flow 660.000793, velocity 0.832126, headloss 0.264893, ave water qual 0.693211, status 3.000000, react rate 1.813800, frict fact 0.036954
+  Link 7: flow 125.018387, velocity 0.510697, headloss 0.212918, ave water qual 0.493719, status 3.000000, react rate 1.986382, frict fact 0.043811
+  Link 8: flow 241.841110, velocity 0.686053, headloss 0.297327, ave water qual 0.624600, status 3.000000, react rate 2.243548, frict fact 0.040682
+  Link 9: flow 53.140518, velocity 0.339184, headloss 0.129469, ave water qual 0.402886, status 3.000000, react rate 1.793082, frict fact 0.048315
+  Link 10: flow 77.200630, velocity 0.492755, headloss 0.258556, ave water qual 0.437159, status 3.000000, react rate 2.150086, frict fact 0.045718
+  Link 11: flow 42.799366, velocity 0.485651, headloss 0.352097, ave water qual 0.440423, status 3.000000, react rate 2.805664, frict fact 0.048069
+  Link 12: flow 0.000000, velocity 0.000000, headloss 0.000000, ave water qual 0.963405, status 2.000000, react rate 0.000000, frict fact 0.000000
+
+TimeStep 17
+ Nodes
+  Node 0: demand 0.000000, head 973.241211, pressure 114.062416, water quality 0.907535
+  Node 1: demand 90.000000, head 973.241211, pressure 114.062416, water quality 0.516293
+  Node 2: demand 90.000000, head 973.837219, pressure 118.653664, water quality 0.674201
+  Node 3: demand 60.000004, head 972.902771, pressure 120.415268, water quality 0.468343
+  Node 4: demand 90.000000, head 972.117004, pressure 117.908295, water quality 0.389359
+  Node 5: demand 120.000008, head 972.267334, pressure 120.139938, water quality 0.532939
+  Node 6: demand 90.000000, head 972.219177, pressure 122.285568, water quality 0.295769
+  Node 7: demand 60.000004, head 970.751892, pressure 117.316795, water quality 0.354025
+  Node 8: demand 60.000004, head 970.408264, pressure 112.834900, water quality 0.271881
+  Node 9: demand 0.000000, head 800.000000, pressure 0.000000, water quality 1.000000
+  Node 10: demand -660.000793, head 973.890137, pressure 53.681595, water quality 0.678906
+ Links
+  Link 0: flow -0.000776, velocity 0.000001, headloss 0.000000, ave water qual 0.847042, status 3.000000, react rate 0.427647, frict fact 0.000000
+  Link 1: flow -215.019150, velocity 0.448137, headloss 0.112880, ave water qual 0.591762, status 3.000000, react rate 1.595650, frict fact 0.042231
+  Link 2: flow 113.140511, velocity 0.462177, headloss 0.176979, ave water qual 0.563141, status 3.000000, react rate 2.055814, frict fact 0.044464
+  Link 3: flow -42.182255, velocity 0.172314, headloss 0.028472, ave water qual 0.405173, status 3.000000, react rate 1.067431, frict fact 0.051461
+  Link 4: flow 36.859486, velocity 0.104563, headloss 0.009121, ave water qual 0.398651, status 3.000000, react rate 0.733051, frict fact 0.053722
+  Link 5: flow 17.200636, velocity 0.195178, headloss 0.065081, ave water qual 0.276067, status 3.000000, react rate 1.219336, frict fact 0.055010
+  Link 6: flow 660.000793, velocity 0.832126, headloss 0.264587, ave water qual 0.678906, status 3.000000, react rate 1.695166, frict fact 0.036912
+  Link 7: flow 125.018387, velocity 0.510697, headloss 0.212918, ave water qual 0.450771, status 3.000000, react rate 1.693457, frict fact 0.043811
+  Link 8: flow 241.841110, velocity 0.686053, headloss 0.297327, ave water qual 0.600788, status 3.000000, react rate 2.044825, frict fact 0.040682
+  Link 9: flow 53.140518, velocity 0.339184, headloss 0.129469, ave water qual 0.377231, status 3.000000, react rate 1.547370, frict fact 0.048315
+  Link 10: flow 77.200630, velocity 0.492755, headloss 0.258544, ave water qual 0.372748, status 3.000000, react rate 1.713160, frict fact 0.045716
+  Link 11: flow 42.799366, velocity 0.485651, headloss 0.352097, ave water qual 0.409341, status 3.000000, react rate 2.435975, frict fact 0.048069
+  Link 12: flow 0.000000, velocity 0.000000, headloss 0.000000, ave water qual 0.953767, status 2.000000, react rate 0.000000, frict fact 0.000000
+
+TimeStep 18
+ Nodes
+  Node 0: demand 0.000000, head 970.940979, pressure 113.065727, water quality 0.888659
+  Node 1: demand 60.000004, head 970.940979, pressure 113.065727, water quality 0.497186
+  Node 2: demand 60.000004, head 971.222168, pressure 117.520569, water quality 0.660288
+  Node 3: demand 40.000000, head 970.781189, pressure 119.495987, water quality 0.448479
+  Node 4: demand 60.000004, head 970.410400, pressure 117.168823, water quality 0.341758
+  Node 5: demand 80.000000, head 970.481323, pressure 119.366058, water quality 0.514924
+  Node 6: demand 60.000004, head 970.458618, pressure 121.522720, water quality 0.284090
+  Node 7: demand 40.000000, head 969.766174, pressure 116.889687, water quality 0.304498
+  Node 8: demand 40.000000, head 969.603943, pressure 112.486389, water quality 0.254650
+  Node 9: demand 0.000000, head 800.000000, pressure 0.000000, water quality 1.000000
+  Node 10: demand -440.000763, head 971.247192, pressure 52.536407, water quality 0.664896
+ Links
+  Link 0: flow -0.000768, velocity 0.000001, headloss 0.000000, ave water qual 0.829425, status 3.000000, react rate 0.418753, frict fact 0.000000
+  Link 1: flow -143.346329, velocity 0.298759, headloss 0.053255, ave water qual 0.574613, status 3.000000, react rate 1.548734, frict fact 0.044829
+  Link 2: flow 75.427017, velocity 0.308118, headloss 0.083519, ave water qual 0.545026, status 3.000000, react rate 1.988467, frict fact 0.047212
+  Link 3: flow -28.121538, velocity 0.114876, headloss 0.013432, ave water qual 0.387905, status 3.000000, react rate 1.021008, frict fact 0.054626
+  Link 4: flow 24.572983, velocity 0.069708, headloss 0.004300, ave water qual 0.385456, status 3.000000, react rate 0.708756, frict fact 0.056991
+  Link 5: flow 11.467089, velocity 0.130119, headloss 0.030726, ave water qual 0.248190, status 3.000000, react rate 1.097111, frict fact 0.058435
+  Link 6: flow 440.000763, velocity 0.554751, headloss 0.125122, ave water qual 0.664896, status 3.000000, react rate 1.660185, frict fact 0.039275
+  Link 7: flow 83.345558, velocity 0.340465, headloss 0.100488, ave water qual 0.427765, status 3.000000, react rate 1.603217, frict fact 0.046524
+  Link 8: flow 161.227432, velocity 0.457368, headloss 0.140311, ave water qual 0.584407, status 3.000000, react rate 1.988009, frict fact 0.043196
+  Link 9: flow 35.427021, velocity 0.226123, headloss 0.061093, ave water qual 0.353932, status 3.000000, react rate 1.451672, frict fact 0.051297
+  Link 10: flow 51.467091, velocity 0.328503, headloss 0.122013, ave water qual 0.316997, status 3.000000, react rate 1.455994, frict fact 0.048542
+  Link 11: flow 28.532913, velocity 0.323768, headloss 0.166171, ave water qual 0.386291, status 3.000000, react rate 2.296615, frict fact 0.051044
+  Link 12: flow 0.000000, velocity 0.000000, headloss 0.000000, ave water qual 0.944330, status 2.000000, react rate 0.000000, frict fact 0.000000
+
+TimeStep 19
+ Nodes
+  Node 0: demand 0.000000, head 969.178955, pressure 112.302238, water quality 0.870176
+  Node 1: demand 60.000004, head 969.178955, pressure 112.302238, water quality 0.472785
+  Node 2: demand 60.000004, head 969.460205, pressure 116.757111, water quality 0.646289
+  Node 3: demand 40.000000, head 969.019226, pressure 118.732529, water quality 0.423575
+  Node 4: demand 60.000004, head 968.648438, pressure 116.405365, water quality 0.312335
+  Node 5: demand 80.000000, head 968.719360, pressure 118.602600, water quality 0.486230
+  Node 6: demand 60.000004, head 968.696594, pressure 120.759232, water quality 0.263294
+  Node 7: demand 40.000000, head 968.004150, pressure 116.126198, water quality 0.257028
+  Node 8: demand 40.000000, head 967.841980, pressure 111.722931, water quality 0.225142
+  Node 9: demand 0.000000, head 800.000000, pressure 0.000000, water quality 1.000000
+  Node 10: demand -440.000763, head 969.485229, pressure 51.772949, water quality 0.651176
+ Links
+  Link 0: flow -0.000761, velocity 0.000001, headloss 0.000000, ave water qual 0.812174, status 3.000000, react rate 0.410043, frict fact 0.000000
+  Link 1: flow -143.346313, velocity 0.298758, headloss 0.053267, ave water qual 0.552036, status 3.000000, react rate 1.326537, frict fact 0.044838
+  Link 2: flow 75.427017, velocity 0.308118, headloss 0.083519, ave water qual 0.519308, status 3.000000, react rate 1.685710, frict fact 0.047212
+  Link 3: flow -28.121534, velocity 0.114876, headloss 0.013432, ave water qual 0.371337, status 3.000000, react rate 0.824928, frict fact 0.054626
+  Link 4: flow 24.572983, velocity 0.069708, headloss 0.004312, ave water qual 0.371709, status 3.000000, react rate 0.573142, frict fact 0.057144
+  Link 5: flow 11.467089, velocity 0.130119, headloss 0.030714, ave water qual 0.222193, status 3.000000, react rate 0.824857, frict fact 0.058413
+  Link 6: flow 440.000763, velocity 0.554751, headloss 0.125122, ave water qual 0.650355, status 3.000000, react rate 1.496938, frict fact 0.039275
+  Link 7: flow 83.345558, velocity 0.340465, headloss 0.100477, ave water qual 0.401483, status 3.000000, react rate 1.346316, frict fact 0.046518
+  Link 8: flow 161.227432, velocity 0.457368, headloss 0.140311, ave water qual 0.559294, status 3.000000, react rate 1.732793, frict fact 0.043196
+  Link 9: flow 35.427021, velocity 0.226123, headloss 0.061105, ave water qual 0.328025, status 3.000000, react rate 1.171939, frict fact 0.051307
+  Link 10: flow 51.467091, velocity 0.328503, headloss 0.122024, ave water qual 0.278116, status 3.000000, react rate 1.135038, frict fact 0.048547
+  Link 11: flow 28.532913, velocity 0.323768, headloss 0.166171, ave water qual 0.355258, status 3.000000, react rate 1.880674, frict fact 0.051044
+  Link 12: flow 0.000000, velocity 0.000000, headloss 0.000000, ave water qual 0.935088, status 2.000000, react rate 0.000000, frict fact 0.000000
+
+TimeStep 20
+ Nodes
+  Node 0: demand 0.000000, head 967.074341, pressure 111.390312, water quality 0.852078
+  Node 1: demand 90.000000, head 967.074341, pressure 111.390312, water quality 0.449210
+  Node 2: demand 90.000000, head 967.670288, pressure 115.981537, water quality 0.632952
+  Node 3: demand 60.000004, head 966.735840, pressure 117.743141, water quality 0.397665
+  Node 4: demand 90.000000, head 965.950073, pressure 115.236168, water quality 0.292968
+  Node 5: demand 120.000008, head 966.100403, pressure 117.467804, water quality 0.463255
+  Node 6: demand 90.000000, head 966.052246, pressure 119.613441, water quality 0.245392
+  Node 7: demand 60.000004, head 964.584961, pressure 114.644661, water quality 0.227322
+  Node 8: demand 60.000004, head 964.241333, pressure 110.162773, water quality 0.207040
+  Node 9: demand 0.000000, head 800.000000, pressure 0.000000, water quality 1.000000
+  Node 10: demand -660.000732, head 967.723267, pressure 51.009491, water quality 0.637738
+ Links
+  Link 0: flow -0.000751, velocity 0.000001, headloss 0.000000, ave water qual 0.795282, status 3.000000, react rate 0.401515, frict fact 0.000000
+  Link 1: flow -215.019135, velocity 0.448137, headloss 0.112869, ave water qual 0.533658, status 3.000000, react rate 1.281720, frict fact 0.042226
+  Link 2: flow 113.140511, velocity 0.462177, headloss 0.176979, ave water qual 0.499446, status 3.000000, react rate 1.620028, frict fact 0.044464
+  Link 3: flow -42.182251, velocity 0.172314, headloss 0.028472, ave water qual 0.356757, status 3.000000, react rate 0.792338, frict fact 0.051461
+  Link 4: flow 36.859486, velocity 0.104563, headloss 0.009121, ave water qual 0.358268, status 3.000000, react rate 0.552446, frict fact 0.053722
+  Link 5: flow 17.200636, velocity 0.195178, headloss 0.065081, ave water qual 0.198033, status 3.000000, react rate 0.735412, frict fact 0.055010
+  Link 6: flow 660.000732, velocity 0.832126, headloss 0.264893, ave water qual 0.636935, status 3.000000, react rate 1.466048, frict fact 0.036954
+  Link 7: flow 125.018387, velocity 0.510697, headloss 0.212929, ave water qual 0.378927, status 3.000000, react rate 1.270621, frict fact 0.043814
+  Link 8: flow 241.841110, velocity 0.686053, headloss 0.297327, ave water qual 0.540128, status 3.000000, react rate 1.672186, frict fact 0.040682
+  Link 9: flow 53.140518, velocity 0.339184, headloss 0.129469, ave water qual 0.306168, status 3.000000, react rate 1.093475, frict fact 0.048315
+  Link 10: flow 77.200630, velocity 0.492755, headloss 0.258544, ave water qual 0.247114, status 3.000000, react rate 1.007250, frict fact 0.045716
+  Link 11: flow 42.799366, velocity 0.485651, headloss 0.352097, ave water qual 0.330737, status 3.000000, react rate 1.749429, frict fact 0.048069
+  Link 12: flow 0.000000, velocity 0.000000, headloss 0.000000, ave water qual 0.926039, status 2.000000, react rate 0.000000, frict fact 0.000000
+
+TimeStep 21
+ Nodes
+  Node 0: demand 0.000000, head 964.431335, pressure 110.245094, water quality 0.834356
+  Node 1: demand 90.000000, head 964.431335, pressure 110.245094, water quality 0.440488
+  Node 2: demand 90.000000, head 965.027283, pressure 114.836319, water quality 0.620250
+  Node 3: demand 60.000004, head 964.092834, pressure 116.597923, water quality 0.388776
+  Node 4: demand 90.000000, head 963.307129, pressure 114.090981, water quality 0.290489
+  Node 5: demand 120.000008, head 963.457458, pressure 116.322617, water quality 0.454413
+  Node 6: demand 90.000000, head 963.409302, pressure 118.468254, water quality 0.232014
+  Node 7: demand 60.000004, head 961.942017, pressure 113.499474, water quality 0.187894
+  Node 8: demand 60.000004, head 961.598328, pressure 109.017555, water quality 0.198026
+  Node 9: demand 0.000000, head 800.000000, pressure 0.000000, water quality 1.000000
+  Node 10: demand -660.000732, head 965.080261, pressure 49.864277, water quality 0.624578
+ Links
+  Link 0: flow -0.000735, velocity 0.000001, headloss 0.000000, ave water qual 0.778741, status 3.000000, react rate 0.393164, frict fact 0.000000
+  Link 1: flow -215.019119, velocity 0.448137, headloss 0.112869, ave water qual 0.528781, status 3.000000, react rate 1.423154, frict fact 0.042226
+  Link 2: flow 113.140511, velocity 0.462177, headloss 0.176979, ave water qual 0.497983, status 3.000000, react rate 1.813160, frict fact 0.044464
+  Link 3: flow -42.182247, velocity 0.172314, headloss 0.028472, ave water qual 0.342783, status 3.000000, react rate 0.902338, frict fact 0.051461
+  Link 4: flow 36.859486, velocity 0.104563, headloss 0.009121, ave water qual 0.345841, status 3.000000, react rate 0.635957, frict fact 0.053722
+  Link 5: flow 17.200636, velocity 0.195178, headloss 0.065093, ave water qual 0.172853, status 3.000000, react rate 0.766005, frict fact 0.055020
+  Link 6: flow 660.000732, velocity 0.832126, headloss 0.264893, ave water qual 0.624578, status 3.000000, react rate 1.559515, frict fact 0.036954
+  Link 7: flow 125.018387, velocity 0.510697, headloss 0.212918, ave water qual 0.369053, status 3.000000, react rate 1.380929, frict fact 0.043811
+  Link 8: flow 241.841110, velocity 0.686053, headloss 0.297315, ave water qual 0.542444, status 3.000000, react rate 1.841120, frict fact 0.040681
+  Link 9: flow 53.140514, velocity 0.339184, headloss 0.129457, ave water qual 0.293091, status 3.000000, react rate 1.199433, frict fact 0.048311
+  Link 10: flow 77.200630, velocity 0.492755, headloss 0.258544, ave water qual 0.231672, status 3.000000, react rate 1.054365, frict fact 0.045716
+  Link 11: flow 42.799366, velocity 0.485651, headloss 0.352108, ave water qual 0.325930, status 3.000000, react rate 1.931199, frict fact 0.048071
+  Link 12: flow 0.000000, velocity 0.000000, headloss 0.000000, ave water qual 0.917178, status 2.000000, react rate 0.000000, frict fact 0.000000
+
+TimeStep 22
+ Nodes
+  Node 0: demand 0.000000, head 961.331787, pressure 108.902061, water quality 0.817003
+  Node 1: demand 120.000008, head 961.331787, pressure 108.902061, water quality 0.432153
+  Node 2: demand 120.000008, head 962.347046, pressure 113.674973, water quality 0.607450
+  Node 3: demand 80.000000, head 960.755066, pressure 115.151672, water quality 0.380722
+  Node 4: demand 120.000008, head 959.416443, pressure 112.405144, water quality 0.286808
+  Node 5: demand 160.000000, head 959.672546, pressure 114.682617, water quality 0.463665
+  Node 6: demand 120.000008, head 959.590454, pressure 116.813545, water quality 0.219753
+  Node 7: demand 80.000000, head 957.090698, pressure 111.397400, water quality 0.173790
+  Node 8: demand 80.000000, head 956.505249, pressure 106.810722, water quality 0.189306
+  Node 9: demand 0.000000, head 800.000000, pressure 0.000000, water quality 1.000000
+  Node 10: demand -880.000671, head 962.437317, pressure 48.719090, water quality 0.611690
+ Links
+  Link 0: flow -0.000724, velocity 0.000001, headloss 0.000000, ave water qual 0.762544, status 3.000000, react rate 0.384986, frict fact 0.000000
+  Link 1: flow -286.691925, velocity 0.597515, headloss 0.192284, ave water qual 0.523314, status 3.000000, react rate 1.408619, frict fact 0.040465
+  Link 2: flow 150.854019, velocity 0.616235, headloss 0.301511, ave water qual 0.495264, status 3.000000, react rate 1.803598, frict fact 0.042610
+  Link 3: flow -56.242966, velocity 0.229751, headloss 0.048504, ave water qual 0.330395, status 3.000000, react rate 0.869386, frict fact 0.049314
+  Link 4: flow 49.145988, velocity 0.139417, headloss 0.015548, ave water qual 0.335311, status 3.000000, react rate 0.616279, frict fact 0.051514
+  Link 5: flow 22.934183, velocity 0.260238, headloss 0.110881, ave water qual 0.149904, status 3.000000, react rate 0.664220, frict fact 0.052719
+  Link 6: flow 880.000671, velocity 1.109501, headloss 0.451355, ave water qual 0.611690, status 3.000000, react rate 1.527333, frict fact 0.035419
+  Link 7: flow 166.691223, velocity 0.680930, headloss 0.362755, ave water qual 0.361164, status 3.000000, react rate 1.351338, frict fact 0.041987
+  Link 8: flow 322.454773, velocity 0.914737, headloss 0.506534, ave water qual 0.537502, status 3.000000, react rate 1.827099, frict fact 0.038985
+  Link 9: flow 70.854012, velocity 0.452245, headloss 0.220570, ave water qual 0.283263, status 3.000000, react rate 1.158479, frict fact 0.046301
+  Link 10: flow 102.934181, velocity 0.657006, headloss 0.440482, ave water qual 0.224459, status 3.000000, react rate 1.019782, frict fact 0.043811
+  Link 11: flow 57.065819, velocity 0.647535, headloss 0.599867, ave water qual 0.325985, status 3.000000, react rate 1.928533, frict fact 0.046066
+  Link 12: flow 0.000000, velocity 0.000000, headloss 0.000000, ave water qual 0.908501, status 2.000000, react rate 0.000000, frict fact 0.000000
+
+TimeStep 23
+ Nodes
+  Node 0: demand 0.000000, head 998.299561, pressure 124.920197, water quality 1.000000
+  Node 1: demand 120.000008, head 978.353943, pressure 116.277763, water quality 0.691462
+  Node 2: demand 120.000008, head 961.400391, pressure 113.264786, water quality 0.498241
+  Node 3: demand 80.000000, head 960.839172, pressure 115.188110, water quality 0.399843
+  Node 4: demand 120.000008, head 964.855713, pressure 114.761978, water quality 0.324797
+  Node 5: demand 160.000000, head 961.217957, pressure 115.352242, water quality 0.395347
+  Node 6: demand 120.000008, head 960.827454, pressure 117.349533, water quality 0.226337
+  Node 7: demand 80.000000, head 961.633911, pressure 113.365974, water quality 0.176708
+  Node 8: demand 80.000000, head 959.779663, pressure 108.229530, water quality 0.164528
+  Node 9: demand -1909.424561, head 800.000000, pressure 0.000000, water quality 1.000000
+  Node 10: demand 1029.424561, head 961.279724, pressure 48.217503, water quality 0.598642
+ Links
+  Link 0: flow 1909.424561, velocity 2.407394, headloss 1.894171, ave water qual 0.801618, status 3.000000, react rate 2.261771, frict fact 0.031572
+  Link 1: flow 1310.994385, velocity 2.732339, headloss 3.210900, ave water qual 0.587322, status 3.000000, react rate 2.042209, frict fact 0.032314
+  Link 2: flow 85.912453, velocity 0.350951, headloss 0.106291, ave water qual 0.490265, status 3.000000, react rate 1.658332, frict fact 0.046314
+  Link 3: flow 235.691315, velocity 0.962794, headloss 0.688969, ave water qual 0.288463, status 3.000000, react rate 1.250450, frict fact 0.039887
+  Link 4: flow 114.087532, velocity 0.323642, headloss 0.073959, ave water qual 0.332695, status 3.000000, react rate 0.932232, frict fact 0.045472
+  Link 5: flow 42.739002, velocity 0.484966, headloss 0.351183, ave water qual 0.132317, status 3.000000, react rate 0.787792, frict fact 0.048080
+  Link 6: flow -1029.424561, velocity 1.297894, headloss 0.603333, ave water qual 0.498241, status 3.000000, react rate 1.397759, frict fact 0.034598
+  Link 7: flow 478.430298, velocity 1.954377, headloss 2.556483, ave water qual 0.498016, status 3.000000, react rate 2.222248, frict fact 0.035919
+  Link 8: flow 75.657219, velocity 0.214624, headloss 0.034552, ave water qual 0.525628, status 3.000000, react rate 1.281074, frict fact 0.048306
+  Link 9: flow 5.912459, velocity 0.037738, headloss 0.002219, ave water qual 0.285061, status 3.000000, react rate 0.170489, frict fact 0.066909
+  Link 10: flow 122.738998, velocity 0.783416, headloss 0.610190, ave water qual 0.234256, status 3.000000, react rate 1.170411, frict fact 0.042685
+  Link 11: flow 37.260998, velocity 0.422807, headloss 0.272404, ave water qual 0.334209, status 3.000000, react rate 1.912818, frict fact 0.049066
+  Link 12: flow 1909.424561, velocity 0.000000, headloss -198.299561, ave water qual 1.000000, status 3.000000, react rate 0.000000, frict fact 0.000000
+
+TimeStep 24
+ Nodes
+  Node 0: demand 0.000000, head 1000.718750, pressure 125.968437, water quality 1.000000
+  Node 1: demand 150.000000, head 981.104248, pressure 117.469467, water quality 0.868139
+  Node 2: demand 150.000000, head 965.476379, pressure 115.030914, water quality 0.641798
+  Node 3: demand 100.000000, head 964.298828, pressure 116.687180, water quality 0.380420
+  Node 4: demand 150.000000, head 967.121094, pressure 115.743568, water quality 0.604178
+  Node 5: demand 200.000000, head 964.528381, pressure 116.786644, water quality 0.261085
+  Node 6: demand 150.000000, head 964.087585, pressure 118.762154, water quality 0.251817
+  Node 7: demand 100.000000, head 962.937439, pressure 113.930794, water quality 0.190294
+  Node 8: demand 100.000000, head 961.194580, pressure 108.842613, water quality 0.153891
+  Node 9: demand -1892.243286, head 800.000000, pressure 0.000000, water quality 1.000000
+  Node 10: demand 792.243225, head 965.402039, pressure 50.003704, water quality 0.585868
+ Links
+  Link 0: flow 1892.243286, velocity 2.385732, headloss 1.862726, ave water qual 0.935082, status 3.000000, react rate 2.669344, frict fact 0.031614
+  Link 1: flow 1254.608032, velocity 2.614820, headloss 2.959824, ave water qual 0.703634, status 3.000000, react rate 2.419312, frict fact 0.032525
+  Link 2: flow 128.186249, velocity 0.523638, headloss 0.223021, ave water qual 0.472825, status 3.000000, react rate 1.593307, frict fact 0.043650
+  Link 3: flow 196.302017, velocity 0.801889, headloss 0.491044, ave water qual 0.379778, status 3.000000, react rate 1.547183, frict fact 0.040982
+  Link 4: flow 121.813751, velocity 0.345560, headloss 0.083484, ave water qual 0.312086, status 3.000000, react rate 0.881815, frict fact 0.045024
+  Link 5: flow 41.333168, velocity 0.469014, headloss 0.330087, ave water qual 0.126038, status 3.000000, react rate 0.745955, frict fact 0.048318
+  Link 6: flow -792.243225, velocity 0.998857, headloss 0.371704, ave water qual 0.641798, status 3.000000, react rate 1.714726, frict fact 0.035989
+  Link 7: flow 487.635223, velocity 1.991979, headloss 2.648325, ave water qual 0.673985, status 3.000000, react rate 3.065969, frict fact 0.035818
+  Link 8: flow 184.178558, velocity 0.522476, headloss 0.179545, ave water qual 0.495618, status 3.000000, react rate 1.213375, frict fact 0.042357
+  Link 9: flow 28.186245, velocity 0.179907, headloss 0.040008, ave water qual 0.282766, status 3.000000, react rate 0.169645, frict fact 0.053070
+  Link 10: flow 141.333176, velocity 0.902098, headloss 0.792359, ave water qual 0.342446, status 3.000000, react rate 1.659769, frict fact 0.041803
+  Link 11: flow 58.666828, velocity 0.665702, headloss 0.631402, ave water qual 0.286088, status 3.000000, react rate 1.658109, frict fact 0.045878
+  Link 12: flow 1892.243286, velocity 0.000000, headloss -200.718750, ave water qual 1.000000, status 3.000000, react rate 0.000000, frict fact 0.000000
+
+DEMO: DemoPlugin:DynamicResultsPrint(eof)
+DEMO: TimeStep 0
+DEMO:   Minimum node demand -1866.175781 (9), Maximum node demand 766.175842 (10)
+DEMO:   Minimum node head 800.000000 (9), Maximum node head 1004.347412 (0)
+DEMO:   Minimum node pressure 0.000000 (9), Maximum node pressure 0.000000 (0)
+DEMO:   Minimum node water quality 0.500000 (0), Maximum node water quality 1.000000 (9)
+DEMO:   Minimum link velocity 0.000000 (12), Maximum link velocity 2.572301 (1)
+DEMO: TimeStep 1
+DEMO:   Minimum node demand -1848.581177 (9), Maximum node demand 748.581116 (10)
+DEMO:   Minimum node head 800.000000 (9), Maximum node head 1006.768127 (0)
+DEMO:   Minimum node pressure 0.000000 (9), Maximum node pressure 0.000000 (0)
+DEMO:   Minimum node water quality 0.386358 (8), Maximum node water quality 1.000000 (0)
+DEMO:   Minimum link velocity 0.000000 (12), Maximum link velocity 2.543581 (1)
+DEMO: TimeStep 2
+DEMO:   Minimum node demand -1837.460938 (9), Maximum node demand 517.461121 (10)
+DEMO:   Minimum node head 800.000000 (9), Maximum node head 1008.286255 (0)
+DEMO:   Minimum node pressure 0.000000 (9), Maximum node pressure 0.000000 (0)
+DEMO:   Minimum node water quality 0.297983 (8), Maximum node water quality 1.000000 (0)
+DEMO:   Minimum link velocity 0.000000 (12), Maximum link velocity 2.426811 (1)
+DEMO: TimeStep 3
+DEMO:   Minimum node demand -1825.383179 (9), Maximum node demand 505.383179 (10)
+DEMO:   Minimum node head 800.000000 (9), Maximum node head 1009.924744 (0)
+DEMO:   Minimum node pressure 0.000000 (9), Maximum node pressure 0.000000 (0)
+DEMO:   Minimum node water quality 0.244482 (8), Maximum node water quality 1.000000 (0)
+DEMO:   Minimum link velocity 0.000000 (12), Maximum link velocity 2.406839 (1)
+DEMO: TimeStep 4
+DEMO:   Minimum node demand -1819.855103 (9), Maximum node demand 280.000000 (5)
+DEMO:   Minimum node head 800.000000 (9), Maximum node head 1010.671082 (0)
+DEMO:   Minimum node pressure 0.000000 (9), Maximum node pressure 0.000000 (0)
+DEMO:   Minimum node water quality 0.210607 (8), Maximum node water quality 1.000000 (0)
+DEMO:   Minimum link velocity 0.000000 (12), Maximum link velocity 2.294466 (0)
+DEMO: TimeStep 5
+DEMO:   Minimum node demand -1813.251587 (9), Maximum node demand 280.000000 (5)
+DEMO:   Minimum node head 800.000000 (9), Maximum node head 1011.559692 (0)
+DEMO:   Minimum node pressure 0.000000 (9), Maximum node pressure 0.000000 (0)
+DEMO:   Minimum node water quality 0.179007 (8), Maximum node water quality 1.000000 (0)
+DEMO:   Minimum link velocity 0.000000 (12), Maximum link velocity 2.286140 (0)
+DEMO: TimeStep 6
+DEMO:   Minimum node demand -1813.128662 (9), Maximum node demand 320.000000 (5)
+DEMO:   Minimum node head 800.000000 (9), Maximum node head 1011.576172 (0)
+DEMO:   Minimum node pressure 0.000000 (9), Maximum node pressure 0.000000 (0)
+DEMO:   Minimum node water quality 0.210329 (6), Maximum node water quality 1.000000 (0)
+DEMO:   Minimum link velocity 0.000000 (12), Maximum link velocity 2.285985 (0)
+DEMO: TimeStep 7
+DEMO:   Minimum node demand -1811.868530 (9), Maximum node demand 320.000000 (5)
+DEMO:   Minimum node head 800.000000 (9), Maximum node head 1011.745422 (0)
+DEMO:   Minimum node pressure 0.000000 (9), Maximum node pressure 0.000000 (0)
+DEMO:   Minimum node water quality 0.248195 (6), Maximum node water quality 1.000000 (0)
+DEMO:   Minimum link velocity 0.000000 (12), Maximum link velocity 2.284396 (0)
+DEMO: TimeStep 8
+DEMO:   Minimum node demand -1804.288208 (9), Maximum node demand 280.000000 (5)
+DEMO:   Minimum node head 800.000000 (9), Maximum node head 1012.760620 (0)
+DEMO:   Minimum node pressure 0.000000 (9), Maximum node pressure 0.000000 (0)
+DEMO:   Minimum node water quality 0.341976 (6), Maximum node water quality 1.000000 (0)
+DEMO:   Minimum link velocity 0.000000 (12), Maximum link velocity 2.274839 (0)
+DEMO: TimeStep 9
+DEMO:   Minimum node demand -1797.998779 (9), Maximum node demand 280.000000 (5)
+DEMO:   Minimum node head 800.000000 (9), Maximum node head 1013.599731 (0)
+DEMO:   Minimum node pressure 0.000000 (9), Maximum node pressure 0.000000 (0)
+DEMO:   Minimum node water quality 0.368484 (6), Maximum node water quality 1.000000 (0)
+DEMO:   Minimum link velocity 0.000000 (12), Maximum link velocity 2.266909 (0)
+DEMO: TimeStep 10
+DEMO:   Minimum node demand -1785.478149 (9), Maximum node demand 465.478210 (10)
+DEMO:   Minimum node head 800.000000 (9), Maximum node head 1015.261536 (0)
+DEMO:   Minimum node pressure 0.000000 (9), Maximum node pressure 0.000000 (0)
+DEMO:   Minimum node water quality 0.364019 (8), Maximum node water quality 1.000000 (0)
+DEMO:   Minimum link velocity 0.000000 (12), Maximum link velocity 2.340785 (1)
+DEMO: TimeStep 11
+DEMO:   Minimum node demand -1774.303589 (9), Maximum node demand 454.303589 (10)
+DEMO:   Minimum node head 800.000000 (9), Maximum node head 1016.734802 (0)
+DEMO:   Minimum node pressure 0.000000 (9), Maximum node pressure 0.000000 (0)
+DEMO:   Minimum node water quality 0.345819 (8), Maximum node water quality 1.000000 (0)
+DEMO:   Minimum link velocity 0.000000 (12), Maximum link velocity 2.322270 (1)
+DEMO: TimeStep 12
+DEMO:   Minimum node demand -1757.035522 (9), Maximum node demand 657.035583 (10)
+DEMO:   Minimum node head 800.000000 (9), Maximum node head 1018.993347 (0)
+DEMO:   Minimum node pressure 0.000000 (9), Maximum node pressure 0.000000 (0)
+DEMO:   Minimum node water quality 0.327829 (8), Maximum node water quality 1.000000 (0)
+DEMO:   Minimum link velocity 0.000000 (12), Maximum link velocity 2.393873 (1)
+DEMO: TimeStep 13
+DEMO:   Minimum node demand -1100.000854 (10), Maximum node demand 200.000000 (5)
+DEMO:   Minimum node head 800.000000 (9), Maximum node head 987.985962 (10)
+DEMO:   Minimum node pressure 0.000000 (9), Maximum node pressure 0.000000 (6)
+DEMO:   Minimum node water quality 0.320335 (8), Maximum node water quality 1.000000 (9)
+DEMO:   Minimum link velocity 0.000000 (12), Maximum link velocity 1.386876 (6)
+DEMO: TimeStep 14
+DEMO:   Minimum node demand -880.000793 (10), Maximum node demand 160.000000 (5)
+DEMO:   Minimum node head 800.000000 (9), Maximum node head 983.581055 (10)
+DEMO:   Minimum node pressure 0.000000 (9), Maximum node pressure 0.000000 (6)
+DEMO:   Minimum node water quality 0.304158 (8), Maximum node water quality 1.000000 (9)
+DEMO:   Minimum link velocity 0.000000 (12), Maximum link velocity 1.109501 (6)
+DEMO: TimeStep 15
+DEMO:   Minimum node demand -880.000793 (10), Maximum node demand 160.000000 (5)
+DEMO:   Minimum node head 800.000000 (9), Maximum node head 980.057068 (10)
+DEMO:   Minimum node pressure 0.000000 (9), Maximum node pressure 0.000000 (6)
+DEMO:   Minimum node water quality 0.312381 (8), Maximum node water quality 1.000000 (9)
+DEMO:   Minimum link velocity 0.000000 (12), Maximum link velocity 1.109501 (6)
+DEMO: TimeStep 16
+DEMO:   Minimum node demand -660.000793 (10), Maximum node demand 120.000008 (5)
+DEMO:   Minimum node head 800.000000 (9), Maximum node head 976.533142 (10)
+DEMO:   Minimum node pressure 0.000000 (9), Maximum node pressure 0.000000 (6)
+DEMO:   Minimum node water quality 0.309407 (8), Maximum node water quality 1.000000 (9)
+DEMO:   Minimum link velocity 0.000000 (12), Maximum link velocity 0.832126 (6)
+DEMO: TimeStep 17
+DEMO:   Minimum node demand -660.000793 (10), Maximum node demand 120.000008 (5)
+DEMO:   Minimum node head 800.000000 (9), Maximum node head 973.890137 (10)
+DEMO:   Minimum node pressure 0.000000 (9), Maximum node pressure 0.000000 (6)
+DEMO:   Minimum node water quality 0.271881 (8), Maximum node water quality 1.000000 (9)
+DEMO:   Minimum link velocity 0.000000 (12), Maximum link velocity 0.832126 (6)
+DEMO: TimeStep 18
+DEMO:   Minimum node demand -440.000763 (10), Maximum node demand 80.000000 (5)
+DEMO:   Minimum node head 800.000000 (9), Maximum node head 971.247192 (10)
+DEMO:   Minimum node pressure 0.000000 (9), Maximum node pressure 0.000000 (6)
+DEMO:   Minimum node water quality 0.254650 (8), Maximum node water quality 1.000000 (9)
+DEMO:   Minimum link velocity 0.000000 (12), Maximum link velocity 0.554751 (6)
+DEMO: TimeStep 19
+DEMO:   Minimum node demand -440.000763 (10), Maximum node demand 80.000000 (5)
+DEMO:   Minimum node head 800.000000 (9), Maximum node head 969.485229 (10)
+DEMO:   Minimum node pressure 0.000000 (9), Maximum node pressure 0.000000 (6)
+DEMO:   Minimum node water quality 0.225142 (8), Maximum node water quality 1.000000 (9)
+DEMO:   Minimum link velocity 0.000000 (12), Maximum link velocity 0.554751 (6)
+DEMO: TimeStep 20
+DEMO:   Minimum node demand -660.000732 (10), Maximum node demand 120.000008 (5)
+DEMO:   Minimum node head 800.000000 (9), Maximum node head 967.723267 (10)
+DEMO:   Minimum node pressure 0.000000 (9), Maximum node pressure 0.000000 (6)
+DEMO:   Minimum node water quality 0.207040 (8), Maximum node water quality 1.000000 (9)
+DEMO:   Minimum link velocity 0.000000 (12), Maximum link velocity 0.832126 (6)
+DEMO: TimeStep 21
+DEMO:   Minimum node demand -660.000732 (10), Maximum node demand 120.000008 (5)
+DEMO:   Minimum node head 800.000000 (9), Maximum node head 965.080261 (10)
+DEMO:   Minimum node pressure 0.000000 (9), Maximum node pressure 0.000000 (6)
+DEMO:   Minimum node water quality 0.187894 (7), Maximum node water quality 1.000000 (9)
+DEMO:   Minimum link velocity 0.000000 (12), Maximum link velocity 0.832126 (6)
+DEMO: TimeStep 22
+DEMO:   Minimum node demand -880.000671 (10), Maximum node demand 160.000000 (5)
+DEMO:   Minimum node head 800.000000 (9), Maximum node head 962.437317 (10)
+DEMO:   Minimum node pressure 0.000000 (9), Maximum node pressure 0.000000 (6)
+DEMO:   Minimum node water quality 0.173790 (7), Maximum node water quality 1.000000 (9)
+DEMO:   Minimum link velocity 0.000000 (12), Maximum link velocity 1.109501 (6)
+DEMO: TimeStep 23
+DEMO:   Minimum node demand -1909.424561 (9), Maximum node demand 1029.424561 (10)
+DEMO:   Minimum node head 800.000000 (9), Maximum node head 998.299561 (0)
+DEMO:   Minimum node pressure 0.000000 (9), Maximum node pressure 0.000000 (0)
+DEMO:   Minimum node water quality 0.164528 (8), Maximum node water quality 1.000000 (0)
+DEMO:   Minimum link velocity 0.000000 (12), Maximum link velocity 2.732339 (1)
+DEMO: TimeStep 24
+DEMO:   Minimum node demand -1892.243286 (9), Maximum node demand 792.243225 (10)
+DEMO:   Minimum node head 800.000000 (9), Maximum node head 1000.718750 (0)
+DEMO:   Minimum node pressure 0.000000 (9), Maximum node pressure 0.000000 (0)
+DEMO:   Minimum node water quality 0.153891 (8), Maximum node water quality 1.000000 (0)
+DEMO:   Minimum link velocity 0.000000 (12), Maximum link velocity 2.614820 (1)
+DEMO: Overall min/max
+DEMO:   Minimum node demand -1909.424561 (timestep: 23/node index: 9)
+DEMO:   Maximum node demand 1029.424561 (timestep: 23/node index: 10)
+DEMO:   Minimum node head 800.000000 (timestep: 0/node index: 9)
+DEMO:   Maximum node head 1018.993347 (timestep: 12/node index: 0)
+DEMO:   Minimum node pressure 0.000000 (timestep: 0/node index: 9)
+DEMO:   Maximum node pressure 133.886810 (timestep: 12/node index: 0)
+DEMO:   Minimum node water quality 0.153891 (timestep: 24/node index: 8)
+DEMO:   Maximum node water quality 1.000000 (timestep: 0/node index: 9)
+DEMO:   Minimum link velocity 0.000000 (timestep: 0/link index: 12)
+DEMO:   Maximum link velocity 2.732339 (timestep: 23/link index: 1)
+Writing dynamic results for nodes to CSV: test\output\Net1_dnode.csv
+Writing dynamic results for links to CSV: test\output\Net1_dlink.csv
+DEMO: DemoPlugin:DynamicResultsExport(eof)
+DEMO: DemoPlugin:EpilogRead(eof)
+
+Epilog
+======
+Average Bulk Reaction Rate: 18806.589844
+Average Wall Reaction Rate: 85424.437500
+Average Tank Reaction Rate: 115174.054688
+Average Source Inflow Rate: 238972.656250
+Number of reporting periods: 25
+Analysis generated no errors or warnings
+Magic number: 516114521
+
+DEMO: DemoPlugin:EpilogPrint(eof)
+DEMO: DemoPlugin:EpilogExport(eof)
+Done like a dinner.
+DEMO: DemoPlugin:FileClose(eof)
+Time taken: 0:00:00.060000

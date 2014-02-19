@@ -2,19 +2,24 @@ Python EPANETFileUtility
 ========================
 
 EPANET file utility planned to read/load different types of EPANET files.
+The utilities will be provided in two forms:
+1. command line, text only utilities - one for each file type
+2. a GUI-based utility providing access to the output of all text based
+utilities.  As text-based utilities are provided for different file types,
+support for them will also be added to the combined GUI-based utility.
 
-Written for Python 2.6 and 2.7.
+Written for Python 2.6 and 2.7, with GUI using wxPython.
 
 Requirements and Support
 ------------------------
 
 Written and tested on:
-- MacOS X 10.9.1 using Python 2.7.5
-- Windows Vista using Python 2.6.4 and 2.7.5
+- MacOS X 10.9.1 using Python 2.7.5 and GUI using wxPython 3.0.0 (osx-cocoa)
+- Windows Vista using Python 2.6.4 and 2.7.5 using wxPython 2.9.5
 
 To build the language template (.pot) file requires GNU gettext tools
 available from http://www.gnu.org/software/gettext/.  Version 0.18.3.1 has
-been used.
+been used on MacOS X.
 
 Scripts for generating language template (.pot) file and testing the utilities
 are provided for MacOS (.sh) and Windows (.bat).
@@ -25,12 +30,39 @@ Current functionality
 Functionality for reading other EPANET files is planned for
 the future, but at the moment, the only type of file read is:
 
-1. EPANET toolkit 2.00.12 binary output file
+1. EPANET toolkit 2.00.12 binary output file (see details below)
 
 
-Details
--------
+GUI
+---
 
+A wxPython-based GUI is provided.  To use this GUI, wxPython must be installed.
+Development has been done using versions 2.9.5 and 3.0.0 and it currently
+is expected to work on both.
+
+        Usage: python EPANETFileUtility.py
+
+At startup, the user will currently be prompted to select an EPANET output
+file which will then be loaded and its contents displayed.
+
+Some options are available on the left of the main window, but only the `Data`
+option has any contents.  This option displays a `PropertyGridManager` with 4
+pages, viz:
+   1. Prolog: properties read from the prolog of the output file 
+	  Node and link information is displayed in two `TreeListCtrl`s below
+   2. Energy Usage: a single property
+	  Information for each pump is shown in a `TreeListCtrl` below
+   3. Dynamic Results: a property grid containing analysis information
+	  and summary information loaded by the demo plugin
+	  Node and link information for each timestep is lazy-loaded and
+	  displayed in two `TreeListCtrls` below
+   4. Epilog: a property grid
+
+The `Tables`, `Graphs` and `Export` options do not do anything at present.
+
+
+Utility Details
+---------------
 
 1. EPANET toolkit 2.00.12 binary output file reader
    Loads binary output file (from EPANET toolkit hydraulic analysis) 

@@ -220,7 +220,7 @@ else:
     pluginsdir = os.path.join(path,u'plugins')
     # unfortunately, to make this work we need to go back to ASCII...
     EOFTPluginDirs = [name.encode('ascii','replace') for name in os.listdir(pluginsdir)
-            if os.path.isdir(os.path.join(pluginsdir, name))]
+            if os.path.isdir(os.path.join(pluginsdir, name)) and not name.startswith('.')]
 EOFTPluginPackages = []
 
 
@@ -491,16 +491,16 @@ class EPANETOutputFile():
 
         '''
 
-        if self.Epilog['nPeriods'] != 1:
-            pstr = 's'
-        else:
-            pstr = ''
+        nPeriods = self.Epilog['nPeriods']
         if self.options.verbose:
-            print(gettext.ngettext(
+            tmpstr = gettext.ngettext(
                 'Analysis had one reporting period',
                 'Analysis had %d reporting periods',
-                self.Epilog['nPeriods']) %
                 self.Epilog['nPeriods'])
+            if '%' in tmpstr:
+                print(tmpstr % nPeriods)
+            else:
+                print(tmpstr)
 
             if self.Epilog['WarningFlag'] == 0:
                 print(_('Analysis generated no errors or warnings'))

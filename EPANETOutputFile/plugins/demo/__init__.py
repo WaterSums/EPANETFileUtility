@@ -108,6 +108,26 @@ class DemoPlugin(EPANETOutputFilePlugin.EOFTPlugin):
     def __init__(self):
         self.parser = None
         self.options = None
+        self.minMinDemand = None
+        self.minMinDemandContext = (None, None)
+        self.maxMaxDemand = None
+        self.maxMaxDemandContext = (None, None)
+        self.minMinHead = None
+        self.minMinHeadContext = (None, None)
+        self.maxMaxHead = None
+        self.maxMaxHeadContext = (None, None)
+        self.minMinPress = None
+        self.minMinPressContext = (None, None)
+        self.maxMaxPress = None
+        self.maxMaxPressContext = (None, None)
+        self.minMinWaterQ = None
+        self.minMinWaterQContext = (None, None)
+        self.maxMaxWaterQ = None
+        self.maxMaxWaterQContext = (None, None)
+        self.minMinVel = None
+        self.minMinVelContext = (None, None)
+        self.maxMaxVel = None
+        self.maxMaxVelContext = (None, None)
         pass
 
     # These are the callback messages that can be overridden
@@ -166,9 +186,12 @@ class DemoPlugin(EPANETOutputFilePlugin.EOFTPlugin):
             options.demo_prolog_info = True
             options.demo_dynamic_results_info = True
 
+        # silent wins over everything except errors
+        if eof.options.silent: options.demo_verbose = False
+
         if self.options.demo_verbose:
             print("DEMO: %s:FileInit(eof, %s)" % (self.__class__.__name__, options))
-        if self.options.demo_plugin_info:
+        if self.options.demo_plugin_info and not eof.options.silent:
             print("DEMO: EPANETOutputFile loaded plugins:")
             for p in eof.GetEOFTPluginDirs():
                 print("DEMO:   %s" % p)
@@ -207,32 +230,33 @@ class DemoPlugin(EPANETOutputFilePlugin.EOFTPlugin):
             EpilogSize = 28
             TotalSize = PrologSize + EnergyUseSize + DynamicResultsSize + EpilogSize
             eof.f.seek(0)
-            print('DEMO: File section size definitions:')
-            print('DEMO:   Prolog size: 884 + 36*Nnodes + 52*Nlinks + 8*Ntanks')
-            print('DEMO:   Energy use size: 28*Npumps + 4')
-            print('DEMO:   Dynamic results size: (16*Nnodes + 32*Nlinks)*Nperiods')
-            print('DEMO:   Epilog size: 28')
+            if not eof.options.silent:
+                print('DEMO: File section size definitions:')
+                print('DEMO:   Prolog size: 884 + 36*Nnodes + 52*Nlinks + 8*Ntanks')
+                print('DEMO:   Energy use size: 28*Npumps + 4')
+                print('DEMO:   Dynamic results size: (16*Nnodes + 32*Nlinks)*Nperiods')
+                print('DEMO:   Epilog size: 28')
 
-            print('DEMO: Network data:')
-            print('DEMO:   Nnodes=%d' % Nnodes)
-            print('DEMO:   Ntanks=%d (actually reservoirs and tanks)' % Ntanks)
-            print('DEMO:   Nlinks=%d' % Nlinks)
-            print('DEMO:   Npumps=%d' % Npumps)
-            print('DEMO:   Nperiods=%d' % Nperiods)
-            print('DEMO: Caclulated file section sizes:')
-            print('DEMO:   Prolog size: 884 + 36*%d + 52*%d + 8*%d = %d (%.2f%%)' %
-                    (Nnodes,Nlinks,Ntanks, PrologSize,
-                        (PrologSize*100.0/TotalSize)))
-            print('DEMO:   Energy use size: 28*%d + 4 = %d (%.2f%%)' % (Npumps, EnergyUseSize, (EnergyUseSize*100.0/TotalSize)))
-            print('DEMO:   Dynamic results size: (16*%d + 32*%d)*%d = %d (%.2f%%)' %
-                    (Nnodes, Nlinks, Nperiods, DynamicResultsSize,
-                        (DynamicResultsSize*100.0/TotalSize)))
-            print('DEMO:   Epilog size: 28 (%.2f%%)' % (EpilogSize*100.0/TotalSize))
-            print('DEMO: Total file size: %d' % TotalSize)
-            if self.filesize == TotalSize:
-                print('DEMO: Actual file size matches calculated file size')
-            else:
-                print('DEMO: ERROR actual file size (%d) does not match calculated file size (%d)' % (self.filesize, TotalSize))
+                print('DEMO: Network data:')
+                print('DEMO:   Nnodes=%d' % Nnodes)
+                print('DEMO:   Ntanks=%d (actually reservoirs and tanks)' % Ntanks)
+                print('DEMO:   Nlinks=%d' % Nlinks)
+                print('DEMO:   Npumps=%d' % Npumps)
+                print('DEMO:   Nperiods=%d' % Nperiods)
+                print('DEMO: Caclulated file section sizes:')
+                print('DEMO:   Prolog size: 884 + 36*%d + 52*%d + 8*%d = %d (%.2f%%)' %
+                        (Nnodes,Nlinks,Ntanks, PrologSize,
+                            (PrologSize*100.0/TotalSize)))
+                print('DEMO:   Energy use size: 28*%d + 4 = %d (%.2f%%)' % (Npumps, EnergyUseSize, (EnergyUseSize*100.0/TotalSize)))
+                print('DEMO:   Dynamic results size: (16*%d + 32*%d)*%d = %d (%.2f%%)' %
+                        (Nnodes, Nlinks, Nperiods, DynamicResultsSize,
+                            (DynamicResultsSize*100.0/TotalSize)))
+                print('DEMO:   Epilog size: 28 (%.2f%%)' % (EpilogSize*100.0/TotalSize))
+                print('DEMO: Total file size: %d' % TotalSize)
+                if self.filesize == TotalSize:
+                    print('DEMO: Actual file size matches calculated file size')
+                else:
+                    print('DEMO: ERROR actual file size (%d) does not match calculated file size (%d)' % (self.filesize, TotalSize))
             if progupdate is not None: progupdate(100,_('Demo plugin FileOpen finished.'))
 
     def PrologRead(self, eof, progupdate):
@@ -255,7 +279,7 @@ class DemoPlugin(EPANETOutputFilePlugin.EOFTPlugin):
         ''' Callback message: print prolog section. Progress 0-100. '''
         if self.options.demo_verbose:
             print("DEMO: %s:PrologPrint(eof)" % self.__class__.__name__)
-        if self.options.demo_prolog_info:
+        if self.options.demo_prolog_info and not eof.options.silent:
             d = eof.Prolog
             print('DEMO: Node elevation Average=%f' % d['demo_NodeElevAve'])
             print('DEMO: Link length Average=%f' % d['demo_LinkLengthAve'])
@@ -286,27 +310,113 @@ class DemoPlugin(EPANETOutputFilePlugin.EOFTPlugin):
             print("DEMO: %s:DynamicResultsRead(eof)" % self.__class__.__name__)
         if self.options.demo_dynamic_results_info:
             nNodes = eof.Prolog['nNodes']
+            minMinDemand = float("+inf")
+            maxMaxDemand = float("-inf")
+            minMinHead = float("+inf")
+            maxMaxHead = float("-inf")
             minMinPress = float("+inf")
             maxMaxPress = float("-inf")
+            minMinWaterQ = float("+inf")
+            maxMaxWaterQ = float("-inf")
             for i in range (0, eof.Epilog['nPeriods']):
+                minDemand = float("+inf")
+                maxDemand = float("-inf")
+                minHead = float("+inf")
+                maxHead = float("-inf")
                 minPress = float("+inf")
                 maxPress = float("-inf")
+                minWaterQ = float("+inf")
+                maxWaterQ = float("-inf")
                 d = eof.DynamicResults[i]
                 for j in range (0, nNodes):
-                    if d['NodePressure'][j] < minPress:
-                        minPress = d['NodePressure'][j]
-                    if d['NodePressure'][j] > maxPress:
-                        maxPress = d['NodePressure'][j]
+                    dem = d['NodeDemand'][j]
+                    if dem < minDemand:
+                        minDemand = dem
+                        minDemandContext = (i,j)
+                    if dem > maxDemand:
+                        maxDemand = dem
+                        maxDemandContext = (i,j)
+                    head = d['NodeHead'][j]
+                    if head < minHead:
+                        minHead = head
+                        minHeadContext = (i,j)
+                    if head > maxHead:
+                        maxHead = head
+                        maxHeadContext = (i,j)
+                    press = d['NodePressure'][j]
+                    if press < minPress:
+                        minPress = press
+                        minPressContext = (i,j)
+                    if press > maxPress:
+                        maxPress = press
+                        maxPressContext = (i,j)
+                    waterq = d['NodeWaterQuality'][j]
+                    if waterq < minWaterQ:
+                        minWaterQ = waterq
+                        minWaterQContext = (i,j)
+                    if waterq > maxWaterQ:
+                        maxWaterQ = waterq
+                        maxWaterQContext = (i,j)
+
+                d['demo_NodeDemandMin'] = minDemand
+                d['demo_NodeDemandMinContext'] = minDemandContext
+                d['demo_NodeDemandMax'] = maxDemand
+                d['demo_NodeDemandMaxContext'] = maxDemandContext
+                d['demo_NodeHeadMin'] = minHead
+                d['demo_NodeHeadMinContext'] = minHeadContext
+                d['demo_NodeHeadMax'] = maxHead
+                d['demo_NodeHeadMaxContext'] = maxHeadContext
                 d['demo_NodePressureMin'] = minPress
+                d['demo_NodePressureMinContext'] = minPressContext
                 d['demo_NodePressureMax'] = maxPress
+                d['demo_NodePressureMaxContext'] = maxPressContext
+                d['demo_NodeWaterQMin'] = minWaterQ
+                d['demo_NodeWaterQMinContext'] = minWaterQContext
+                d['demo_NodeWaterQMax'] = maxWaterQ
+                d['demo_NodeWaterQMaxContext'] = maxWaterQContext
+
+                if minDemand < minMinDemand:
+                    minMinDemand = minDemand
+                    minMinDemandContext = minDemandContext
+                if maxDemand > maxMaxDemand:
+                    maxMaxDemand = maxDemand
+                    maxMaxDemandContext = maxDemandContext
+                if minHead < minMinHead:
+                    minMinHead = minHead
+                    minMinHeadContext = minHeadContext
+                if maxHead > maxMaxHead:
+                    maxMaxHead = maxHead
+                    maxMaxHeadContext = maxHeadContext
                 if minPress < minMinPress:
                     minMinPress = minPress
+                    minMinPressContext = minPressContext
                 if maxPress > maxMaxPress:
                     maxMaxPress = maxPress
+                    maxMaxPressContext = maxPressContext
+                if minWaterQ < minMinWaterQ:
+                    minMinWaterQ = minWaterQ
+                    minMinWaterQContext = minWaterQContext
+                if maxWaterQ > maxMaxWaterQ:
+                    maxMaxWaterQ = maxWaterQ
+                    maxMaxWaterQContext = maxWaterQContext
 
             # save the answers
+            self.minMinDemand = minMinDemand
+            self.minMinDemandContext = minMinDemandContext
+            self.maxMaxDemand = maxMaxDemand
+            self.maxMaxDemandContext = maxMaxDemandContext
+            self.minMinHead = minMinHead
+            self.minMinHeadContext = minMinHeadContext
+            self.maxMaxHead = maxMaxHead
+            self.maxMaxHeadContext = maxMaxHeadContext
             self.minMinPress = minMinPress
+            self.minMinPressContext = minMinPressContext
             self.maxMaxPress = maxMaxPress
+            self.maxMaxPressContext = maxMaxPressContext
+            self.minMinWaterQ = minMinWaterQ
+            self.minMinWaterQContext = minMinWaterQContext
+            self.maxMaxWaterQ = maxMaxWaterQ
+            self.maxMaxWaterQContext = maxMaxWaterQContext
 
             nLinks = eof.Prolog['nLinks']
             minMinVel = float("+inf")
@@ -318,32 +428,71 @@ class DemoPlugin(EPANETOutputFilePlugin.EOFTPlugin):
                 for j in range (0, nLinks):
                     if d['LinkVelocity'][j] < minVel:
                         minVel = d['LinkVelocity'][j]
+                        minVelContext = (i,j)
                     if d['LinkVelocity'][j] > maxVel:
                         maxVel = d['LinkVelocity'][j]
+                        maxVelContext = (i,j)
                 d['demo_LinkVelocityMin'] = minVel
+                d['demo_LinkVelocityMinContext'] = minVelContext
                 d['demo_LinkVelocityMax'] = maxVel
+                d['demo_LinkVelocityMaxContext'] = maxVelContext
                 if minVel < minMinVel:
                     minMinVel = minVel
+                    minMinVelContext = minVelContext
                 if maxVel > maxMaxVel:
                     maxMaxVel = maxVel
+                    maxMaxVelContext = maxVelContext
 
             # save the answers
             self.minMinVel = minMinVel
+            self.minMinVelContext = minMinVelContext
             self.maxMaxVel = maxMaxVel
+            self.maxMaxVelContext = maxMaxVelContext
 
     def DynamicResultsPrint(self, eof, progupdate):
         ''' Callback message: print file dynamic results section. Progress 0-100. '''
         if self.options.demo_verbose:
             print("DEMO: %s:DynamicResultsPrint(eof)" % self.__class__.__name__)
-        if self.options.demo_dynamic_results_info:
+        if self.options.demo_dynamic_results_info and not eof.options.silent:
             for i in range (0, eof.Epilog['nPeriods']):
                 d = eof.DynamicResults[i]
                 print(_("DEMO: TimeStep %d") % i)
-                print(_('DEMO:   Minimum node pressure %f, Maximum node pressure %f' % (d['demo_NodePressureMin'], d['demo_NodePressureMax'])))
-                print(_('DEMO:   Minimum link velocity %f, Maximum link velocity %f' % (d['demo_LinkVelocityMin'], d['demo_LinkVelocityMax'])))
+                print(_('DEMO:   Minimum node demand %f (%d), Maximum node demand %f (%d)' % (
+                    d['demo_NodeDemandMin'], d['demo_NodeDemandMinContext'][1],
+                    d['demo_NodeDemandMax'], d['demo_NodeDemandMaxContext'][1])))
+                print(_('DEMO:   Minimum node head %f (%d), Maximum node head %f (%d)' % (
+                    d['demo_NodeHeadMin'], d['demo_NodeHeadMinContext'][1],
+                    d['demo_NodeHeadMax'], d['demo_NodeHeadMaxContext'][1])))
+                print(_('DEMO:   Minimum node pressure %f (%d), Maximum node pressure %f (%d)' % (
+                    d['demo_NodePressureMin'], d['demo_NodePressureMinContext'][1],
+                    d['demo_NodePressureMin'], d['demo_NodePressureMaxContext'][1])))
+                print(_('DEMO:   Minimum node water quality %f (%d), Maximum node water quality %f (%d)' % (
+                    d['demo_NodeWaterQMin'], d['demo_NodeWaterQMinContext'][1],
+                    d['demo_NodeWaterQMax'], d['demo_NodeWaterQMaxContext'][1])))
+                print(_('DEMO:   Minimum link velocity %f (%d), Maximum link velocity %f (%d)' % (
+                    d['demo_LinkVelocityMin'], d['demo_LinkVelocityMinContext'][1],
+                    d['demo_LinkVelocityMax'], d['demo_LinkVelocityMaxContext'][1])))
             print(_("DEMO: Overall min/max"))
-            print(_('DEMO:   Minimum node pressure %f, Maximum node pressure %f' % (self.minMinPress, self.maxMaxPress)))
-            print(_('DEMO:   Minimum link velocity %f, Maximum link velocity %f' % (self.minMinVel, self.maxMaxVel)))
+            print(_('DEMO:   Minimum node demand %f (timestep: %d/node index: %d)' % (
+                self.minMinDemand, self.minMinDemandContext[0], self.minMinDemandContext[1])))
+            print(_('DEMO:   Maximum node demand %f (timestep: %d/node index: %d)' % (
+                self.maxMaxDemand, self.maxMaxDemandContext[0], self.maxMaxDemandContext[1])))
+            print(_('DEMO:   Minimum node head %f (timestep: %d/node index: %d)' % (
+                self.minMinHead, self.minMinHeadContext[0], self.minMinHeadContext[1])))
+            print(_('DEMO:   Maximum node head %f (timestep: %d/node index: %d)' % (
+                self.maxMaxHead, self.maxMaxHeadContext[0], self.maxMaxHeadContext[1])))
+            print(_('DEMO:   Minimum node pressure %f (timestep: %d/node index: %d)' % (
+                self.minMinPress, self.minMinPressContext[0], self.minMinPressContext[1])))
+            print(_('DEMO:   Maximum node pressure %f (timestep: %d/node index: %d)' % (
+                self.maxMaxPress, self.maxMaxPressContext[0], self.maxMaxPressContext[1])))
+            print(_('DEMO:   Minimum node water quality %f (timestep: %d/node index: %d)' % (
+                self.minMinWaterQ, self.minMinWaterQContext[0], self.minMinWaterQContext[1])))
+            print(_('DEMO:   Maximum node water quality %f (timestep: %d/node index: %d)' % (
+                self.maxMaxWaterQ, self.maxMaxWaterQContext[0], self.maxMaxWaterQContext[1])))
+            print(_('DEMO:   Minimum link velocity %f (timestep: %d/link index: %d)' % (
+                self.minMinVel, self.minMinVelContext[0], self.minMinVelContext[1])))
+            print(_('DEMO:   Maximum link velocity %f (timestep: %d/link index: %d)' % (
+                self.maxMaxVel, self.maxMaxVelContext[0], self.maxMaxVelContext[1])))
 
     def DynamicResultsExport(self, eof, progupdate):
         ''' Callback message: export file dynamic results section. Progress 0-100. '''
