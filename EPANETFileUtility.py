@@ -1004,5 +1004,6 @@ if __name__ == '__main__':
     if 'unicode' not in wx.PlatformInfo:
         print(_("\nInstalled wxPython version: %s\nYou need a unicode build of wxPython to run this application.\n")%wx.version())
     else:
-        print(_("\n%s, Installed wxPython version: %s\n")%(version,wx.version()))
+        print(_("\n%(EFUver)s, Installed wxPython version: %(wxver)s\n") %
+                {'EFUver': version, 'wxver': wx.version()})
         main()
