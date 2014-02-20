@@ -21,6 +21,7 @@ import codecs
 import sys
 import gettext
 from EPANETOutputFile import EPANETOutputFile
+import traceback
 
 def main():
 
@@ -68,7 +69,7 @@ def main():
         # the information
         #print('Lang.info() = %s' % Lang.info())
         #language = Lang._info['language']
-		# TODO convert from language name (string) to wx.LANGUAGE_... (number)
+        # TODO convert from language name (string) to wx.LANGUAGE_... (number)
         #mylocale = wx.Locale(language, wx.LOCALE_LOAD_DEFAULT)
     else:
         Lang = gettext.translation(u'EPANETFileUtility', langdir, languages=[language])
@@ -144,6 +145,9 @@ class MyFrame(wx.Frame):
         self.Dnodetree = None
         self.Dlinktree = None
         self.currentpage = 0
+        self.dirname = None
+        self.filename = None
+        self.exportdirname = None
 
         il = wx.ImageList(80, 80)
         bmp = wx.Bitmap('images/led_circle_yellow.png', wx.BITMAP_TYPE_PNG)
@@ -181,9 +185,88 @@ class MyFrame(wx.Frame):
             win = self.makeColourPanel(colour)
             title = titleList[i]
             self.control.AddPage(win, title, imageId=imageIdGenerator.next())
-            st = wx.StaticText(win.win, -1,
-                      _("EPANET File Utility."),
-                      wx.Point(10, 10))
+
+            if i == 3:
+                sizer = wx.BoxSizer(wx.VERTICAL)
+                win.win.SetSizer(sizer)
+                topsizer = wx.BoxSizer(wx.HORIZONTAL)
+                sizer.Add(topsizer, 1, wx.GROW)
+
+                bitmap = wx.Bitmap('images/200px-Text-csv-text.svg.png')
+                imgcontrol = wx.StaticBitmap(win.win, -1, bitmap)
+                topsizer.Add(imgcontrol, 0, wx.GROW | wx.ALL, 10)
+
+                st = wx.StaticText(win.win, -1,
+                      _(
+"Some of the values stored in an output file can be exported "
+"in a tabular form to Comma Separated Values (CSV) files."
+"""
+
+"""
+"Normally, these export files are written in the same directory as the output "
+"file, each with the same base name as the output file and with a different "
+"suffix.  The .csv extension is appended.  If necessary, the base name and "
+"directory can be specified below."
+)
+                      )
+                topsizer.Add(st, 0, wx.GROW | wx.ALL, 10)
+
+                midsizer = wx.BoxSizer(wx.HORIZONTAL)
+                sizer.Add(midsizer, 1, wx.GROW)
+
+                midleftsizer = wx.BoxSizer(wx.VERTICAL)
+                midsizer.Add(midleftsizer, 1, wx.GROW)
+
+                midrightsizer = wx.BoxSizer(wx.VERTICAL)
+                midsizer.Add(midrightsizer, 1, wx.GROW)
+                groupbox = wx.StaticBox(win.win, -1, 'Naming')
+                groupsizer = wx.StaticBoxSizer(groupbox, wx.VERTICAL)
+                st = wx.StaticText(win.win, -1, _("Base name"))
+                groupsizer.Add(st, 0, wx.GROW)
+                self.BaseNameTextCtrl = st = wx.TextCtrl(win.win)
+                groupsizer.Add(st, 0, wx.GROW)
+
+                m_dir = wx.Button(win.win, -1, "Directory...")
+                m_dir.Bind(wx.EVT_BUTTON, self.OnDirectoryClick)
+                groupsizer.Add(m_dir, 0, wx.TOP, 30)
+                midrightsizer.Add(groupsizer, 1, wx.GROW)
+
+                groupbox = wx.StaticBox(win.win, -1, 'Prolog')
+                groupsizer = wx.StaticBoxSizer(groupbox, wx.VERTICAL)
+                midleftsizer.Add(groupsizer, 1, wx.GROW)
+                self.PrologNodeCSVCheckBox = st = wx.CheckBox(win.win, -1, _('Nodes analysed'))
+                st.SetValue(True)
+                groupsizer.Add(st, 1, wx.GROW)
+                self.PrologLinkCSVCheckBox = st = wx.CheckBox(win.win, -1, _('Links analysed'))
+                st.SetValue(True)
+                groupsizer.Add(st, 1, wx.GROW)
+
+                groupbox = wx.StaticBox(win.win, -1, 'Energy Usage')
+                groupsizer = wx.StaticBoxSizer(groupbox, wx.VERTICAL)
+                midleftsizer.Add(groupsizer, 1, wx.GROW)
+                self.EnergyUsageCSVCheckBox = st = wx.CheckBox(win.win, -1, _('Pump energy usage'))
+                st.SetValue(True)
+                groupsizer.Add(st, 1, wx.GROW)
+
+                groupbox = wx.StaticBox(win.win, -1, 'Dynamic Results')
+                groupsizer = wx.StaticBoxSizer(groupbox, wx.VERTICAL)
+                midleftsizer.Add(groupsizer, 1, wx.GROW)
+                self.DynamicResultsNodeCSVCheckBox = st = wx.CheckBox(win.win, -1, _('Node dynamic results'))
+                st.SetValue(True)
+                groupsizer.Add(st, 1, wx.GROW)
+                self.DynamicResultsLinkCSVCheckBox = st = wx.CheckBox(win.win, -1, _('Link dynamic results'))
+                st.SetValue(True)
+                groupsizer.Add(st, 1, wx.GROW)
+                m_export = wx.Button(win.win, -1, "Export")
+                m_export.Bind(wx.EVT_BUTTON, self.OnExport)
+                sizer.Add(m_export, 0, wx.ALL | wx.ALIGN_RIGHT, 20)
+                
+                topsizer.Layout()
+                sizer.Layout()
+            else:
+                st = wx.StaticText(win.win, -1,
+                          _("EPANET File Utility."),
+                          wx.Point(10, 10))
 
             #win = self.makeColourPanel(colour)
             #st = wx.StaticText(win.win, -1, "this is a sub-page", (10,10))
@@ -230,6 +313,78 @@ class MyFrame(wx.Frame):
         # message.  Instead we bind to the idle event which is
         # called after startup is complete.  This works.
         self.Bind(wx.EVT_IDLE, self.OnStartup)
+
+    def OnDirectoryClick(self, event):
+        """ Select directory for export """
+        dlg = wx.DirDialog(self, _("Choose an export directory"), self.dirname)
+        try:
+            dlg.SetPath(self.exportdirname)
+            result = dlg.ShowModal()
+            if result == wx.ID_OK:
+                self.exportdirname = dlg.GetPath()
+
+        except Exception as ex:
+            print(ex)
+            errdlg = wx.MessageDialog(self, str(ex), _('Error'), style=wx.OK | wx.ICON_ERROR)
+            errdlg.ShowModal()
+            errdlg.Destroy()
+        finally:
+            dlg.Destroy()
+
+    def OnExport(self, event):
+        """ Export CSV file(s)"""
+        try:
+            options = {}
+            files = []
+            dname = self.exportdirname
+            base = self.BaseNameTextCtrl.GetValue()
+            pre = '%s%s%s' % (dname, os.sep, base)
+            if self.PrologNodeCSVCheckBox.IsChecked():
+                fname = '%s_pnode.csv' % pre
+                files.append(fname)
+                options["prolog_node_csv"] = fname
+            if self.PrologLinkCSVCheckBox.IsChecked():
+                fname = '%s_plink.csv' % pre
+                files.append(fname)
+                options["prolog_link_csv"] = fname
+            if self.EnergyUsageCSVCheckBox.IsChecked():
+                fname = '%s_e.csv' % pre
+                files.append(fname)
+                options["energy_use_csv"] = fname
+            if self.DynamicResultsNodeCSVCheckBox.IsChecked():
+                fname = '%s_dnode.csv' % pre
+                files.append(fname)
+                options["dynamic_node_csv"] = fname
+            if self.DynamicResultsLinkCSVCheckBox.IsChecked():
+                fname = '%s_dlink.csv' % pre
+                files.append(fname)
+                options["dynamic_link_csv"] = fname
+            flist = ''
+            fcnt = 0
+            for name in files:
+                if os.path.exists(name):
+                    flist += name + '\n'
+                    fcnt += 1
+            if fcnt:
+                tmpstr = gettext.ngettext(
+                    'The following file already exists:\n\n%(fname)s\n\nOverwrite?',
+                    'The following %(fcount)d files already exist:\n\n%(fnames)s\n\nOverwrite?',
+                    fcnt)
+                if '%(fcount)d' in tmpstr:
+                    tmpstr %= {'fcount': fcnt, 'fnames': flist}
+                else:
+                    tmpstr %= {'fnames': flist}
+                warndlg = wx.MessageDialog(self, tmpstr, _('Overwrite?'), style=wx.YES_NO | wx.ICON_EXCLAMATION)
+                result = warndlg.ShowModal()
+                warndlg.Destroy()
+                if result == wx.ID_NO:
+                    # don't overwrite
+                    return
+
+            self.epanetoutputfile.Export(options)
+        except Exception, e:
+            print("ERROR exporting: %s" % e)
+            traceback.print_exc()
 
     def AddCategory(self, page, str):
         return page.Append(wxpg.PropertyCategory(str))
@@ -454,6 +609,7 @@ class MyFrame(wx.Frame):
             if result == wx.ID_OK:
                 self.filename = dlg.GetFilename()
                 self.dirname = dlg.GetDirectory()
+                self.exportdirname = self.dirname
                 progress = MyProgressDialog(200)
 
                 try:
@@ -462,7 +618,7 @@ class MyFrame(wx.Frame):
                         '-vs',
                         '--demo_all',
                         # os.path.join(self.dirname, self.filename)
-                        self.dirname+'/'+self.filename ],
+                        self.dirname+os.sep+self.filename],
                         progress)
 
                     progress.SetStepLimits(100,200)
@@ -742,6 +898,7 @@ class MyFrame(wx.Frame):
                     progress.Hide()
                     progress.Destroy()
 
+                self.BaseNameTextCtrl.SetValue(os.path.splitext(self.filename)[0])
                 self.SetTitle('%s: %s' % (self.basetitle, self.filename))
 
             else:
@@ -830,14 +987,14 @@ class MyListbook(wx.Listbook):
         old = event.GetOldSelection()
         new = event.GetSelection()
         sel = self.GetSelection()
-        #self.log.write('OnPageChanged,  old:%d, new:%d, sel:%d\n' % (old, new, sel))
+        #print('OnPageChanged,  old:%d, new:%d, sel:%d\n' % (old, new, sel))
         event.Skip()
 
     def OnPageChanging(self, event):
         old = event.GetOldSelection()
         new = event.GetSelection()
         sel = self.GetSelection()
-        #self.log.write('OnPageChanging, old:%d, new:%d, sel:%d\n' % (old, new, sel))
+        #print('OnPageChanging, old:%d, new:%d, sel:%d\n' % (old, new, sel))
         event.Skip()
 
 

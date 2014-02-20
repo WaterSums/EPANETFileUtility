@@ -15,7 +15,7 @@
 # Note that indexes in the output file are 1-based, whereas Python is 0-based
 # so these need to be handled carefully.
 #
-# Usage: python ReadEPANETOutputFile.py [Options] <outputfilename>
+# Usage: python EPANETOutputFile.py [Options] <outputfilename>
 #
 # Options:
 #   --version             show program's version number and exit
@@ -729,6 +729,80 @@ class EPANETOutputFile():
             option = _('unknown')
         return option
 
+    def _updateOptions(self, options):
+        ''' Update self.options from options dictionary (loosely).
+        Returns deepcopy of existing self.options if options was not empty,
+        else returns None.
+        '''
+        from copy import deepcopy
+        oldoptions = None
+        if len(options) > 0:
+            oldoptions = deepcopy(self.options)
+            #self.options._update(options,'careful')
+            #self.options._update_careful(options)
+            self.options._update_loose(options)
+        return oldoptions
+
+    def ExportProlog(self, options={}, progress=None):
+        progupdate = None 
+        if progress is not None: progupdate = progress.Update
+        oldoptions = self._updateOptions(options)
+        try:
+			CallInternalPlugin(EOFTPLUGIN_PROLOGEXPORT, self, progupdate)
+			CallUserPlugins(EOFTPLUGIN_PROLOGEXPORT, progress, self, progupdate)
+        finally:
+            if oldoptions is not None:
+                # restore the options to what they were
+                self.options = oldoptions
+
+    def ExportEnergyUsage(self, options={}, progress=None):
+        progupdate = None 
+        if progress is not None: progupdate = progress.Update
+        oldoptions = self._updateOptions(options)
+        try:
+			CallInternalPlugin(EOFTPLUGIN_ENERGYUSAGEEXPORT, self, progupdate)
+			CallUserPlugins(EOFTPLUGIN_ENERGYUSAGEEXPORT, progress, self, progupdate)
+        finally:
+            if oldoptions is not None:
+                # restore the options to what they were
+                self.options = oldoptions
+    def ExportDynamicResults(self, options={}, progress=None):
+        progupdate = None 
+        if progress is not None: progupdate = progress.Update
+        oldoptions = self._updateOptions(options)
+        try:
+			CallInternalPlugin(EOFTPLUGIN_DYNAMICRESULTSEXPORT, self, progupdate)
+			CallUserPlugins(EOFTPLUGIN_DYNAMICRESULTSEXPORT, progress, self, progupdate)
+        finally:
+            if oldoptions is not None:
+                # restore the options to what they were
+                self.options = oldoptions
+
+    def ExportEpilog(self, options={}, progress=None):
+        progupdate = None 
+        if progress is not None: progupdate = progress.Update
+        oldoptions = self._updateOptions(options)
+        try:
+			CallInternalPlugin(EOFTPLUGIN_EPILOGEXPORT, self, progupdate)
+			CallUserPlugins(EOFTPLUGIN_EPILOGEXPORT, progress, self, progupdate)
+        finally:
+            if oldoptions is not None:
+                # restore the options to what they were
+                self.options = oldoptions
+
+    def Export(self, options={}, progress=None):
+        ''' Export all output file sections '''
+
+        oldoptions = self._updateOptions(options)
+        try:
+            self.ExportProlog({}, progress)
+            self.ExportEnergyUsage({}, progress)
+            self.ExportDynamicResults({}, progress)
+            self.ExportEpilog({}, progress)
+        finally:
+            if oldoptions is not None:
+                # restore the options to what they were
+                self.options = oldoptions
 
 
 def main():
@@ -744,5 +818,5 @@ if __name__ == '__main__':
     main()
     end_time = datetime.now()
     dt = end_time - start_time
-    print(_("Time taken: %(deltat)s") % {deltat: dt})
+    print(_("Time taken: %(deltat)s") % {'deltat': dt})
 
