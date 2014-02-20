@@ -48,8 +48,9 @@ are included in the `test/data` directory.  These are the output files generated
 for the Net1, Net2 and Net3 examples included with the EPANET software.
 
 Some options are available on the left of the main window, but only the `Data`
-option has any contents.  This option displays a `PropertyGridManager` with 4
-pages, viz:
+and `Export` options have any contents.
+
+The `Data` option displays a `PropertyGridManager` with 4 pages, viz:
    1. Prolog: properties read from the prolog of the output file 
 	  Node and link information is displayed in two `TreeListCtrl`s below
    2. Energy Usage: a single property
@@ -60,7 +61,10 @@ pages, viz:
 	  displayed in two `TreeListCtrls` below
    4. Epilog: a property grid
 
-The `Tables`, `Graphs` and `Export` options do not do anything at present.
+The `Export` option allows the tabular data from the various sections
+of the output file to be exported to Comma Separated Value (CSV) files.
+
+The `Tables` and `Graphs` options do not do anything at present.
 
 ![EPANETFileUtility Screenshot](screenshots/EPANETFileUtility1.PNG "Output
 File Prolog section")
