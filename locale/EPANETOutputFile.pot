@@ -1,17 +1,21 @@
+# EPANET Output File Reader
+# Copyright (C) 2014 Mark Morgan
+# This file is distributed under the same license as the EPANETOutputFile package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: EPANETOutputFile 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-02-21 11:02+1100\n"
-"PO-Revision-Date: \n"
-"Last-Translator: Mark Morgan <WaterSums@gmail.com>\n"
-"Language-Team: en-AU <LL@li.org>\n"
-"Language: en_AU\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.3\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 #: EPANETOutputFile\EPANETOutputFile.py:178
 msgid "%prog [options] filename"
@@ -67,7 +71,7 @@ msgstr ""
 
 #: EPANETOutputFile\EPANETOutputFile.py:589
 msgid "Done."
-msgstr "Done like a dinner."
+msgstr ""
 
 #: EPANETOutputFile\EPANETOutputFile.py:591
 msgid "Finished reading file"
@@ -119,23 +123,23 @@ msgstr ""
 
 #: EPANETOutputFile\EPANETOutputFile.py:643
 msgid "liters/second"
-msgstr "litres/second"
+msgstr ""
 
 #: EPANETOutputFile\EPANETOutputFile.py:645
 msgid "liters/minute"
-msgstr "litres/minute"
+msgstr ""
 
 #: EPANETOutputFile\EPANETOutputFile.py:647
 msgid "megaliters/day"
-msgstr "megalitres/day"
+msgstr ""
 
 #: EPANETOutputFile\EPANETOutputFile.py:649
 msgid "cubic meters/hour"
-msgstr "cubic metres/hour"
+msgstr ""
 
 #: EPANETOutputFile\EPANETOutputFile.py:651
 msgid "cubic meters/day"
-msgstr "cubic metres/day"
+msgstr ""
 
 #: EPANETOutputFile\EPANETOutputFile.py:667
 msgid "pounds/square inch"
@@ -143,7 +147,7 @@ msgstr ""
 
 #: EPANETOutputFile\EPANETOutputFile.py:669
 msgid "meters"
-msgstr "metres"
+msgstr ""
 
 #: EPANETOutputFile\EPANETOutputFile.py:671
 msgid "kiloPascals"
@@ -389,8 +393,8 @@ msgstr ""
 #: EPANETOutputFile\EOFTInternalPlugin.py:271
 #, python-format
 msgid ""
-"Number of Reservoirs (%(nRes)d) + Tanks (%(nTank)d): %(nResTank)d (so "
-"%(nJunc)d Junctions)"
+"Number of Reservoirs (%(nRes)d) + Tanks (%(nTank)d): %(nResTank)d (so %"
+"(nJunc)d Junctions)"
 msgstr ""
 
 #: EPANETOutputFile\EOFTInternalPlugin.py:276
@@ -747,8 +751,8 @@ msgstr ""
 #: EPANETOutputFile\plugins\demo\__init__.py:469
 #, python-format
 msgid ""
-"DEMO:   Minimum node water quality %f (%d), Maximum node water quality %f "
-"(%d)"
+"DEMO:   Minimum node water quality %f (%d), Maximum node water quality %f (%"
+"d)"
 msgstr ""
 
 #: EPANETOutputFile\plugins\demo\__init__.py:472

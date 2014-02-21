@@ -1,0 +1,574 @@
+# EPANET File Utility
+# Copyright (C) 2014 Mark Morgan
+# This file is distributed under the same license as the EPANETFileUtility package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: EPANETFileUtility 0.1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-02-21 11:03+1100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: EPANETFileUtility.py:89
+msgid "EPANET File Utility"
+msgstr ""
+
+#: EPANETFileUtility.py:177
+msgid "Data"
+msgstr ""
+
+#: EPANETFileUtility.py:178
+msgid "Tables"
+msgstr ""
+
+#: EPANETFileUtility.py:179
+msgid "Graphs"
+msgstr ""
+
+#: EPANETFileUtility.py:180
+msgid "Export"
+msgstr ""
+
+#: EPANETFileUtility.py:201
+msgid ""
+"Some of the values stored in an output file can be exported in a tabular "
+"form to Comma Separated Values (CSV) files.\n"
+"\n"
+"Normally, these export files are written in the same directory as the output "
+"file, each with the same base name as the output file and with a different "
+"suffix.  The .csv extension is appended.  If necessary, the base name and "
+"directory can be specified below."
+msgstr ""
+
+#: EPANETFileUtility.py:224
+msgid "Base name"
+msgstr ""
+
+#: EPANETFileUtility.py:237
+msgid "Nodes analysed"
+msgstr ""
+
+#: EPANETFileUtility.py:240
+msgid "Links analysed"
+msgstr ""
+
+#: EPANETFileUtility.py:247
+msgid "Pump energy usage"
+msgstr ""
+
+#: EPANETFileUtility.py:254
+msgid "Node dynamic results"
+msgstr ""
+
+#: EPANETFileUtility.py:257
+msgid "Link dynamic results"
+msgstr ""
+
+#: EPANETFileUtility.py:268
+msgid "EPANET File Utility."
+msgstr ""
+
+#: EPANETFileUtility.py:287
+msgid "&Open..."
+msgstr ""
+
+#: EPANETFileUtility.py:287
+msgid " Open an EPANET output file"
+msgstr ""
+
+#: EPANETFileUtility.py:289
+msgid "&About"
+msgstr ""
+
+#: EPANETFileUtility.py:289
+msgid " Information about this program"
+msgstr ""
+
+#: EPANETFileUtility.py:293
+msgid "E&xit"
+msgstr ""
+
+#: EPANETFileUtility.py:293
+msgid " Terminate the program"
+msgstr ""
+
+#: EPANETFileUtility.py:298
+msgid "&File"
+msgstr ""
+
+#: EPANETFileUtility.py:319
+msgid "Choose an export directory"
+msgstr ""
+
+#: EPANETFileUtility.py:328 EPANETFileUtility.py:910
+msgid "Error"
+msgstr ""
+
+#: EPANETFileUtility.py:370
+#, python-format
+msgid ""
+"The following file already exists:\n"
+"\n"
+"%(fname)s\n"
+"\n"
+"Overwrite?"
+msgid_plural ""
+"The following %(fcount)d files already exist:\n"
+"\n"
+"%(fnames)s\n"
+"\n"
+"Overwrite?"
+msgstr[0] ""
+msgstr[1] ""
+
+#: EPANETFileUtility.py:377
+msgid "Overwrite?"
+msgstr ""
+
+#: EPANETFileUtility.py:423 EPANETFileUtility.py:490
+msgid "Timestep"
+msgstr ""
+
+#: EPANETFileUtility.py:424
+msgid "Node index"
+msgstr ""
+
+#: EPANETFileUtility.py:426
+msgid "Demand"
+msgstr ""
+
+#: EPANETFileUtility.py:427
+msgid "Head"
+msgstr ""
+
+#: EPANETFileUtility.py:428
+msgid "Pressure"
+msgstr ""
+
+#: EPANETFileUtility.py:429
+msgid "Water Quality"
+msgstr ""
+
+#: EPANETFileUtility.py:431 EPANETFileUtility.py:760
+#, python-format
+msgid "Nodes (%d)"
+msgstr ""
+
+#: EPANETFileUtility.py:435 EPANETFileUtility.py:506
+#, python-format
+msgid "Timestep %d"
+msgstr ""
+
+#: EPANETFileUtility.py:491
+msgid "Link index"
+msgstr ""
+
+#: EPANETFileUtility.py:493
+msgid "Flow"
+msgstr ""
+
+#: EPANETFileUtility.py:494
+msgid "Velocity"
+msgstr ""
+
+#: EPANETFileUtility.py:495
+msgid "Head loss"
+msgstr ""
+
+#: EPANETFileUtility.py:496
+msgid "Ave Water Quality"
+msgstr ""
+
+#: EPANETFileUtility.py:497
+msgid "Status"
+msgstr ""
+
+#: EPANETFileUtility.py:498
+msgid "React. rate"
+msgstr ""
+
+#: EPANETFileUtility.py:499
+msgid "Frict. factor"
+msgstr ""
+
+#: EPANETFileUtility.py:501 EPANETFileUtility.py:789
+#, python-format
+msgid "Links (%d)"
+msgstr ""
+
+#: EPANETFileUtility.py:590
+#, python-format
+msgid "Unexpected property grid page number %d"
+msgstr ""
+
+#: EPANETFileUtility.py:606
+msgid "Choose a file"
+msgstr ""
+
+#: EPANETFileUtility.py:625
+msgid "Displaying data"
+msgstr ""
+
+#: EPANETFileUtility.py:711
+msgid "Prolog"
+msgstr ""
+
+#: EPANETFileUtility.py:712
+msgid "1 - General"
+msgstr ""
+
+#: EPANETFileUtility.py:713 EPANETFileUtility.py:874
+msgid "Magic number"
+msgstr ""
+
+#: EPANETFileUtility.py:714
+msgid "EPANET version"
+msgstr ""
+
+#: EPANETFileUtility.py:715
+msgid "2 - Network Statistics"
+msgstr ""
+
+#: EPANETFileUtility.py:716
+msgid "Number of Nodes (Junctions+Reservoirs+Tanks)"
+msgstr ""
+
+#: EPANETFileUtility.py:717
+msgid "Number of Reservoirs + Tanks"
+msgstr ""
+
+#: EPANETFileUtility.py:718
+msgid "(Number of Junctions (type 0))"
+msgstr ""
+
+#: EPANETFileUtility.py:719
+msgid "(Number of Reservoirs (type 1))"
+msgstr ""
+
+#: EPANETFileUtility.py:720
+msgid "(Number of Tanks (type 2))"
+msgstr ""
+
+#: EPANETFileUtility.py:721
+msgid "Number of Links"
+msgstr ""
+
+#: EPANETFileUtility.py:722
+msgid "(Number of Pipes (type 3))"
+msgstr ""
+
+#: EPANETFileUtility.py:723
+msgid "Number of Pumps  (type 4)"
+msgstr ""
+
+#: EPANETFileUtility.py:724
+msgid "Number of Valves (type 5)"
+msgstr ""
+
+#: EPANETFileUtility.py:725
+msgid "3 - Configuration"
+msgstr ""
+
+#: EPANETFileUtility.py:726
+msgid "Water quality option"
+msgstr ""
+
+#: EPANETFileUtility.py:727
+msgid "Water quality option meaning"
+msgstr ""
+
+#: EPANETFileUtility.py:728
+msgid "Source node index"
+msgstr ""
+
+#: EPANETFileUtility.py:729
+msgid "Flow units"
+msgstr ""
+
+#: EPANETFileUtility.py:730
+msgid "Flow units meaning"
+msgstr ""
+
+#: EPANETFileUtility.py:731
+msgid "Presssure units"
+msgstr ""
+
+#: EPANETFileUtility.py:732
+msgid "Presssure units meaning"
+msgstr ""
+
+#: EPANETFileUtility.py:733
+msgid "Time statistics"
+msgstr ""
+
+#: EPANETFileUtility.py:734
+msgid "Time statistics meaning"
+msgstr ""
+
+#: EPANETFileUtility.py:735
+msgid "Start time"
+msgstr ""
+
+#: EPANETFileUtility.py:736
+msgid "Report time step"
+msgstr ""
+
+#: EPANETFileUtility.py:737
+msgid "Simulation duration"
+msgstr ""
+
+#: EPANETFileUtility.py:738
+msgid "Problem Title (line 1)"
+msgstr ""
+
+#: EPANETFileUtility.py:739
+msgid "Problem Title (line 2)"
+msgstr ""
+
+#: EPANETFileUtility.py:740
+msgid "Problem Title (line 3)"
+msgstr ""
+
+#: EPANETFileUtility.py:741
+msgid "Name of input file"
+msgstr ""
+
+#: EPANETFileUtility.py:742
+msgid "Name of report file"
+msgstr ""
+
+#: EPANETFileUtility.py:743
+msgid "Chemical name"
+msgstr ""
+
+#: EPANETFileUtility.py:744
+msgid "Chemical concentration units"
+msgstr ""
+
+#: EPANETFileUtility.py:753
+msgid "Displaying prolog node data"
+msgstr ""
+
+#: EPANETFileUtility.py:755 EPANETFileUtility.py:782 EPANETFileUtility.py:807
+msgid "Index"
+msgstr ""
+
+#: EPANETFileUtility.py:756
+msgid "Node Type"
+msgstr ""
+
+#: EPANETFileUtility.py:757 EPANETFileUtility.py:784 EPANETFileUtility.py:808
+msgid "ID"
+msgstr ""
+
+#: EPANETFileUtility.py:758
+msgid "Elevation"
+msgstr ""
+
+#: EPANETFileUtility.py:759
+msgid "Tank X-sect Area"
+msgstr ""
+
+#: EPANETFileUtility.py:764
+msgid "Junction"
+msgstr ""
+
+#: EPANETFileUtility.py:768
+msgid "Reservoir"
+msgstr ""
+
+#: EPANETFileUtility.py:772
+msgid "Tank"
+msgstr ""
+
+#: EPANETFileUtility.py:779
+msgid "Displaying prolog link data"
+msgstr ""
+
+#: EPANETFileUtility.py:783
+msgid "Link Type"
+msgstr ""
+
+#: EPANETFileUtility.py:785
+msgid "Start node"
+msgstr ""
+
+#: EPANETFileUtility.py:786
+msgid "End node"
+msgstr ""
+
+#: EPANETFileUtility.py:787
+msgid "Length"
+msgstr ""
+
+#: EPANETFileUtility.py:788
+msgid "Diameter"
+msgstr ""
+
+#: EPANETFileUtility.py:806
+msgid "Energy Usage"
+msgstr ""
+
+#: EPANETFileUtility.py:809
+msgid "Link Index"
+msgstr ""
+
+#: EPANETFileUtility.py:810
+msgid "Utilization"
+msgstr ""
+
+#: EPANETFileUtility.py:811
+#, python-format
+msgid "Pumps (%d)"
+msgstr ""
+
+#: EPANETFileUtility.py:825
+msgid "Summary"
+msgstr ""
+
+#: EPANETFileUtility.py:826
+msgid "Pump Peak Energy Usage"
+msgstr ""
+
+#: EPANETFileUtility.py:829
+msgid "Displaying dynamic results data"
+msgstr ""
+
+#: EPANETFileUtility.py:831
+msgid "Dynamic Results"
+msgstr ""
+
+#: EPANETFileUtility.py:832
+msgid "1 - Analysis"
+msgstr ""
+
+#: EPANETFileUtility.py:834
+msgid "Number of time periods"
+msgstr ""
+
+#: EPANETFileUtility.py:835
+msgid "Number of nodes"
+msgstr ""
+
+#: EPANETFileUtility.py:836
+msgid "Number of links"
+msgstr ""
+
+#: EPANETFileUtility.py:844
+msgid "2 - Nodes"
+msgstr ""
+
+#: EPANETFileUtility.py:845
+msgid "Minimum demand"
+msgstr ""
+
+#: EPANETFileUtility.py:846
+msgid "Maximum demand"
+msgstr ""
+
+#: EPANETFileUtility.py:847
+msgid "Minimum head"
+msgstr ""
+
+#: EPANETFileUtility.py:848
+msgid "Maximum head"
+msgstr ""
+
+#: EPANETFileUtility.py:849
+msgid "Minimum pressure"
+msgstr ""
+
+#: EPANETFileUtility.py:850
+msgid "Maximum pressure"
+msgstr ""
+
+#: EPANETFileUtility.py:851
+msgid "Minimum water quality"
+msgstr ""
+
+#: EPANETFileUtility.py:852
+msgid "Maximum water quality"
+msgstr ""
+
+#: EPANETFileUtility.py:854
+msgid "3 - Links"
+msgstr ""
+
+#: EPANETFileUtility.py:855
+msgid "Minimum velocity"
+msgstr ""
+
+#: EPANETFileUtility.py:856
+msgid "Maximum velocity"
+msgstr ""
+
+#: EPANETFileUtility.py:864
+msgid "Displaying epilog data"
+msgstr ""
+
+#: EPANETFileUtility.py:867
+msgid "Average Bulk Reaction Rate"
+msgstr ""
+
+#: EPANETFileUtility.py:868
+msgid "Average Wall Reaction Rate"
+msgstr ""
+
+#: EPANETFileUtility.py:869
+msgid "Average Tank Reaction Rate"
+msgstr ""
+
+#: EPANETFileUtility.py:870
+msgid "Average Source Inflow Rate"
+msgstr ""
+
+#: EPANETFileUtility.py:871
+msgid "Number of reporting periods"
+msgstr ""
+
+#: EPANETFileUtility.py:872
+msgid "Analysis generated errors?"
+msgstr ""
+
+#: EPANETFileUtility.py:892
+msgid "Done"
+msgstr ""
+
+#: EPANETFileUtility.py:921
+msgid "EPANET File Utility by Mark Morgan, WaterSums."
+msgstr ""
+
+#: EPANETFileUtility.py:921
+msgid "About EPANET File Utility"
+msgstr ""
+
+#: EPANETFileUtility.py:943
+msgid "Loading output file..."
+msgstr ""
+
+#: EPANETFileUtility.py:944
+msgid "Reading output file..."
+msgstr ""
+
+#: EPANETFileUtility.py:1005
+#, python-format
+msgid ""
+"\n"
+"Installed wxPython version: %s\n"
+"You need a unicode build of wxPython to run this application.\n"
+msgstr ""
+
+#: EPANETFileUtility.py:1007
+#, python-format
+msgid ""
+"\n"
+"%(EFUver)s, Installed wxPython version: %(wxver)s\n"
+msgstr ""
