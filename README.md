@@ -3,8 +3,8 @@ Python EPANETFileUtility
 
 EPANET file utility planned to read/load different types of EPANET files.
 The utilities will be provided in two forms:
-1. command line, text only utilities - one for each file type
-2. a GUI-based utility providing access to the output of all text based
+   1. command line, text only utilities - one for each file type
+   2. a GUI-based utility providing access to the output of all text based
 utilities.  As text-based utilities are provided for different file types,
 support for them will also be added to the combined GUI-based utility.
 
@@ -18,9 +18,9 @@ Written and tested on:
 - Windows Vista using Python 2.6.4 and 2.7.5 using wxPython 2.9.5
 
 Requires the following Python packages for the `Tables` option:
-1. xlrd (0.9.2 used)
-2. xlwt (0.7.5 used)
-3. xlutils (1.7.0 used)
+   1. xlrd (0.9.2 used)
+   2. xlwt (0.7.5 used)
+   3. xlutils (1.7.0 used)
 
 To build the language template (.pot) file requires GNU gettext tools
 available from http://www.gnu.org/software/gettext/.  Version 0.18.3.1 has
