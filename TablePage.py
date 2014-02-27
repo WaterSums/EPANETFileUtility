@@ -33,6 +33,7 @@ _hasXLWT = True
 try:
     import xlwt
     #_hasXLWT = False
+    from xlwt import Workbook
 except ImportError:
     _hasXLWT = False
 
@@ -60,8 +61,10 @@ class TablePage(wx.Panel):
         self.TablesXLSGrid = None
         self.NodeCurrentColumns = None
         self.LinkCurrentColumns = None
+        self.IDChoice = None
         self.NodeIDChoice = 0
         self.LinkIDChoice = 0
+        self.TimestepChoice = None
         self.TimestepIndex = 0
 
         # add a coloured panel inside
@@ -122,13 +125,18 @@ Select what the table should contain..."""))
 
             gbs.AddGrowableRow(2)
 
+            # TODO allow selection of multiple IDs using a multi-choice
+            # dialog MultiChoiceDialog or ItemsPicker
             self.IDChoice = st = wx.Choice(win)
             st.Bind(wx.EVT_CHOICE, self.OnIDChoice)
-
             gbs.Add(st, (1,3), flag = wx.GROW | wx.RIGHT, border=30)
+
+            # TODO allow selection of multiple timesteps using a multi-choice
+            # dialog MultiChoiceDialog or ItemsPicker
             self.TimestepChoice = st = wx.Choice(win)
             st.Bind(wx.EVT_CHOICE, self.OnTimestepChoice)
             gbs.Add(st, (2,3), flag = wx.GROW | wx.RIGHT, border=30)
+
             gbs.AddGrowableCol(3)
 
             self.NodeCurrentColumns = self.NodeDefaultColumns()
@@ -155,7 +163,7 @@ Select what the table should contain..."""))
             midsizer = wx.BoxSizer(wx.VERTICAL)
             sizer.Add(midsizer, 1, wx.GROW)
 
-            self.TablesXLSGrid = st = xlsg.XLSGrid(win)
+            self.TablesXLSGrid = st = MyXLSGrid(win)
             midsizer.Add(st, 1, wx.GROW)
 
             m_tabsave = wx.Button(win, -1, _("Save..."))
@@ -189,7 +197,7 @@ and http://pypi.python.org/pypi/xlutils"""))
                 _('Demand'),
                 _('Head'),
                 _('Pressure'),
-                _('Chlorine')
+                _('Water Quality')
             ]
 
     def GetNodeIDChoices(self):
@@ -203,7 +211,7 @@ and http://pypi.python.org/pypi/xlutils"""))
                 3,      #'Demand',
                 4,      #'Head',
                 5,      #'Pressure',
-                6,      #'Chlorine'
+                6,      #'Water Quality'
             ]
 
     def LinkColumnList(self):
@@ -218,7 +226,7 @@ and http://pypi.python.org/pypi/xlutils"""))
                 _('Unit Headloss'),
                 _('Friction Factor'),
                 _('Reaction Rate'),
-                _('Chlorine'),
+                _('Water Quality'),
                 _('Status')
             ]
 
@@ -234,7 +242,7 @@ and http://pypi.python.org/pypi/xlutils"""))
                 7,      # 'Unit Headloss',
                 8,      # 'Friction Factor',
                 9,      # 'Reaction Rate',
-                10,     # 'Chlorine',
+                10,     # 'Water Quality',
                 11,     # 'Status'
             ]
 
@@ -308,6 +316,108 @@ and http://pypi.python.org/pypi/xlutils"""))
         self.TimestepChoice.SetItems(self.GetTimestepChoices())
         self.TimestepIndex = 0
         self.TimestepChoice.SetSelection(self.TimestepIndex)
+        fname, sname = self.GenerateTable()
+
+        book = xlrd.open_workbook(fname, formatting_info=1)
+
+        sheet = book.sheet_by_name(sname)
+        rows, cols = sheet.nrows, sheet.ncols
+
+        comments, texts = xlsg.ReadExcelCOM(fname, sname, rows, cols)
+
+        #self.grid.Show()
+        self.TablesXLSGrid.PopulateGrid(book, sheet, texts, comments)
+
+    def GenerateTable(self):
+        book = Workbook()
+        fname = 'simple.xls'
+        sname ='Sheet 1'
+        sheet1 = book.add_sheet(sname)
+
+        if self.TimestepIndex == 0:
+            tmin = 0
+            tmax = self.epanetoutputfile().Epilog['nPeriods']
+        else:
+            tmin = self.TimestepIndex
+            tmax = self.TimestepIndex
+
+        heading_xf = xlwt.easyxf('font: bold on; align: wrap on, vert centre, horiz center')
+        if self.TableNodeRadioButton.GetValue() == True:
+            # generate a node table
+            if self.NodeIDChoice == 0:
+                # generate table for all node IDs
+                idmin = 0
+                idmax = len(self.epanetoutputfile().Prolog['NodeID'])
+            else:
+                # generate table for selected node ID
+                idmin = self.NodeIDChoice
+                idmax = self.NodeIDChoice
+            rownum = 0
+            
+            cols = self.NodeColumnList()
+            sheet1.write(rownum,0,_('Timestep'),heading_xf)
+            sheet1.col(0).width = 3000
+            sheet1.write(rownum,1,_('ID'),heading_xf)
+            sheet1.col(1).width = 3000
+            for i in range(len(self.NodeCurrentColumns)):
+                sheet1.write(rownum,i+2,cols[self.NodeCurrentColumns[i]],heading_xf)
+                sheet1.col(i+2).width = 4000
+
+            rownum = 1
+            for i in range(tmin, tmax):
+                t = self.epanetoutputfile().DynamicResults[i]
+                p = self.epanetoutputfile().Prolog
+                for j in range(idmin, idmax):
+                    sheet1.write(rownum,0,i)
+                    sheet1.write(rownum,1,
+                        self.epanetoutputfile().Prolog['NodeID'][j])
+                    for k in range(len(self.NodeCurrentColumns)):
+                        if self.NodeCurrentColumns[k] == 0:   # Elevation
+                            sheet1.write(rownum,k+2,p['NodeElev'][j])
+                        elif self.NodeCurrentColumns[k] == 1: # Base Demand
+                            pass
+                        elif self.NodeCurrentColumns[k] == 2: # Initial Quality
+                            pass
+                        elif self.NodeCurrentColumns[k] == 3: # Demand
+                            sheet1.write(rownum,k+2,t['NodeDemand'][j])
+                        elif self.NodeCurrentColumns[k] == 4: # Head
+                            sheet1.write(rownum,k+2,t['NodeHead'][j])
+                        elif self.NodeCurrentColumns[k] == 5: # Pressure
+                            sheet1.write(rownum,k+2,t['NodePressure'][j])
+                        elif self.NodeCurrentColumns[k] == 6: # Water Quality
+                            sheet1.write(rownum,k+2,t['NodeWaterQuality'][j])
+                    rownum += 1
+        else:
+            # generate a link table
+            if self.LinkIDChoice == 0:
+                # generate table for all IDs
+                idmin = 0
+                idmax = len(self.epanetoutputfile().Prolog['LinkID'])
+            else:
+                # generate table for selected link ID
+                idmin = self.LinkIDChoice
+                idmax = self.LinkIDChoice
+
+            rownum = 0
+
+            cols = self.LinkColumnList()
+            sheet1.write(rownum,0,_('Timestep'),heading_xf)
+            sheet1.col(0).width = 3000
+            sheet1.write(rownum,1,_('ID'),heading_xf)
+            sheet1.col(1).width = 3000
+            for i in range(len(self.LinkCurrentColumns)):
+                sheet1.write(rownum,i+2,cols[self.LinkCurrentColumns[i]],heading_xf)
+                sheet1.col(i+2).width = 4000
+
+            for i in range(tmin, tmax):
+                for j in range(idmin, idmax):
+                    sheet1.write(rownum,0,i)
+                    sheet1.write(rownum,1,
+                        self.epanetoutputfile().Prolog['LinkID'][j])
+                    rownum += 1
+
+        book.save(fname)
+        return (fname, sname)
 
 
 
