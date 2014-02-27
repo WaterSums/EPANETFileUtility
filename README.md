@@ -79,7 +79,7 @@ Please feel free to make suggestions for improvements or to report defects.
 
 ![EPANETFileUtility Data Page Screenshot](screenshots/EPANETFileUtility1.PNG "Output File Prolog section")
 ![EPANETFileUtility Tables Page Screenshot](screenshots/EPANETFileUtility3.png "Tables Page on MacOS X")
-![EPANETFileUtility Export Page Screenshot](screenshots/EPANETFileUtility2.png "Export Page on MacOS X")
+![EPANETFileUtility Export Page Screenshot](screenshots/EPANETFileUtility4.png "Export Page on MacOS X")
 
 
 Utility Details
