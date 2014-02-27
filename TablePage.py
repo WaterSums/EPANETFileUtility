@@ -119,9 +119,13 @@ NOTE: SAVING IS NOT YET AVAILABLE."""))
             gbs.Add(st, (0,2), (1,2), flag = wx.LEFT, border=10)
 
             st = wx.StaticText(win, -1,_('ID'))
-            gbs.Add(st, (1,2), flag = wx.ALIGN_RIGHT | wx.LEFT, border=10)
+            gbs.Add(st, (1,2),
+					flag = wx.ALIGN_RIGHT | wx.ALIGN_CENTER_VERTICAL| wx.LEFT,
+					border=10)
             st = wx.StaticText(win, -1,_('Timestep'))
-            gbs.Add(st, (2,2), flag = wx.ALIGN_RIGHT | wx.LEFT, border=10)
+            gbs.Add(st, (2,2),
+					flag = wx.ALIGN_RIGHT | wx.ALIGN_CENTER_VERTICAL| wx.LEFT,
+					border=10)
 
             gbs.AddGrowableRow(2)
 
@@ -133,13 +137,17 @@ NOTE: SAVING IS NOT YET AVAILABLE."""))
             # dialog MultiChoiceDialog or ItemsPicker
             self.IDChoice = st = wx.Choice(win)
             st.Bind(wx.EVT_CHOICE, self.OnIDChoice)
-            gbs.Add(st, (1,3), flag = wx.GROW | wx.RIGHT, border=30)
+            gbs.Add(st, (1,3),
+					flag = wx.GROW | wx.ALIGN_CENTER_VERTICAL| wx.RIGHT,
+					border=30)
 
             # TODO allow selection of multiple timesteps using a multi-choice
             # dialog MultiChoiceDialog or ItemsPicker
             self.TimestepChoice = st = wx.Choice(win)
             st.Bind(wx.EVT_CHOICE, self.OnTimestepChoice)
-            gbs.Add(st, (2,3), flag = wx.GROW | wx.RIGHT, border=30)
+            gbs.Add(st, (2,3),
+					flag = wx.GROW | wx.ALIGN_CENTER_VERTICAL| wx.RIGHT,
+					border=30)
 
             gbs.AddGrowableCol(3)
 
@@ -314,6 +322,7 @@ See http://pypi.python.org/pypi/xlutils"""))
         comments, texts = xlsg.ReadExcelCOM(fname, sname, rows, cols)
 
         self.TablesXLSGrid.PopulateGrid(book, sheet, texts, comments)
+        self.TablesXLSGrid.Show()
 
 
     def OnSave(self, event):
@@ -337,6 +346,8 @@ See http://pypi.python.org/pypi/xlutils"""))
         self.TimestepChoice.SetItems(self.GetTimestepChoices())
         self.TimestepIndex = 0
         self.TimestepChoice.SetSelection(self.TimestepIndex)
+		# Clear() doesn't seem to work, so we have to hide the grid
+        self.TablesXLSGrid.Hide()
 
         #fname, sname = self.GenerateTable()
         #book = xlrd.open_workbook(fname, formatting_info=1)
@@ -386,9 +397,9 @@ See http://pypi.python.org/pypi/xlutils"""))
                 t = self.epanetoutputfile().DynamicResults[i]
                 p = self.epanetoutputfile().Prolog
                 for j in range(idmin, idmax):
-					# format with 0 decimal places
+                    # format with 0 decimal places
                     sheet1.write(rownum,0,i,
-						xlwt.easyxf(num_format_str='#,##0'))
+                        xlwt.easyxf(num_format_str='#,##0'))
                     sheet1.write(rownum,1,
                         self.epanetoutputfile().Prolog['NodeID'][j])
                     for k in range(len(self.NodeCurrentColumns)):
@@ -438,9 +449,9 @@ See http://pypi.python.org/pypi/xlutils"""))
                 t = self.epanetoutputfile().DynamicResults[i]
                 p = self.epanetoutputfile().Prolog
                 for j in range(idmin, idmax):
-					# format with 0 decimal places
+                    # format with 0 decimal places
                     sheet1.write(rownum,0,i,
-						xlwt.easyxf(num_format_str='#,##0'))
+                        xlwt.easyxf(num_format_str='#,##0'))
                     sheet1.write(rownum,1,
                         self.epanetoutputfile().Prolog['LinkID'][j])
                     for k in range(len(self.LinkCurrentColumns)):

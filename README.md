@@ -69,14 +69,18 @@ The `Data` option displays a `PropertyGridManager` with 4 pages, viz:
 The `Export` option allows the tabular data from the various sections
 of the output file to be exported to Comma Separated Value (CSV) files.
 
-The `Tables` allows display of node or link tables for one or all IDs and
+The `Tables` option allows display of node or link tables for one or all IDs and
 one or all timesteps - up to a maximum of 65,536 rows.  The `Save` button does
 not work at present.
 
 The `Graphs` option does not do anything at present.
 
-![EPANETFileUtility Screenshot](screenshots/EPANETFileUtility1.PNG "Output
-File Prolog section")
+Please feel free to make suggestions for improvements or to report defects.
+
+![EPANETFileUtility Data Page Screenshot](screenshots/EPANETFileUtility1.PNG "Output File Prolog section")
+![EPANETFileUtility Tables Page Screenshot](screenshots/EPANETFileUtility3.png "Tables Page on MacOS X")
+![EPANETFileUtility Export Page Screenshot](screenshots/EPANETFileUtility2.png "Export Page on MacOS X")
+
 
 Utility Details
 ---------------
