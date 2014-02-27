@@ -75,6 +75,7 @@ class TablePage(wx.Panel):
             win.SetSizer(sizer)
 
 
+            # now put some content in the coloured panel
             topsizer = wx.BoxSizer(wx.VERTICAL)
             sizer.Add(topsizer, 1, wx.GROW)
             st = wx.StaticText(win, -1,
@@ -296,7 +297,7 @@ and http://pypi.python.org/pypi/xlutils"""))
         errdlg.Destroy()
 
 
-    def OnOpen(self, event):
+    def OnOpen(self, event, progress):
         """ Open a file"""
 
         # configure the tables panel - report all nodes, timesteps
