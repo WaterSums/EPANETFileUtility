@@ -83,8 +83,8 @@ class TablePage(wx.Panel):
             sizer.Add(topsizer, 1, wx.GROW)
             st = wx.StaticText(win, -1,
                       _(
-"""NOT YET COMPLETE.  TABLE DISPLAY/SAVING IS NOT AVAILABLE.
-Select what the table should contain..."""))
+"""Select what the table should contain and press Update table button...
+NOTE: SAVING IS NOT YET AVAILABLE."""))
             topsizer.Add(st, 17, wx.ALL, 10)
 
             groupbox = wx.StaticBox(win, -1, _('Configure table contents'))
@@ -124,6 +124,10 @@ Select what the table should contain..."""))
             gbs.Add(st, (2,2), flag = wx.ALIGN_RIGHT | wx.LEFT, border=10)
 
             gbs.AddGrowableRow(2)
+
+            m_update = wx.Button(win, -1, _("Update table"))
+            m_update.Bind(wx.EVT_BUTTON, self.OnUpdate)
+            gbs.Add(m_update, (5,2), flag = wx.ALL | wx.ALIGN_RIGHT, border=10)
 
             # TODO allow selection of multiple IDs using a multi-choice
             # dialog MultiChoiceDialog or ItemsPicker
@@ -177,10 +181,12 @@ Select what the table should contain..."""))
                       _(
 """EPANET File Utility
 
-Displaying tables requires the xlrt, xlwt and xlutils packages.
+Displaying tables requires the xlrt and xlwt packages.
 See http://pypi.python.org/pypi/xlrd
 and http://pypi.python.org/pypi/xlwt
-and http://pypi.python.org/pypi/xlutils"""))
+
+The xlutils package may be required later.
+See http://pypi.python.org/pypi/xlutils"""))
             sizer.Add(st, 1, wx.GROW | wx.ALL, 10)
 
     def epanetoutputfile(self):
@@ -295,6 +301,21 @@ and http://pypi.python.org/pypi/xlutils"""))
         else:
             self.LinkCurrentColumns = self.TableColumnListBox.GetChecked()
 
+    def OnUpdate(self, event):
+        """ Update table """
+        print('Updating table')
+        fname, sname = self.GenerateTable()
+
+        book = xlrd.open_workbook(fname, formatting_info=1)
+
+        sheet = book.sheet_by_name(sname)
+        rows, cols = sheet.nrows, sheet.ncols
+
+        comments, texts = xlsg.ReadExcelCOM(fname, sname, rows, cols)
+
+        self.TablesXLSGrid.PopulateGrid(book, sheet, texts, comments)
+
+
     def OnSave(self, event):
         """ Save table """
         errdlg = wx.MessageDialog(self,
@@ -316,17 +337,13 @@ and http://pypi.python.org/pypi/xlutils"""))
         self.TimestepChoice.SetItems(self.GetTimestepChoices())
         self.TimestepIndex = 0
         self.TimestepChoice.SetSelection(self.TimestepIndex)
-        fname, sname = self.GenerateTable()
 
-        book = xlrd.open_workbook(fname, formatting_info=1)
-
-        sheet = book.sheet_by_name(sname)
-        rows, cols = sheet.nrows, sheet.ncols
-
-        comments, texts = xlsg.ReadExcelCOM(fname, sname, rows, cols)
-
-        #self.grid.Show()
-        self.TablesXLSGrid.PopulateGrid(book, sheet, texts, comments)
+        #fname, sname = self.GenerateTable()
+        #book = xlrd.open_workbook(fname, formatting_info=1)
+        #sheet = book.sheet_by_name(sname)
+        #rows, cols = sheet.nrows, sheet.ncols
+        #comments, texts = xlsg.ReadExcelCOM(fname, sname, rows, cols)
+        #self.TablesXLSGrid.PopulateGrid(book, sheet, texts, comments)
 
     def GenerateTable(self):
         book = Workbook()
@@ -338,7 +355,7 @@ and http://pypi.python.org/pypi/xlutils"""))
             tmin = 0
             tmax = self.epanetoutputfile().Epilog['nPeriods']
         else:
-            tmin = self.TimestepIndex
+            tmin = self.TimestepIndex-1 # (-1 since we offer 'All' option)
             tmax = self.TimestepIndex
 
         heading_xf = xlwt.easyxf('font: bold on; align: wrap on, vert centre, horiz center')
@@ -350,8 +367,9 @@ and http://pypi.python.org/pypi/xlutils"""))
                 idmax = len(self.epanetoutputfile().Prolog['NodeID'])
             else:
                 # generate table for selected node ID
-                idmin = self.NodeIDChoice
+                idmin = self.NodeIDChoice-1 # (-1 since we offer 'All' option)
                 idmax = self.NodeIDChoice
+
             rownum = 0
             
             cols = self.NodeColumnList()
@@ -368,7 +386,9 @@ and http://pypi.python.org/pypi/xlutils"""))
                 t = self.epanetoutputfile().DynamicResults[i]
                 p = self.epanetoutputfile().Prolog
                 for j in range(idmin, idmax):
-                    sheet1.write(rownum,0,i)
+					# format with 0 decimal places
+                    sheet1.write(rownum,0,i,
+						xlwt.easyxf(num_format_str='#,##0'))
                     sheet1.write(rownum,1,
                         self.epanetoutputfile().Prolog['NodeID'][j])
                     for k in range(len(self.NodeCurrentColumns)):
@@ -387,6 +407,10 @@ and http://pypi.python.org/pypi/xlutils"""))
                         elif self.NodeCurrentColumns[k] == 6: # Water Quality
                             sheet1.write(rownum,k+2,t['NodeWaterQuality'][j])
                     rownum += 1
+                    if rownum >= 65536:
+                        break
+                if rownum >= 65536:
+                    break
         else:
             # generate a link table
             if self.LinkIDChoice == 0:
@@ -395,7 +419,7 @@ and http://pypi.python.org/pypi/xlutils"""))
                 idmax = len(self.epanetoutputfile().Prolog['LinkID'])
             else:
                 # generate table for selected link ID
-                idmin = self.LinkIDChoice
+                idmin = self.LinkIDChoice-1 # (-1 since we offer 'All' option)
                 idmax = self.LinkIDChoice
 
             rownum = 0
@@ -409,12 +433,54 @@ and http://pypi.python.org/pypi/xlutils"""))
                 sheet1.write(rownum,i+2,cols[self.LinkCurrentColumns[i]],heading_xf)
                 sheet1.col(i+2).width = 4000
 
+            rownum = 1
             for i in range(tmin, tmax):
+                t = self.epanetoutputfile().DynamicResults[i]
+                p = self.epanetoutputfile().Prolog
                 for j in range(idmin, idmax):
-                    sheet1.write(rownum,0,i)
+					# format with 0 decimal places
+                    sheet1.write(rownum,0,i,
+						xlwt.easyxf(num_format_str='#,##0'))
                     sheet1.write(rownum,1,
                         self.epanetoutputfile().Prolog['LinkID'][j])
+                    for k in range(len(self.LinkCurrentColumns)):
+                        if self.LinkCurrentColumns[k] == 0:   # Length
+                            sheet1.write(rownum,k+2,p['LinkLength'][j])
+                        elif self.LinkCurrentColumns[k] == 1: # Diameter
+                            sheet1.write(rownum,k+2,p['LinkDiam'][j])
+                        elif self.LinkCurrentColumns[k] == 2: # Roughness
+                            pass
+                        elif self.LinkCurrentColumns[k] == 3: # Bulk Coeff.
+                            pass
+                        elif self.LinkCurrentColumns[k] == 4: # Wall Coeff.
+                            pass
+                        elif self.LinkCurrentColumns[k] == 5: # Flow
+                            sheet1.write(rownum,k+2,t['LinkFlow'][j])
+                        elif self.LinkCurrentColumns[k] == 6: # Velocity
+                            sheet1.write(rownum,k+2,t['LinkVelocity'][j])
+                        elif self.LinkCurrentColumns[k] == 7: # Unit Headloss
+                            sheet1.write(rownum,k+2,t['LinkHeadloss'][j])
+                        elif self.LinkCurrentColumns[k] == 8: # Friction Factor
+                            sheet1.write(rownum,k+2,t['LinkFrictionFactor'][j])
+                        elif self.LinkCurrentColumns[k] == 9: # Reaction Rate
+                            sheet1.write(rownum,k+2,t['LinkReactionRate'][j])
+                        elif self.LinkCurrentColumns[k] == 10: # Water Quality
+                            sheet1.write(rownum,k+2,t['LinkAveWaterQuality'][j])
+                        elif self.LinkCurrentColumns[k] == 11: # Status
+                            sheet1.write(rownum,k+2,t['LinkStatus'][j])
                     rownum += 1
+                    if rownum >= 65536:
+                        break
+                if rownum >= 65536:
+                    break
+
+        if rownum >= 65536:
+            errdlg = wx.MessageDialog(self,
+                    _('Sorry, but a maximum of 65,536 rows can be displayed in the table page.  With the current table configuration, it should contain %(numrows)d rows.\n\nThe table has been truncated.') %
+                    {'numrows': ((tmax-tmin)*(idmax-idmin))+1},
+                    _('Error'), style=wx.OK | wx.ICON_ERROR)
+            errdlg.ShowModal()
+            errdlg.Destroy()
 
         book.save(fname)
         return (fname, sname)

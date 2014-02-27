@@ -18,9 +18,9 @@ Written and tested on:
 - Windows Vista using Python 2.6.4 and 2.7.5 using wxPython 2.9.5
 
 Requires the following Python packages for the `Tables` option:
-   1. xlrd (0.9.2 used)
-   2. xlwt (0.7.5 used)
-   3. xlutils (1.7.0 used)
+   1. xlrd (0.9.2 used in development)
+   2. xlwt (0.7.5 used in development)
+   3. xlutils may also be required later (1.7.0 used in development) 
 
 To build the language template (.pot) file requires GNU gettext tools
 available from http://www.gnu.org/software/gettext/.  Version 0.18.3.1 has
@@ -69,8 +69,9 @@ The `Data` option displays a `PropertyGridManager` with 4 pages, viz:
 The `Export` option allows the tabular data from the various sections
 of the output file to be exported to Comma Separated Value (CSV) files.
 
-The `Tables` option is currently under development - it allows configuration,
-but will not actually generate any table output at present.
+The `Tables` allows display of node or link tables for one or all IDs and
+one or all timesteps - up to a maximum of 65,536 rows.  The `Save` button does
+not work at present.
 
 The `Graphs` option does not do anything at present.
 
