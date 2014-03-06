@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: EPANETFileUtility 0.1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-21 11:03+1100\n"
+"POT-Creation-Date: 2014-02-28 11:22+1100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,27 +17,644 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: EPANETFileUtility.py:89
+#: EPANETFileUtility.py:117
 msgid "EPANET File Utility"
 msgstr ""
 
-#: EPANETFileUtility.py:177
+#: EPANETFileUtility.py:194
 msgid "Data"
 msgstr ""
 
-#: EPANETFileUtility.py:178
+#: EPANETFileUtility.py:195
 msgid "Tables"
 msgstr ""
 
-#: EPANETFileUtility.py:179
+#: EPANETFileUtility.py:196
 msgid "Graphs"
 msgstr ""
 
-#: EPANETFileUtility.py:180
+#: EPANETFileUtility.py:197 ExportPage.py:110
 msgid "Export"
 msgstr ""
 
-#: EPANETFileUtility.py:201
+#: EPANETFileUtility.py:220
+msgid ""
+"EPANET File Utility\n"
+"\n"
+"Displaying graphs is not yet supported."
+msgstr ""
+
+#: EPANETFileUtility.py:234
+msgid "EPANET File Utility."
+msgstr ""
+
+#: EPANETFileUtility.py:254
+msgid "&Open..."
+msgstr ""
+
+#: EPANETFileUtility.py:254
+msgid " Open an EPANET output file"
+msgstr ""
+
+#: EPANETFileUtility.py:256
+msgid "&About"
+msgstr ""
+
+#: EPANETFileUtility.py:256
+msgid " Information about this program"
+msgstr ""
+
+#: EPANETFileUtility.py:260
+msgid "E&xit"
+msgstr ""
+
+#: EPANETFileUtility.py:260
+msgid " Terminate the program"
+msgstr ""
+
+#: EPANETFileUtility.py:265
+msgid "&File"
+msgstr ""
+
+#: EPANETFileUtility.py:292
+msgid "Choose a file"
+msgstr ""
+
+#: EPANETFileUtility.py:310
+msgid "Displaying data"
+msgstr ""
+
+#: EPANETFileUtility.py:320 DataPage.py:530
+msgid "Done"
+msgstr ""
+
+#: EPANETFileUtility.py:337 TablePage.py:332 TablePage.py:492
+#: ExportPage.py:137
+msgid "Error"
+msgstr ""
+
+#: EPANETFileUtility.py:345
+msgid "EPANET File Utility by Mark Morgan, WaterSums."
+msgstr ""
+
+#: EPANETFileUtility.py:345
+msgid "About EPANET File Utility"
+msgstr ""
+
+#: EPANETFileUtility.py:368
+msgid "Loading output file..."
+msgstr ""
+
+#: EPANETFileUtility.py:369
+msgid "Reading output file..."
+msgstr ""
+
+#: EPANETFileUtility.py:431
+#, python-format
+msgid ""
+"\n"
+"Installed wxPython version: %s\n"
+"You need a unicode build of wxPython to run this application.\n"
+msgstr ""
+
+#: EPANETFileUtility.py:433
+#, python-format
+msgid ""
+"\n"
+"%(EFUver)s, Installed wxPython version: %(wxver)s\n"
+msgstr ""
+
+#: EPANETFileUtility.py:436
+msgid "xlrd imported successfully"
+msgstr ""
+
+#: EPANETFileUtility.py:438
+msgid "WARNING: can't import xlrd, so Tables option will not work"
+msgstr ""
+
+#: EPANETFileUtility.py:441
+msgid "xlwt imported successfully"
+msgstr ""
+
+#: EPANETFileUtility.py:443
+msgid "WARNING: can't import xlwt, so Tables option will not work"
+msgstr ""
+
+#: EPANETFileUtility.py:446
+msgid "xlutils imported successfully"
+msgstr ""
+
+#: EPANETFileUtility.py:448
+msgid "WARNING: can't import xlutils, so saving tables may not work"
+msgstr ""
+
+#: DataPage.py:88 DataPage.py:155 TablePage.py:125 TablePage.py:387
+#: TablePage.py:439
+msgid "Timestep"
+msgstr ""
+
+#: DataPage.py:89
+msgid "Node index"
+msgstr ""
+
+#: DataPage.py:91 TablePage.py:211
+msgid "Demand"
+msgstr ""
+
+#: DataPage.py:92 TablePage.py:212
+msgid "Head"
+msgstr ""
+
+#: DataPage.py:93 TablePage.py:213
+msgid "Pressure"
+msgstr ""
+
+#: DataPage.py:94 TablePage.py:214 TablePage.py:243
+msgid "Water Quality"
+msgstr ""
+
+#: DataPage.py:96 DataPage.py:400
+#, python-format
+msgid "Nodes (%d)"
+msgstr ""
+
+#: DataPage.py:100 DataPage.py:171
+#, python-format
+msgid "Timestep %d"
+msgstr ""
+
+#: DataPage.py:156
+msgid "Link index"
+msgstr ""
+
+#: DataPage.py:158 TablePage.py:238
+msgid "Flow"
+msgstr ""
+
+#: DataPage.py:159 TablePage.py:239
+msgid "Velocity"
+msgstr ""
+
+#: DataPage.py:160
+msgid "Head loss"
+msgstr ""
+
+#: DataPage.py:161
+msgid "Ave Water Quality"
+msgstr ""
+
+#: DataPage.py:162 TablePage.py:244
+msgid "Status"
+msgstr ""
+
+#: DataPage.py:163
+msgid "React. rate"
+msgstr ""
+
+#: DataPage.py:164
+msgid "Frict. factor"
+msgstr ""
+
+#: DataPage.py:166 DataPage.py:429
+#, python-format
+msgid "Links (%d)"
+msgstr ""
+
+#: DataPage.py:255
+#, python-format
+msgid "Unexpected property grid page number %d"
+msgstr ""
+
+#: DataPage.py:351 ExportPage.py:84
+msgid "Prolog"
+msgstr ""
+
+#: DataPage.py:352
+msgid "1 - General"
+msgstr ""
+
+#: DataPage.py:353 DataPage.py:514
+msgid "Magic number"
+msgstr ""
+
+#: DataPage.py:354
+msgid "EPANET version"
+msgstr ""
+
+#: DataPage.py:355
+msgid "2 - Network Statistics"
+msgstr ""
+
+#: DataPage.py:356
+msgid "Number of Nodes (Junctions+Reservoirs+Tanks)"
+msgstr ""
+
+#: DataPage.py:357
+msgid "Number of Reservoirs + Tanks"
+msgstr ""
+
+#: DataPage.py:358
+msgid "(Number of Junctions (type 0))"
+msgstr ""
+
+#: DataPage.py:359
+msgid "(Number of Reservoirs (type 1))"
+msgstr ""
+
+#: DataPage.py:360
+msgid "(Number of Tanks (type 2))"
+msgstr ""
+
+#: DataPage.py:361
+msgid "Number of Links"
+msgstr ""
+
+#: DataPage.py:362
+msgid "(Number of Pipes (type 3))"
+msgstr ""
+
+#: DataPage.py:363
+msgid "Number of Pumps  (type 4)"
+msgstr ""
+
+#: DataPage.py:364
+msgid "Number of Valves (type 5)"
+msgstr ""
+
+#: DataPage.py:365
+msgid "3 - Configuration"
+msgstr ""
+
+#: DataPage.py:366
+msgid "Water quality option"
+msgstr ""
+
+#: DataPage.py:367
+msgid "Water quality option meaning"
+msgstr ""
+
+#: DataPage.py:368
+msgid "Source node index"
+msgstr ""
+
+#: DataPage.py:369
+msgid "Flow units"
+msgstr ""
+
+#: DataPage.py:370
+msgid "Flow units meaning"
+msgstr ""
+
+#: DataPage.py:371
+msgid "Presssure units"
+msgstr ""
+
+#: DataPage.py:372
+msgid "Presssure units meaning"
+msgstr ""
+
+#: DataPage.py:373
+msgid "Time statistics"
+msgstr ""
+
+#: DataPage.py:374
+msgid "Time statistics meaning"
+msgstr ""
+
+#: DataPage.py:375
+msgid "Start time"
+msgstr ""
+
+#: DataPage.py:376
+msgid "Report time step"
+msgstr ""
+
+#: DataPage.py:377
+msgid "Simulation duration"
+msgstr ""
+
+#: DataPage.py:378
+msgid "Problem Title (line 1)"
+msgstr ""
+
+#: DataPage.py:379
+msgid "Problem Title (line 2)"
+msgstr ""
+
+#: DataPage.py:380
+msgid "Problem Title (line 3)"
+msgstr ""
+
+#: DataPage.py:381
+msgid "Name of input file"
+msgstr ""
+
+#: DataPage.py:382
+msgid "Name of report file"
+msgstr ""
+
+#: DataPage.py:383
+msgid "Chemical name"
+msgstr ""
+
+#: DataPage.py:384
+msgid "Chemical concentration units"
+msgstr ""
+
+#: DataPage.py:393
+msgid "Displaying prolog node data"
+msgstr ""
+
+#: DataPage.py:395 DataPage.py:422 DataPage.py:447
+msgid "Index"
+msgstr ""
+
+#: DataPage.py:396
+msgid "Node Type"
+msgstr ""
+
+#: DataPage.py:397 DataPage.py:424 DataPage.py:448 TablePage.py:121
+#: TablePage.py:389 TablePage.py:441
+msgid "ID"
+msgstr ""
+
+#: DataPage.py:398 TablePage.py:208
+msgid "Elevation"
+msgstr ""
+
+#: DataPage.py:399
+msgid "Tank X-sect Area"
+msgstr ""
+
+#: DataPage.py:404
+msgid "Junction"
+msgstr ""
+
+#: DataPage.py:408
+msgid "Reservoir"
+msgstr ""
+
+#: DataPage.py:412
+msgid "Tank"
+msgstr ""
+
+#: DataPage.py:419
+msgid "Displaying prolog link data"
+msgstr ""
+
+#: DataPage.py:423
+msgid "Link Type"
+msgstr ""
+
+#: DataPage.py:425
+msgid "Start node"
+msgstr ""
+
+#: DataPage.py:426
+msgid "End node"
+msgstr ""
+
+#: DataPage.py:427 TablePage.py:233
+msgid "Length"
+msgstr ""
+
+#: DataPage.py:428 TablePage.py:234
+msgid "Diameter"
+msgstr ""
+
+#: DataPage.py:446 ExportPage.py:94
+msgid "Energy Usage"
+msgstr ""
+
+#: DataPage.py:449
+msgid "Link Index"
+msgstr ""
+
+#: DataPage.py:450
+msgid "Utilization"
+msgstr ""
+
+#: DataPage.py:451
+#, python-format
+msgid "Pumps (%d)"
+msgstr ""
+
+#: DataPage.py:465
+msgid "Summary"
+msgstr ""
+
+#: DataPage.py:466
+msgid "Pump Peak Energy Usage"
+msgstr ""
+
+#: DataPage.py:469
+msgid "Displaying dynamic results data"
+msgstr ""
+
+#: DataPage.py:471 ExportPage.py:101
+msgid "Dynamic Results"
+msgstr ""
+
+#: DataPage.py:472
+msgid "1 - Analysis"
+msgstr ""
+
+#: DataPage.py:474
+msgid "Number of time periods"
+msgstr ""
+
+#: DataPage.py:475
+msgid "Number of nodes"
+msgstr ""
+
+#: DataPage.py:476
+msgid "Number of links"
+msgstr ""
+
+#: DataPage.py:484
+msgid "2 - Nodes"
+msgstr ""
+
+#: DataPage.py:485
+msgid "Minimum demand"
+msgstr ""
+
+#: DataPage.py:486
+msgid "Maximum demand"
+msgstr ""
+
+#: DataPage.py:487
+msgid "Minimum head"
+msgstr ""
+
+#: DataPage.py:488
+msgid "Maximum head"
+msgstr ""
+
+#: DataPage.py:489
+msgid "Minimum pressure"
+msgstr ""
+
+#: DataPage.py:490
+msgid "Maximum pressure"
+msgstr ""
+
+#: DataPage.py:491
+msgid "Minimum water quality"
+msgstr ""
+
+#: DataPage.py:492
+msgid "Maximum water quality"
+msgstr ""
+
+#: DataPage.py:494
+msgid "3 - Links"
+msgstr ""
+
+#: DataPage.py:495
+msgid "Minimum velocity"
+msgstr ""
+
+#: DataPage.py:496
+msgid "Maximum velocity"
+msgstr ""
+
+#: DataPage.py:504
+msgid "Displaying epilog data"
+msgstr ""
+
+#: DataPage.py:507
+msgid "Average Bulk Reaction Rate"
+msgstr ""
+
+#: DataPage.py:508
+msgid "Average Wall Reaction Rate"
+msgstr ""
+
+#: DataPage.py:509
+msgid "Average Tank Reaction Rate"
+msgstr ""
+
+#: DataPage.py:510
+msgid "Average Source Inflow Rate"
+msgstr ""
+
+#: DataPage.py:511
+msgid "Number of reporting periods"
+msgstr ""
+
+#: DataPage.py:512
+msgid "Analysis generated errors?"
+msgstr ""
+
+#: TablePage.py:86
+msgid ""
+"Select what the table should contain and press Update table button...\n"
+"NOTE: SAVING IS NOT YET AVAILABLE."
+msgstr ""
+
+#: TablePage.py:90
+msgid "Configure table contents"
+msgstr ""
+
+#: TablePage.py:96
+msgid "Select Nodes or Links:"
+msgstr ""
+
+#: TablePage.py:102
+msgid "Nodes"
+msgstr ""
+
+#: TablePage.py:107
+msgid "Links"
+msgstr ""
+
+#: TablePage.py:115
+msgid "Any filtering:"
+msgstr ""
+
+#: TablePage.py:132
+msgid "Update table"
+msgstr ""
+
+#: TablePage.py:157
+msgid "Columns to include:"
+msgstr ""
+
+#: TablePage.py:181
+msgid "Save..."
+msgstr ""
+
+#: TablePage.py:190
+msgid ""
+"EPANET File Utility\n"
+"\n"
+"Displaying tables requires the xlrt and xlwt packages.\n"
+"See http://pypi.python.org/pypi/xlrd\n"
+"and http://pypi.python.org/pypi/xlwt\n"
+"\n"
+"The xlutils package may be required later.\n"
+"See http://pypi.python.org/pypi/xlutils"
+msgstr ""
+
+#: TablePage.py:209
+msgid "Base Demand"
+msgstr ""
+
+#: TablePage.py:210
+msgid "Intial Quality"
+msgstr ""
+
+#: TablePage.py:218
+msgid "All nodes"
+msgstr ""
+
+#: TablePage.py:235
+msgid "Roughness"
+msgstr ""
+
+#: TablePage.py:236
+msgid "Bulk Coeff."
+msgstr ""
+
+#: TablePage.py:237
+msgid "Wall Coeff."
+msgstr ""
+
+#: TablePage.py:240
+msgid "Unit Headloss"
+msgstr ""
+
+#: TablePage.py:241
+msgid "Friction Factor"
+msgstr ""
+
+#: TablePage.py:242
+msgid "Reaction Rate"
+msgstr ""
+
+#: TablePage.py:264
+msgid "All links"
+msgstr ""
+
+#: TablePage.py:267
+msgid "All timesteps"
+msgstr ""
+
+#: TablePage.py:331
+msgid "Saving of tables is not yet supported."
+msgstr ""
+
+#: TablePage.py:490
+#, python-format
+msgid ""
+"Sorry, but a maximum of 65,536 rows can be displayed in the table page.  "
+"With the current table configuration, it should contain %(numrows)d rows.\n"
+"\n"
+"The table has been truncated."
+msgstr ""
+
+#: ExportPage.py:51
 msgid ""
 "Some of the values stored in an output file can be exported in a tabular "
 "form to Comma Separated Values (CSV) files.\n"
@@ -48,71 +665,43 @@ msgid ""
 "directory can be specified below."
 msgstr ""
 
-#: EPANETFileUtility.py:224
+#: ExportPage.py:72
+msgid "Naming"
+msgstr ""
+
+#: ExportPage.py:74
 msgid "Base name"
 msgstr ""
 
-#: EPANETFileUtility.py:237
+#: ExportPage.py:79
+msgid "Directory..."
+msgstr ""
+
+#: ExportPage.py:87
 msgid "Nodes analysed"
 msgstr ""
 
-#: EPANETFileUtility.py:240
+#: ExportPage.py:90
 msgid "Links analysed"
 msgstr ""
 
-#: EPANETFileUtility.py:247
+#: ExportPage.py:97
 msgid "Pump energy usage"
 msgstr ""
 
-#: EPANETFileUtility.py:254
+#: ExportPage.py:104
 msgid "Node dynamic results"
 msgstr ""
 
-#: EPANETFileUtility.py:257
+#: ExportPage.py:107
 msgid "Link dynamic results"
 msgstr ""
 
-#: EPANETFileUtility.py:268
-msgid "EPANET File Utility."
-msgstr ""
-
-#: EPANETFileUtility.py:287
-msgid "&Open..."
-msgstr ""
-
-#: EPANETFileUtility.py:287
-msgid " Open an EPANET output file"
-msgstr ""
-
-#: EPANETFileUtility.py:289
-msgid "&About"
-msgstr ""
-
-#: EPANETFileUtility.py:289
-msgid " Information about this program"
-msgstr ""
-
-#: EPANETFileUtility.py:293
-msgid "E&xit"
-msgstr ""
-
-#: EPANETFileUtility.py:293
-msgid " Terminate the program"
-msgstr ""
-
-#: EPANETFileUtility.py:298
-msgid "&File"
-msgstr ""
-
-#: EPANETFileUtility.py:319
+#: ExportPage.py:127
 msgid "Choose an export directory"
 msgstr ""
 
-#: EPANETFileUtility.py:328 EPANETFileUtility.py:910
-msgid "Error"
-msgstr ""
-
-#: EPANETFileUtility.py:370
+#: ExportPage.py:180
 #, python-format
 msgid ""
 "The following file already exists:\n"
@@ -129,446 +718,6 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: EPANETFileUtility.py:377
+#: ExportPage.py:187
 msgid "Overwrite?"
-msgstr ""
-
-#: EPANETFileUtility.py:423 EPANETFileUtility.py:490
-msgid "Timestep"
-msgstr ""
-
-#: EPANETFileUtility.py:424
-msgid "Node index"
-msgstr ""
-
-#: EPANETFileUtility.py:426
-msgid "Demand"
-msgstr ""
-
-#: EPANETFileUtility.py:427
-msgid "Head"
-msgstr ""
-
-#: EPANETFileUtility.py:428
-msgid "Pressure"
-msgstr ""
-
-#: EPANETFileUtility.py:429
-msgid "Water Quality"
-msgstr ""
-
-#: EPANETFileUtility.py:431 EPANETFileUtility.py:760
-#, python-format
-msgid "Nodes (%d)"
-msgstr ""
-
-#: EPANETFileUtility.py:435 EPANETFileUtility.py:506
-#, python-format
-msgid "Timestep %d"
-msgstr ""
-
-#: EPANETFileUtility.py:491
-msgid "Link index"
-msgstr ""
-
-#: EPANETFileUtility.py:493
-msgid "Flow"
-msgstr ""
-
-#: EPANETFileUtility.py:494
-msgid "Velocity"
-msgstr ""
-
-#: EPANETFileUtility.py:495
-msgid "Head loss"
-msgstr ""
-
-#: EPANETFileUtility.py:496
-msgid "Ave Water Quality"
-msgstr ""
-
-#: EPANETFileUtility.py:497
-msgid "Status"
-msgstr ""
-
-#: EPANETFileUtility.py:498
-msgid "React. rate"
-msgstr ""
-
-#: EPANETFileUtility.py:499
-msgid "Frict. factor"
-msgstr ""
-
-#: EPANETFileUtility.py:501 EPANETFileUtility.py:789
-#, python-format
-msgid "Links (%d)"
-msgstr ""
-
-#: EPANETFileUtility.py:590
-#, python-format
-msgid "Unexpected property grid page number %d"
-msgstr ""
-
-#: EPANETFileUtility.py:606
-msgid "Choose a file"
-msgstr ""
-
-#: EPANETFileUtility.py:625
-msgid "Displaying data"
-msgstr ""
-
-#: EPANETFileUtility.py:711
-msgid "Prolog"
-msgstr ""
-
-#: EPANETFileUtility.py:712
-msgid "1 - General"
-msgstr ""
-
-#: EPANETFileUtility.py:713 EPANETFileUtility.py:874
-msgid "Magic number"
-msgstr ""
-
-#: EPANETFileUtility.py:714
-msgid "EPANET version"
-msgstr ""
-
-#: EPANETFileUtility.py:715
-msgid "2 - Network Statistics"
-msgstr ""
-
-#: EPANETFileUtility.py:716
-msgid "Number of Nodes (Junctions+Reservoirs+Tanks)"
-msgstr ""
-
-#: EPANETFileUtility.py:717
-msgid "Number of Reservoirs + Tanks"
-msgstr ""
-
-#: EPANETFileUtility.py:718
-msgid "(Number of Junctions (type 0))"
-msgstr ""
-
-#: EPANETFileUtility.py:719
-msgid "(Number of Reservoirs (type 1))"
-msgstr ""
-
-#: EPANETFileUtility.py:720
-msgid "(Number of Tanks (type 2))"
-msgstr ""
-
-#: EPANETFileUtility.py:721
-msgid "Number of Links"
-msgstr ""
-
-#: EPANETFileUtility.py:722
-msgid "(Number of Pipes (type 3))"
-msgstr ""
-
-#: EPANETFileUtility.py:723
-msgid "Number of Pumps  (type 4)"
-msgstr ""
-
-#: EPANETFileUtility.py:724
-msgid "Number of Valves (type 5)"
-msgstr ""
-
-#: EPANETFileUtility.py:725
-msgid "3 - Configuration"
-msgstr ""
-
-#: EPANETFileUtility.py:726
-msgid "Water quality option"
-msgstr ""
-
-#: EPANETFileUtility.py:727
-msgid "Water quality option meaning"
-msgstr ""
-
-#: EPANETFileUtility.py:728
-msgid "Source node index"
-msgstr ""
-
-#: EPANETFileUtility.py:729
-msgid "Flow units"
-msgstr ""
-
-#: EPANETFileUtility.py:730
-msgid "Flow units meaning"
-msgstr ""
-
-#: EPANETFileUtility.py:731
-msgid "Presssure units"
-msgstr ""
-
-#: EPANETFileUtility.py:732
-msgid "Presssure units meaning"
-msgstr ""
-
-#: EPANETFileUtility.py:733
-msgid "Time statistics"
-msgstr ""
-
-#: EPANETFileUtility.py:734
-msgid "Time statistics meaning"
-msgstr ""
-
-#: EPANETFileUtility.py:735
-msgid "Start time"
-msgstr ""
-
-#: EPANETFileUtility.py:736
-msgid "Report time step"
-msgstr ""
-
-#: EPANETFileUtility.py:737
-msgid "Simulation duration"
-msgstr ""
-
-#: EPANETFileUtility.py:738
-msgid "Problem Title (line 1)"
-msgstr ""
-
-#: EPANETFileUtility.py:739
-msgid "Problem Title (line 2)"
-msgstr ""
-
-#: EPANETFileUtility.py:740
-msgid "Problem Title (line 3)"
-msgstr ""
-
-#: EPANETFileUtility.py:741
-msgid "Name of input file"
-msgstr ""
-
-#: EPANETFileUtility.py:742
-msgid "Name of report file"
-msgstr ""
-
-#: EPANETFileUtility.py:743
-msgid "Chemical name"
-msgstr ""
-
-#: EPANETFileUtility.py:744
-msgid "Chemical concentration units"
-msgstr ""
-
-#: EPANETFileUtility.py:753
-msgid "Displaying prolog node data"
-msgstr ""
-
-#: EPANETFileUtility.py:755 EPANETFileUtility.py:782 EPANETFileUtility.py:807
-msgid "Index"
-msgstr ""
-
-#: EPANETFileUtility.py:756
-msgid "Node Type"
-msgstr ""
-
-#: EPANETFileUtility.py:757 EPANETFileUtility.py:784 EPANETFileUtility.py:808
-msgid "ID"
-msgstr ""
-
-#: EPANETFileUtility.py:758
-msgid "Elevation"
-msgstr ""
-
-#: EPANETFileUtility.py:759
-msgid "Tank X-sect Area"
-msgstr ""
-
-#: EPANETFileUtility.py:764
-msgid "Junction"
-msgstr ""
-
-#: EPANETFileUtility.py:768
-msgid "Reservoir"
-msgstr ""
-
-#: EPANETFileUtility.py:772
-msgid "Tank"
-msgstr ""
-
-#: EPANETFileUtility.py:779
-msgid "Displaying prolog link data"
-msgstr ""
-
-#: EPANETFileUtility.py:783
-msgid "Link Type"
-msgstr ""
-
-#: EPANETFileUtility.py:785
-msgid "Start node"
-msgstr ""
-
-#: EPANETFileUtility.py:786
-msgid "End node"
-msgstr ""
-
-#: EPANETFileUtility.py:787
-msgid "Length"
-msgstr ""
-
-#: EPANETFileUtility.py:788
-msgid "Diameter"
-msgstr ""
-
-#: EPANETFileUtility.py:806
-msgid "Energy Usage"
-msgstr ""
-
-#: EPANETFileUtility.py:809
-msgid "Link Index"
-msgstr ""
-
-#: EPANETFileUtility.py:810
-msgid "Utilization"
-msgstr ""
-
-#: EPANETFileUtility.py:811
-#, python-format
-msgid "Pumps (%d)"
-msgstr ""
-
-#: EPANETFileUtility.py:825
-msgid "Summary"
-msgstr ""
-
-#: EPANETFileUtility.py:826
-msgid "Pump Peak Energy Usage"
-msgstr ""
-
-#: EPANETFileUtility.py:829
-msgid "Displaying dynamic results data"
-msgstr ""
-
-#: EPANETFileUtility.py:831
-msgid "Dynamic Results"
-msgstr ""
-
-#: EPANETFileUtility.py:832
-msgid "1 - Analysis"
-msgstr ""
-
-#: EPANETFileUtility.py:834
-msgid "Number of time periods"
-msgstr ""
-
-#: EPANETFileUtility.py:835
-msgid "Number of nodes"
-msgstr ""
-
-#: EPANETFileUtility.py:836
-msgid "Number of links"
-msgstr ""
-
-#: EPANETFileUtility.py:844
-msgid "2 - Nodes"
-msgstr ""
-
-#: EPANETFileUtility.py:845
-msgid "Minimum demand"
-msgstr ""
-
-#: EPANETFileUtility.py:846
-msgid "Maximum demand"
-msgstr ""
-
-#: EPANETFileUtility.py:847
-msgid "Minimum head"
-msgstr ""
-
-#: EPANETFileUtility.py:848
-msgid "Maximum head"
-msgstr ""
-
-#: EPANETFileUtility.py:849
-msgid "Minimum pressure"
-msgstr ""
-
-#: EPANETFileUtility.py:850
-msgid "Maximum pressure"
-msgstr ""
-
-#: EPANETFileUtility.py:851
-msgid "Minimum water quality"
-msgstr ""
-
-#: EPANETFileUtility.py:852
-msgid "Maximum water quality"
-msgstr ""
-
-#: EPANETFileUtility.py:854
-msgid "3 - Links"
-msgstr ""
-
-#: EPANETFileUtility.py:855
-msgid "Minimum velocity"
-msgstr ""
-
-#: EPANETFileUtility.py:856
-msgid "Maximum velocity"
-msgstr ""
-
-#: EPANETFileUtility.py:864
-msgid "Displaying epilog data"
-msgstr ""
-
-#: EPANETFileUtility.py:867
-msgid "Average Bulk Reaction Rate"
-msgstr ""
-
-#: EPANETFileUtility.py:868
-msgid "Average Wall Reaction Rate"
-msgstr ""
-
-#: EPANETFileUtility.py:869
-msgid "Average Tank Reaction Rate"
-msgstr ""
-
-#: EPANETFileUtility.py:870
-msgid "Average Source Inflow Rate"
-msgstr ""
-
-#: EPANETFileUtility.py:871
-msgid "Number of reporting periods"
-msgstr ""
-
-#: EPANETFileUtility.py:872
-msgid "Analysis generated errors?"
-msgstr ""
-
-#: EPANETFileUtility.py:892
-msgid "Done"
-msgstr ""
-
-#: EPANETFileUtility.py:921
-msgid "EPANET File Utility by Mark Morgan, WaterSums."
-msgstr ""
-
-#: EPANETFileUtility.py:921
-msgid "About EPANET File Utility"
-msgstr ""
-
-#: EPANETFileUtility.py:943
-msgid "Loading output file..."
-msgstr ""
-
-#: EPANETFileUtility.py:944
-msgid "Reading output file..."
-msgstr ""
-
-#: EPANETFileUtility.py:1005
-#, python-format
-msgid ""
-"\n"
-"Installed wxPython version: %s\n"
-"You need a unicode build of wxPython to run this application.\n"
-msgstr ""
-
-#: EPANETFileUtility.py:1007
-#, python-format
-msgid ""
-"\n"
-"%(EFUver)s, Installed wxPython version: %(wxver)s\n"
 msgstr ""
